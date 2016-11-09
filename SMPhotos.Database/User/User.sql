@@ -1,4 +1,12 @@
-﻿CREATE TABLE [dbo].[User]
+﻿CREATE TABLE [smp].[User]
 (
-	[Id] INT NOT NULL PRIMARY KEY
+	[Id] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[Email] NVARCHAR(128) NOT NULL,
+	[Password] NVARCHAR(128) NOT NULL,
+	[FirstName] NVARCHAR(64) NULL,
+	[LastName] NVARCHAR(64) NULL,
+	[Location] NVARCHAR(64) NULL,
+	[IsAdmin] BIT DEFAULT 0,
+	[IsActive] BIT DEFAULT 0,
+	[IsUploader] BIT DEFAULT 0,
 )

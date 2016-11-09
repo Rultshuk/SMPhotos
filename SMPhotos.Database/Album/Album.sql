@@ -1,0 +1,6 @@
+﻿CREATE TABLE [smp].[Album]
+(
+	[Id] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[Name] NVARCHAR(128) NOT NULL,
+	[Description] NVARCHAR(64)
+)

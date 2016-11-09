@@ -58,13 +58,15 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="User" />
-    <Folder Include="Albums" />
-    <Folder Include="Images" />
+    <Folder Include="Album" />
+    <Folder Include="Image" />
+    <Folder Include="Schema" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="User\User.sql" />
-    <Build Include="Albums\Albums.sql" />
-    <Build Include="Images\Images.sql" />
+    <Build Include="Album\Album.sql" />
+    <Build Include="Image\Image.sql" />
+    <Build Include="Schema\Schema.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="PostDeployment.sql" />

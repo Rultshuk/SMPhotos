@@ -1,6 +1,7 @@
 ﻿CREATE TABLE [smp].[Album]
 (
-	[Id] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[Id] INT NOT NULL IDENTITY(1,1),
 	[Name] NVARCHAR(128) NOT NULL,
-	[Description] NVARCHAR(64)
+	[Description] NVARCHAR(64),
+	CONSTRAINT [PK_AlbumId] PRIMARY KEY ([Id])
 )

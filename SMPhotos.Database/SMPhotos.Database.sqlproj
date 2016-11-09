@@ -61,6 +61,7 @@
     <Folder Include="Album" />
     <Folder Include="Image" />
     <Folder Include="Schema" />
+    <Folder Include="TestData" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="User\User.sql" />
@@ -73,5 +74,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="SMPhotos.Database.publish.xml" />
+    <None Include="TestData\TestData.sql" />
   </ItemGroup>
 </Project>

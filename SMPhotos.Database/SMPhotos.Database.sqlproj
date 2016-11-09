@@ -58,9 +58,11 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="User" />
+    <Folder Include="Albums" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="User\User.sql" />
+    <Build Include="Albums\Albums.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="PostDeployment.sql" />

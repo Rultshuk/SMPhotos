@@ -59,10 +59,12 @@
     <Folder Include="Properties" />
     <Folder Include="User" />
     <Folder Include="Albums" />
+    <Folder Include="Images" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="User\User.sql" />
     <Build Include="Albums\Albums.sql" />
+    <Build Include="Images\Images.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="PostDeployment.sql" />

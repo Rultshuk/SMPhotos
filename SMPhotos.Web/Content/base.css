@@ -1,0 +1,30 @@
+﻿.form-signin {
+  padding-top:10% !important;
+  max-width: 400px;
+  padding: 10 %;
+  margin: 0 auto;
+  height: 80vh;
+}
+body{
+
+}
+a:hover{
+	text-decoration:none ;
+	color:black !important;
+}
+.joinus{
+	 padding-top:10% !important;
+}
+small{
+	color:white !important;
+}
+a{
+	color:cornflowerblue !important;
+}
+input, select, textarea {
+     max-width: 400px !important; 
+}
+footer {
+    margin: 50px 0;
+	text-align: center;
+}

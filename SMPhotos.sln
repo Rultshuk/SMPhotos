@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Web", "2.Web", "{B28B14F4
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SMPhotos.Database", "SMPhotos.Database\SMPhotos.Database.sqlproj", "{FD7351B1-2920-4182-861B-D5E839165E6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMPhotos.Web", "SMPhotos.Web\SMPhotos.Web.csproj", "{54AC98B4-655E-4FB2-B52C-7B4F8125FAE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,11 +25,16 @@ Global
 		{FD7351B1-2920-4182-861B-D5E839165E6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD7351B1-2920-4182-861B-D5E839165E6B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FD7351B1-2920-4182-861B-D5E839165E6B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{54AC98B4-655E-4FB2-B52C-7B4F8125FAE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54AC98B4-655E-4FB2-B52C-7B4F8125FAE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54AC98B4-655E-4FB2-B52C-7B4F8125FAE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54AC98B4-655E-4FB2-B52C-7B4F8125FAE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FD7351B1-2920-4182-861B-D5E839165E6B} = {EFF32D75-FFA4-41BB-8A03-7D99622D3C29}
+		{54AC98B4-655E-4FB2-B52C-7B4F8125FAE1} = {B28B14F4-8E8A-4437-BD7D-5484F200A4C8}
 	EndGlobalSection
 EndGlobal

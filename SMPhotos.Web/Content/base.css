@@ -18,8 +18,8 @@ a:hover{
 small{
 	color:white !important;
 }
-a{
-	color:cornflowerblue !important;
+ .joinus a{
+	color:red !important;
 }
 input, select, textarea {
      max-width: 400px !important; 

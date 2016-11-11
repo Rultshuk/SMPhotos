@@ -17,5 +17,9 @@ namespace SMPhotos.Web.Controllers
 		{
 			return View();
 		}
+		public ActionResult Join()
+		{
+			return View();
+		}
 	}
 }

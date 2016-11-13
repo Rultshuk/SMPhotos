@@ -4,21 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/base.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+@Styles.Render("~/Content/base/css")
+
 </head>
 <body>
+@Html.Partial("_Navigation")
 <div class="container">
-
-    @RenderBody()
-    
-        <footer>
-            <p>SMStudents &copy; @DateTime.Now.Year</p>
-        </footer>
+@RenderBody()
+     <footer>
+       <p>SMStudents &copy; @DateTime.Now.Year</p>
+     </footer>
 </div>
-
-    <script src="~/Scripts/jquery-2.1.3.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+@Scripts.Render("~/Scripts/base/js")
+@Scripts.Render("~/Scripts/upload/js")
 </body>
 </html>

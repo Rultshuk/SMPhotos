@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Upload";
+}
+@Html.Partial("_Navigation")
+<link href="~/Content/upload.css" media="all" rel="stylesheet" type="text/css" />
+<div class="container kv-main">
+    <h4>Select the file you want upload</h4>
+    <form enctype="multipart/form-data" href="#">
+        <label>SMPhotos</label>
+        <input id="file-fr" name="file-fr[]" type="file" multiple>
+    </form>
+    <hr>
+    <br>
+</div>
+

@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "Admin";
+}
+@Styles.Render("~/Content/admin/css")
+<div class="confirm">
+ <form>
+     <h3>New users: </h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th class="checktool col-md-1">Active</th>
+            <th class="checktool col-md-1">Admin</th>
+            <th class="checktool col-md-1">Uoloader</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+            <td><input type="checkbox" id="isActive" /></td>
+            <td><input type="checkbox" id="isAdmin" /></td>
+            <td><input type="checkbox" id="isUoloader" /></td>
+        </tr>
+        <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+            <td><input type="checkbox" id="isActive" /></td>
+            <td><input type="checkbox" id="isAdmin" /></td>
+            <td><input type="checkbox" id="isUoloader" /></td>
+        </tr>
+        <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+            <td><input type="checkbox" id="isActive" /></td>
+            <td><input type="checkbox" id="isAdmin" /></td>
+            <td><input type="checkbox" id="isUoloader" /></td>
+        </tr>
+    </tbody>
+</table>
+     <button type="button" class="btn btn-primary">Apply changes</button>
+     <br>
+     <br>
+     <br>
+     <h3>Users: </h3>
+     <table class="table">
+         <thead>
+             <tr>
+                 <th>Firstname</th>
+                 <th>Lastname</th>
+                 <th>Email</th>
+                 <th class="checktool col-md-1">Active</th>
+                 <th class="checktool col-md-1">Admin</th>
+                 <th class="checktool col-md-1">Uoloader</th>
+             </tr>
+         </thead>
+         <tbody>
+             <tr>
+                 <td>John</td>
+                 <td>Doe</td>
+                 <td>john@example.com</td>
+                 <td><input type="checkbox" id="isActive" checked /></td>
+                 <td><input type="checkbox" id="isAdmin" /></td>
+                 <td><input type="checkbox" id="isUoloader" checked/></td>
+             </tr>
+             <tr>
+                 <td>Mary</td>
+                 <td>Moe</td>
+                 <td>mary@example.com</td>
+                 <td><input type="checkbox" id="isActive" checked /></td>
+                 <td><input type="checkbox" id="isAdmin" /></td>
+                 <td><input type="checkbox" id="isUoloader" /></td>
+             </tr>
+             <tr>
+                 <td>July</td>
+                 <td>Dooley</td>
+                 <td>july@example.com</td>
+                 <td><input type="checkbox" id="isActive" checked /></td>
+                 <td><input type="checkbox" id="isAdmin" /></td>
+                 <td><input type="checkbox" id="isUoloader" /></td>
+             </tr>
+             <tr>
+                 <td>July</td>
+                 <td>Dooley</td>
+                 <td>july@example.com</td>
+                 <td><input type="checkbox" id="isActive" checked/></td>
+                 <td><input type="checkbox" id="isAdmin" checked /></td>
+                 <td><input type="checkbox" id="isUoloader" /></td>
+             </tr>
+             <tr>
+                 <td>July</td>
+                 <td>Dooley</td>
+                 <td>july@example.com</td>
+                 <td><input type="checkbox" id="isActive"checked /></td>
+                 <td><input type="checkbox" id="isAdmin" /></td>
+                 <td><input type="checkbox" id="isUoloader"checked /></td>
+             </tr>
+         </tbody>
+     </table>
+     <button type="button" class="btn btn-primary">Apply changes</button>
+     </form>
+</div>
+

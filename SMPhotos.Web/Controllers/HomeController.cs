@@ -21,9 +21,17 @@ namespace SMPhotos.Web.Controllers
 		{
 			return View();
 		}
+		public ActionResult Upload()
+		{
+			return View();
+		}
+		public ActionResult Admin()
+		{
+			return View();
+		}
 		public ActionResult Partial()
 		{
-			ViewBag.Message = "Это частичное представление.";
+			//ViewBag.Message = "Это частичное представление.";
 			return PartialView();
 		}
 	}

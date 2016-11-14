@@ -32,8 +32,8 @@ namespace SMPhotos.Web.Controllers
 		public ActionResult Admin()
 		{
 			TestData();
-			IEnumerable<User> users = db.Users;
-			ViewBag.Users = users;
+			IEnumerable<User> users = db.User;
+			ViewBag.User = users;
 			//ViewBag.Users = db.Users.ToList();
 			//return View(db.Users.ToList());
 			//return View(list);

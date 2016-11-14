@@ -13,7 +13,7 @@
                         <th>Email</th>
                         <th class="checktool col-md-1">Active</th>
                         <th class="checktool col-md-1">Admin</th>
-                        <th class="checktool col-md-1">Uoloader</th>
+                        <th class="checktool col-md-1">Uploader</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,7 +47,7 @@
             <br>
             <br>
             <br>
-
+            <h3>Users: </h3>
             <table class="table">
                 <thead>
                     <tr>
@@ -56,11 +56,11 @@
                         <th>Email</th>
                         <th class="checktool col-md-1">Active</th>
                         <th class="checktool col-md-1">Admin</th>
-                        <th class="checktool col-md-1">Uoloader</th>
+                        <th class="checktool col-md-1">Uploader</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var b in ViewBag.Users)
+                    @foreach (var b in ViewBag.User)
                     {
                         <tr>
                             <td>@b.FirstName</td>

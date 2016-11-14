@@ -66,9 +66,9 @@
                             <td>@user.FirstName</td>
                             <td>@user.LastName</td>
                             <td>@user.Email</td>
-                            <td><input type="checkbox" @if(user.IsActive==true) {<text>checked</text>} id="isActive" /></td>
-                            <td><input type="checkbox" @if(user.IsAdmin==true) {<text>checked</text>} id="isAdmin" /></td>
-                            <td><input type="checkbox" @if(user.IsUploader==true) {<text>checked</text>}id="isUploader" /></td>
+                            <td><input type="checkbox" @if(user.IsActive) {<text>checked</text>} id="isActive" /></td>
+                            <td><input type="checkbox" @if(user.IsAdmin) {<text>checked</text>} id="isAdmin" /></td>
+                            <td><input type="checkbox" @if(user.IsUploader) {<text>checked</text>} id="isUploader" /></td>
                         </tr>}
                 </tbody>
             </table>

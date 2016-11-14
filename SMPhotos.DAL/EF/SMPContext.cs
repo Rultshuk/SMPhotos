@@ -9,8 +9,8 @@ namespace SMPhotos.DAL
 		{
 		}
 
-		public virtual DbSet<Album> Albums { get; set; }
-		public virtual DbSet<Image> Images { get; set; }
+		public virtual DbSet<Album> Album { get; set; }
+		public virtual DbSet<Image> Image { get; set; }
 		public virtual DbSet<User> User { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)

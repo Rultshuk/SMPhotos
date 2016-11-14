@@ -2,8 +2,6 @@
 @{
     ViewBag.Title = "Main";
 }
-
-@Styles.Render("~/Content/main/css")
     <!-- Navigation -->
 
 <!-- Page Content -->
@@ -147,3 +145,8 @@
     <hr>
 
 </div>
+
+@section Styles
+{
+    @Styles.Render("~/Content/main/css")
+}

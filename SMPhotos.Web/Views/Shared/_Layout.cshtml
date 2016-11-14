@@ -4,18 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-@Styles.Render("~/Content/base/css")
-
+    @Styles.Render("~/Content/base/css")
+    @RenderSection("Styles", false)
 </head>
 <body>
-@Html.Partial("_Navigation")
-<div class="container">
-@RenderBody()
-     <footer>
-       <p>SMStudents &copy; @DateTime.Now.Year</p>
-     </footer>
-</div>
-@Scripts.Render("~/Scripts/base/js")
-@Scripts.Render("~/Scripts/upload/js")
+    @Html.Partial("_Navigation")
+    <div class="container">
+        @RenderBody()
+        <footer>
+            <p>SMStudents &copy; @DateTime.Now.Year</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/Scripts/base/js")
+    @RenderSection("Script", false)
 </body>
 </html>

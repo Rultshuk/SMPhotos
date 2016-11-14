@@ -23,7 +23,7 @@
                         <td>john@example.com</td>
                         <td><input type="checkbox" id="isActive" /></td>
                         <td><input type="checkbox" id="isAdmin" /></td>
-                        <td><input type="checkbox" id="isUoloader" /></td>
+                        <td><input type="checkbox" id="isUploader" /></td>
                     </tr>
                     <tr>
                         <td>Mary</td>
@@ -31,7 +31,7 @@
                         <td>mary@example.com</td>
                         <td><input type="checkbox" id="isActive" /></td>
                         <td><input type="checkbox" id="isAdmin" /></td>
-                        <td><input type="checkbox" id="isUoloader" /></td>
+                        <td><input type="checkbox" id="isUploader" /></td>
                     </tr>
                     <tr>
                         <td>July</td>
@@ -39,7 +39,7 @@
                         <td>july@example.com</td>
                         <td><input type="checkbox" id="isActive" /></td>
                         <td><input type="checkbox" id="isAdmin" /></td>
-                        <td><input type="checkbox" id="isUoloader" /></td>
+                        <td><input type="checkbox" id="isUploader" /></td>
                     </tr>
                 </tbody>
             </table>
@@ -60,15 +60,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var b in ViewBag.User)
+                    @foreach (var user in ViewBag.User)
                     {
                         <tr>
-                            <td>@b.FirstName</td>
-                            <td>@b.LastName</td>
-                            <td>@b.Email</td>
-                            <td><input type="checkbox" id="isActive" /></td>
-                            <td><input type="checkbox" id="isAdmin" /></td>
-                            <td><input type="checkbox" id="isUoloader" /></td>
+                            <td>@user.FirstName</td>
+                            <td>@user.LastName</td>
+                            <td>@user.Email</td>
+                            <td><input type="checkbox" @if(user.IsActive==true) {<text>checked</text>} id="isActive" /></td>
+                            <td><input type="checkbox" @if(user.IsAdmin==true) {<text>checked</text>} id="isAdmin" /></td>
+                            <td><input type="checkbox" @if(user.IsUploader==true) {<text>checked</text>}id="isUploader" /></td>
                         </tr>}
                 </tbody>
             </table>

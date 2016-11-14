@@ -51,11 +51,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EF\Album.cs" />
-    <Compile Include="EF\Image.cs" />
+    <Compile Include="EF\AlbumMap.cs" />
+    <Compile Include="EF\ImageMap.cs" />
+    <Compile Include="EF\UserMap.cs" />
+    <Compile Include="Models\Album.cs" />
+    <Compile Include="Models\Image.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EF\SMPContext.cs" />
-    <Compile Include="EF\User.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

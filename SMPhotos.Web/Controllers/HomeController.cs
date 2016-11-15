@@ -36,8 +36,9 @@ namespace SMPhotos.Web.Controllers
 		public ActionResult Admin()
 		{
 			TestData();
-			ICollection<User> users = db.Users.ToList();
-			ICollection<UserVM> usersVM = Mapper.Map<ICollection<User>, ICollection<UserVM>>(users);
+			UnitOfWork usergroup = new UnitOfWork(new SMPContext());
+			ICollection<User> uslist=(ICollection<User>)usergroup.Users.GetAll();	
+			ICollection<UserVM> usersVM = Mapper.Map<ICollection<User>, ICollection<UserVM>>(uslist);
 			return View(usersVM);
 		}
 
@@ -46,7 +47,7 @@ namespace SMPhotos.Web.Controllers
 		{
 			foreach(var userVM in usersVM)
 			{
-				var user = db.Users.Find(userVM.Id);
+				var user = db.User.Find(userVM.Id);
 				user.IsActive = userVM.IsActive;
 				user.IsAdmin = userVM.IsAdmin;
 				user.IsUploader = userVM.IsUploader;
@@ -54,7 +55,7 @@ namespace SMPhotos.Web.Controllers
 			}
 			db.SaveChanges();
 
-			ICollection<User> users = db.Users.ToList();
+			ICollection<User> users = db.User.ToList();
 			ICollection<UserVM> newUsersVM = Mapper.Map<ICollection<User>, ICollection<UserVM>>(users);
 
 			return RedirectToAction("Admin", newUsersVM);

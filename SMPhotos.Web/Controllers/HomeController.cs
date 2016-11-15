@@ -1,9 +1,12 @@
 ﻿using SMPhotos.DAL;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
+using SMPhotos.Web.ViewModel;
 
 namespace SMPhotos.Web.Controllers
 {
@@ -29,15 +32,35 @@ namespace SMPhotos.Web.Controllers
 		{
 			return View();
 		}
+		[HttpGet]
 		public ActionResult Admin()
 		{
 			TestData();
-			IEnumerable<User> users = db.User;
-			ViewBag.User = users;
+			ICollection<User> users = db.User.ToList();
+			//ViewBag.User = users;
 			//ViewBag.Users = db.Users.ToList();
 			//return View(db.Users.ToList());
 			//return View(list);
-			return View();
+			//db.SaveChanges();
+
+			ICollection<UserVM> usersVM = Mapper.Map<ICollection<User>, ICollection<UserVM>>(users);
+
+			return View(usersVM);
+		}
+
+		[HttpPost]
+		public ActionResult Admin(ICollection<UserVM> users)
+		{
+			foreach(var user in users)
+			{
+				var us = db.User.Find(user.Id);
+				us.IsActive = user.IsActive;
+				us.IsAdmin = user.IsAdmin;
+				us.IsUploader = user.IsUploader;
+				db.Entry(us).State = EntityState.Modified;
+			}
+			db.SaveChanges();
+			return RedirectToAction("Admin", db.User.ToList());
 		}
 		public void TestData()
 		{

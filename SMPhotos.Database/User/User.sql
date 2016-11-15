@@ -6,8 +6,9 @@
 	[FirstName] NVARCHAR(64) NULL,
 	[LastName] NVARCHAR(64) NULL,
 	[Location] NVARCHAR(64) NULL,
-	[IsAdmin] BIT DEFAULT 0,
-	[IsActive] BIT DEFAULT 0,
-	[IsUploader] BIT DEFAULT 0,
+	[IsAdmin] BIT DEFAULT 0 NOT NULL,
+	[IsActive] BIT DEFAULT 0 NOT NULL,
+	[IsUploader] BIT DEFAULT 0 NOT NULL,
+	[ActivationDate] DATETIME DEFAULT NULL,
 	CONSTRAINT [PK_UserId] PRIMARY KEY ([Id])
 )

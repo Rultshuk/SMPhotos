@@ -36,31 +36,28 @@ namespace SMPhotos.Web.Controllers
 		public ActionResult Admin()
 		{
 			TestData();
-			ICollection<User> users = db.User.ToList();
-			//ViewBag.User = users;
-			//ViewBag.Users = db.Users.ToList();
-			//return View(db.Users.ToList());
-			//return View(list);
-			//db.SaveChanges();
-
+			ICollection<User> users = db.Users.ToList();
 			ICollection<UserVM> usersVM = Mapper.Map<ICollection<User>, ICollection<UserVM>>(users);
-
 			return View(usersVM);
 		}
 
 		[HttpPost]
-		public ActionResult Admin(ICollection<UserVM> users)
+		public ActionResult Admin(ICollection<UserVM> usersVM)
 		{
-			foreach(var user in users)
+			foreach(var userVM in usersVM)
 			{
-				var us = db.User.Find(user.Id);
-				us.IsActive = user.IsActive;
-				us.IsAdmin = user.IsAdmin;
-				us.IsUploader = user.IsUploader;
-				db.Entry(us).State = EntityState.Modified;
+				var user = db.Users.Find(userVM.Id);
+				user.IsActive = userVM.IsActive;
+				user.IsAdmin = userVM.IsAdmin;
+				user.IsUploader = userVM.IsUploader;
+				db.Entry(user).State = EntityState.Modified;
 			}
 			db.SaveChanges();
-			return RedirectToAction("Admin", db.User.ToList());
+
+			ICollection<User> users = db.Users.ToList();
+			ICollection<UserVM> newUsersVM = Mapper.Map<ICollection<User>, ICollection<UserVM>>(users);
+
+			return RedirectToAction("Admin", newUsersVM);
 		}
 		public void TestData()
 		{

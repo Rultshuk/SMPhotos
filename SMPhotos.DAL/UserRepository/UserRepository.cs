@@ -11,25 +11,25 @@ namespace SMPhotos.DAL
 		public IEnumerable<User> GetActive()
 		{
 			return _dbContext.User
-				.Where(e => e.IsActive.Value)
+				.Where(e => e.IsActive)
 				.AsEnumerable<User>();
 		}
 		public IEnumerable<User> GetAdmin()
 		{
 			return _dbContext.User
-				.Where(e => e.IsAdmin.Value)
+				.Where(e => e.IsAdmin)
 				.AsEnumerable<User>();
 		}
 		public IEnumerable<User> GetNotActive()
 		{
 			return _dbContext.User
-				.Where(e => e.IsActive.Value)
+				.Where(e => e.IsActive)
 				.AsEnumerable<User>();
 		}
 		public IEnumerable<User> GetUploader()
 		{
 			return _dbContext.User
-				.Where(e => e.IsUploader.Value)
+				.Where(e => e.IsUploader)
 				.AsEnumerable<User>();
 		}
 	}

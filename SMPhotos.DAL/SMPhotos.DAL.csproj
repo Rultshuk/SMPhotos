@@ -55,6 +55,7 @@
     <Compile Include="EF\ImageMap.cs" />
     <Compile Include="EF\UserMap.cs" />
     <Compile Include="Models\Album.cs" />
+    <Compile Include="Models\Base.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EF\SMPContext.cs" />

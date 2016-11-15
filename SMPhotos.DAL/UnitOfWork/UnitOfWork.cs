@@ -2,14 +2,14 @@
 {
 	public class UnitOfWork : IUnitOfWork
 	{
-		private readonly SMPContext Context;
+		private readonly SMPContext _dbContext;
 
-		public UnitOfWork(SMPContext context)
+		public UnitOfWork(SMPContext dbcontext)
 		{
-			Context = context;
-			Users = new UserRepository(Context);
-			Images = new Repository<Image>(Context);
-			Albums = new Repository<Album>(Context);
+			_dbContext = dbcontext;
+			Users = new UserRepository(_dbContext);
+			Images = new Repository<Image>(_dbContext);
+			Albums = new Repository<Album>(_dbContext);
 		}
 
 		public IUserRepository Users { get; private set; }
@@ -18,11 +18,12 @@
 
 		public int Save()
 		{
-			return Context.SaveChanges();
+			return _dbContext.SaveChanges();
 		}
+
 		public void Dispose()
 		{
-			Context.Dispose();
+			_dbContext.Dispose();
 		}
 	}
 }

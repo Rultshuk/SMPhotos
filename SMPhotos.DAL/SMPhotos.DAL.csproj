@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DomainValue\DbConnection.cs" />
     <Compile Include="EF\AlbumMap.cs" />
     <Compile Include="EF\ImageMap.cs" />
     <Compile Include="EF\UserMap.cs" />

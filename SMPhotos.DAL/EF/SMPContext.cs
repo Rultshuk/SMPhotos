@@ -1,11 +1,13 @@
 using System.Data.Entity;
+using SMPhotos.DAL;
+
 
 namespace SMPhotos.DAL
 {
 	public class SMPContext : DbContext
 	{
 		public SMPContext()
-			: base("name=SMPContext")
+			: base(string.Format("name={0}", DbConnection.SMPContext))
 		{
 		}
 

@@ -1,4 +1,4 @@
-﻿@model List<SMPhotos.Web.ViewModel.UserVM>
+﻿@model SMPhotos.Web.ViewModel.UsersLists
 @{
     ViewBag.Title = "Admin";
 }
@@ -20,20 +20,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @for (int i = 0; i < Model.Count(); i++)
-                    {
-                        if (!Model[i].IsActive)
-                        { <text>
+
+                  
+
+                    @for (int i = 0; i < Model.NoActiveUsers.Count(); i++)
+                    { 
+           
+
                         <tr>
-                            <td class="hidden">@Html.EditorFor(m => m[i].Id)</td>
-                            <td>@Html.EditorFor(m => m[i].FirstName, new { htmlAttributes = new { @readonly = "readonly", @class = "tdread" } })</td>
-                            <td>@Html.EditorFor(m => m[i].LastName, new { htmlAttributes = new { @readonly = "readonly", @class = "tdread" } })</td>
-                            <td>@Html.EditorFor(m => m[i].Email, new { htmlAttributes = new { @readonly = "readonly", @class = "tdread" } })</td>
-                            <td>@Html.CheckBoxFor(m => m[i].IsActive)</td>
-                            <td>@Html.CheckBoxFor(m => m[i].IsAdmin)</td>
-                            <td>@Html.CheckBoxFor(m => m[i].IsUploader)</td>
+                            <td class="hidden">@Html.EditorFor(m => m.NoActiveUsers[i].Id)</td>
+                            <td>@Html.EditorFor(m => m.NoActiveUsers[i].FirstName, new { htmlAttributes = new { @readonly = "readonly", @class = "tdread" } })</td>
+                            <td>@Html.EditorFor(m => m.NoActiveUsers[i].LastName, new { htmlAttributes = new { @readonly = "readonly", @class = "tdread" } })</td>
+                            <td>@Html.EditorFor(m => m.NoActiveUsers[i].Email, new { htmlAttributes = new { @readonly = "readonly", @class = "tdread" } })</td>
+                            <td>@Html.CheckBoxFor(m => m.NoActiveUsers[i].IsActive)</td>
+                            <td>@Html.CheckBoxFor(m => m.NoActiveUsers[i].IsAdmin)</td>
+                            <td>@Html.CheckBoxFor(m => m.NoActiveUsers[i].IsUploader)</td>
                         </tr>
-                       </text>}
                         }
                 </tbody>
             </table>
@@ -54,16 +56,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @for (int i = 0; i < Model.Count(); i++)
+                    @for (int i = 0; i < Model.AllUsers.Count(); i++)
                     {
                         <tr>
-                            <td class="hidden">@Html.EditorFor(m => m[i].Id)</td>
-                            <td>@Html.EditorFor(m => m[i].FirstName , new { htmlAttributes = new { @readonly = "readonly", @class = "tdread" } })</td>
-                            <td>@Html.EditorFor(m => m[i].LastName, new { htmlAttributes = new {  @readonly = "readonly", @class = "tdread" } })</td>
-                            <td>@Html.EditorFor(m => m[i].Email, new { htmlAttributes = new { @readonly = "readonly", @class = "tdread" } })</td>
-                            <td>@Html.CheckBoxFor(m => m[i].IsActive)</td>
-                            <td>@Html.CheckBoxFor(m => m[i].IsAdmin)</td>
-                            <td>@Html.CheckBoxFor(m => m[i].IsUploader)</td>
+                            <td class="hidden">@Html.EditorFor(m => m.AllUsers[i].Id)</td>
+                            <td>@Html.EditorFor(m => m.AllUsers[i].FirstName, new { htmlAttributes = new { @readonly = "readonly", @class = "tdread" } })</td>
+                            <td>@Html.EditorFor(m => m.AllUsers[i].LastName, new { htmlAttributes = new { @readonly = "readonly", @class = "tdread" } })</td>
+                            <td>@Html.EditorFor(m => m.AllUsers[i].Email, new { htmlAttributes = new { @readonly = "readonly", @class = "tdread" } })</td>
+                            <td>@Html.CheckBoxFor(m => m.AllUsers[i].IsActive)</td>
+                            <td>@Html.CheckBoxFor(m => m.AllUsers[i].IsAdmin)</td>
+                            <td>@Html.CheckBoxFor(m => m.AllUsers[i].IsUploader)</td>
                         </tr>}
                 </tbody>
             </table>

@@ -8,5 +8,7 @@ namespace SMPhotos.DAL
 		IEnumerable<User> GetUploader();
 		IEnumerable<User> GetActive();
 		IEnumerable<User> GetNotActive();
+		IEnumerable<User> GetNotActiveYet();
+		IEnumerable<User> GetWasActivated();
 	}
 }

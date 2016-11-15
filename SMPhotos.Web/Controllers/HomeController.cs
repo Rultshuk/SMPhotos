@@ -32,20 +32,20 @@ namespace SMPhotos.Web.Controllers
 		{
 			return View();
 		}
-		[HttpGet]
+/*		[HttpGet]
 		public ActionResult Admin()
 		{
-			TestData();
 			UnitOfWork usergroup = new UnitOfWork(new SMPContext());
-			ICollection<User> uslist=(ICollection<User>)usergroup.Users.GetAll();	
-			ICollection<UserVM> usersVM = Mapper.Map<ICollection<User>, ICollection<UserVM>>(uslist);
-			return View(usersVM);
+			IList<User> uslist=(IList<User>)usergroup.Users.GetAll();
+			IList<UserVM> usersVM = Mapper.Map<IList<User>, IList<UserVM>>(uslist);
+			return View("Admin",usersVM);
 		}
-
+*/
 		[HttpPost]
-		public ActionResult Admin(ICollection<UserVM> usersVM)
+		public ActionResult Admin(UsersLists usList)
 		{
-			foreach(var userVM in usersVM)
+			var uslist1 = usList.AllUsers;
+			foreach(var userVM in uslist1)
 			{
 				var user = db.User.Find(userVM.Id);
 				user.IsActive = userVM.IsActive;
@@ -60,16 +60,43 @@ namespace SMPhotos.Web.Controllers
 
 			return RedirectToAction("Admin", newUsersVM);
 		}
-		public void TestData()
+
+		[HttpGet]
+		public ActionResult Admin ()
 		{
-			for (int i = 0; i < 10; i++)
+			UsersLists userList = new UsersLists();
+			UnitOfWork usergroup = new UnitOfWork(new SMPContext());
+			IList<User> uslist1 = (IList<User>)usergroup.Users.GetNotActiveYet();
+			IList<User> uslist2 = (IList<User>)usergroup.Users.GetWasActivated();
+			userList.NoActiveUsers = Mapper.Map<IList<User>, IList<UserVM>>(uslist1);
+			userList.AllUsers = Mapper.Map<IList<User>, IList<UserVM>>(uslist2);
+			return View("Admin",userList);
+		}
+		[HttpPost]
+		public ActionResult RegNewUsers(UsersLists usList)
+		{
+			var uslist1 = usList.NoActiveUsers;
+			foreach (var userVM in uslist1)
 			{
-				list.Add(new User() { Id = 1,LastName="SomeLastName", FirstName = "SomeName", IsActive = false, Email="somemail@gmail.com" });
+				var user = db.User.Find(userVM.Id);
+				user.IsActive = userVM.IsActive;
+				user.IsAdmin = userVM.IsAdmin;
+				user.IsUploader = userVM.IsUploader;
+				if (userVM.IsActive)
+				{
+					user.ActivationDate = DateTime.Now;
+				}
+				db.Entry(user).State = EntityState.Modified;
 			}
+			db.SaveChanges();
+
+			ICollection<User> users = db.User.ToList();
+			ICollection<UserVM> newUsersVM = Mapper.Map<ICollection<User>, ICollection<UserVM>>(users);
+
+			return RedirectToAction("Admin", newUsersVM);
 		}
 		public ActionResult Partial()
 		{
-			//ViewBag.Message = "Это частичное представление.";
 			return PartialView();
 		}
 	}

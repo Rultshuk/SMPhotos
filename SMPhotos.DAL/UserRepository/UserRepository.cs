@@ -12,7 +12,6 @@ namespace SMPhotos.DAL
 		{
 			return _dbContext.User
 				.Where(e => e.IsActive)
-				.Where(e => e.IsActive)
 				.AsEnumerable<User>();
 		}
 		public IEnumerable<User> GetAdmin()

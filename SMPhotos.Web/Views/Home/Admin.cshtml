@@ -4,11 +4,13 @@
 }
 
     <div class="confirm">
-        <form >
-            <h3>New users: </h3>
+@using (Html.BeginForm("RegNewUsers", "Home", FormMethod.Post))
+{
+    <h3>New users: </h3>
             <table class="table">
                 <thead>
                     <tr>
+                        <th class="hidden">Id</th>
                         <th>Firstname</th>
                         <th>Lastname</th>
                         <th>Email</th>
@@ -18,38 +20,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>john@example.com</td>
-                        <td><input type="checkbox" id="isActive" /></td>
-                        <td><input type="checkbox" id="isAdmin" /></td>
-                        <td><input type="checkbox" id="isUploader" /></td>
-                    </tr>
-                    <tr>
-                        <td>Mary</td>
-                        <td>Moe</td>
-                        <td>mary@example.com</td>
-                        <td><input type="checkbox" id="isActive" /></td>
-                        <td><input type="checkbox" id="isAdmin" /></td>
-                        <td><input type="checkbox" id="isUploader" /></td>
-                    </tr>
-                    <tr>
-                        <td>July</td>
-                        <td>Dooley</td>
-                        <td>july@example.com</td>
-                        <td><input type="checkbox" id="isActive" /></td>
-                        <td><input type="checkbox" id="isAdmin" /></td>
-                        <td><input type="checkbox" id="isUploader" /></td>
-                    </tr>
+                    @for (int i = 0; i < Model.Count(); i++)
+                    {
+                        if (!Model[i].IsActive)
+                        { <text>
+                        <tr>
+                            <td class="hidden">@Html.EditorFor(m => m[i].Id)</td>
+                            <td>@Html.EditorFor(m => m[i].FirstName, new { htmlAttributes = new { @readonly = "readonly", @class = "tdread" } })</td>
+                            <td>@Html.EditorFor(m => m[i].LastName, new { htmlAttributes = new { @readonly = "readonly", @class = "tdread" } })</td>
+                            <td>@Html.EditorFor(m => m[i].Email, new { htmlAttributes = new { @readonly = "readonly", @class = "tdread" } })</td>
+                            <td>@Html.CheckBoxFor(m => m[i].IsActive)</td>
+                            <td>@Html.CheckBoxFor(m => m[i].IsAdmin)</td>
+                            <td>@Html.CheckBoxFor(m => m[i].IsUploader)</td>
+                        </tr>
+                       </text>}
+                        }
                 </tbody>
             </table>
-            <button type="button" class="btn btn-primary">Apply changes</button>
-            </form>
-            <br>
-            <br>
-            <br>
-        <form method="post" action="">
+            <button type="submit" class="btn btn-primary">Apply changes</button>
+}
+        <form method="post" action="Admin">
             <h3>Users: </h3>
             <table class="table">
                 <thead>

@@ -12,8 +12,8 @@ namespace SMPhotos.Web.Controllers
 {
 	public class HomeController : BaseController
 	{
-		SMPContext db = new DAL.SMPContext();
-	
+		//SMPContext db = new DAL.SMPContext();
+		UnitOfWork usergroup = new UnitOfWork(new SMPContext());
 		// GET: Home
 		List<User> list = new List<User>();
 		public ActionResult Index()
@@ -32,53 +32,43 @@ namespace SMPhotos.Web.Controllers
 		{
 			return View();
 		}
-/*		[HttpGet]
+
+		[HttpGet]
 		public ActionResult Admin()
 		{
-			UnitOfWork usergroup = new UnitOfWork(new SMPContext());
-			IList<User> uslist=(IList<User>)usergroup.Users.GetAll();
-			IList<UserVM> usersVM = Mapper.Map<IList<User>, IList<UserVM>>(uslist);
-			return View("Admin",usersVM);
+			UsersListsVM usersListsVM = new UsersListsVM();
+			IList<User> uslist1 = (IList<User>)usergroup.Users.GetNotActiveYet().OrderBy(t => t.FirstName).ToList();
+			IList<User> uslist2 = (IList<User>)usergroup.Users.GetWasActivated().OrderBy(t => t.FirstName).ToList();
+			usersListsVM.NoActiveUsers = Mapper.Map<IList<User>, IList<UserVM>>(uslist1);
+			usersListsVM.AllUsers = Mapper.Map<IList<User>, IList<UserVM>>(uslist2);
+			return View("Admin", usersListsVM);
 		}
-*/
+
 		[HttpPost]
-		public ActionResult Admin(UsersLists usList)
+		public ActionResult Admin(UsersListsVM usersLists)
 		{
-			var uslist1 = usList.AllUsers;
-			foreach(var userVM in uslist1)
+			foreach (var userVM in usersLists.AllUsers)
 			{
-				var user = db.User.Find(userVM.Id);
+				var user = usergroup.Users.Get(userVM.Id);
 				user.IsActive = userVM.IsActive;
 				user.IsAdmin = userVM.IsAdmin;
 				user.IsUploader = userVM.IsUploader;
-				db.Entry(user).State = EntityState.Modified;
 			}
-			db.SaveChanges();
+			usergroup.Save();
 
-			ICollection<User> users = db.User.ToList();
+			ICollection<User> users = usergroup.Users.GetAll().ToList();
 			ICollection<UserVM> newUsersVM = Mapper.Map<ICollection<User>, ICollection<UserVM>>(users);
 
 			return RedirectToAction("Admin", newUsersVM);
 		}
 
-		[HttpGet]
-		public ActionResult Admin ()
-		{
-			UsersLists userList = new UsersLists();
-			UnitOfWork usergroup = new UnitOfWork(new SMPContext());
-			IList<User> uslist1 = (IList<User>)usergroup.Users.GetNotActiveYet();
-			IList<User> uslist2 = (IList<User>)usergroup.Users.GetWasActivated();
-			userList.NoActiveUsers = Mapper.Map<IList<User>, IList<UserVM>>(uslist1);
-			userList.AllUsers = Mapper.Map<IList<User>, IList<UserVM>>(uslist2);
-			return View("Admin",userList);
-		}
+
 		[HttpPost]
-		public ActionResult RegNewUsers(UsersLists usList)
+		public ActionResult RegNewUsers(UsersListsVM usList)
 		{
-			var uslist1 = usList.NoActiveUsers;
-			foreach (var userVM in uslist1)
+			foreach (var userVM in usList.NoActiveUsers)
 			{
-				var user = db.User.Find(userVM.Id);
+				var user = usergroup.Users.Get(userVM.Id);
 				user.IsActive = userVM.IsActive;
 				user.IsAdmin = userVM.IsAdmin;
 				user.IsUploader = userVM.IsUploader;
@@ -86,18 +76,13 @@ namespace SMPhotos.Web.Controllers
 				{
 					user.ActivationDate = DateTime.Now;
 				}
-				db.Entry(user).State = EntityState.Modified;
 			}
-			db.SaveChanges();
+			usergroup.Save();
 
-			ICollection<User> users = db.User.ToList();
+			ICollection<User> users = usergroup.Users.GetAll().ToList();
 			ICollection<UserVM> newUsersVM = Mapper.Map<ICollection<User>, ICollection<UserVM>>(users);
 
 			return RedirectToAction("Admin", newUsersVM);
-		}
-		public ActionResult Partial()
-		{
-			return PartialView();
 		}
 	}
 }

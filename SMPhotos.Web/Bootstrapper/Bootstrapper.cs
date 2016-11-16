@@ -11,7 +11,8 @@ namespace SMPhotos.Web
 				new WebTypeResolver()
 			);
 
-			Mapper.Initialize(config => {
+			Mapper.Initialize(config =>
+			{
 				config.AddProfile(new MappingProfile());
 			});
 			Mapper.AssertConfigurationIsValid();

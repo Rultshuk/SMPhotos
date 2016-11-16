@@ -24,7 +24,7 @@ namespace SMPhotos.DAL
 		{
 			return _dbContext.User
 				.Where(e => e.IsActive)
-				.ToList();
+				.ToList<User>();
 		}
 		public IEnumerable<User> GetUploader()
 		{

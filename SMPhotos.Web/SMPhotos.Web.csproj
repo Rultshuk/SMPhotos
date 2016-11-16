@@ -293,9 +293,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55091</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://www.smphotos.com</IISUrl>
+          <IISUrl>http://smphotos.com</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://www.smphotos.com</IISAppRootUrl>
+          <IISAppRootUrl>http://smphotos.com</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

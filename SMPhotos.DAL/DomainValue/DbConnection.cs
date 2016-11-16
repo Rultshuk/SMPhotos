@@ -3,6 +3,7 @@
 	public enum DbConnection
 	{
 		SMPContext = 1,
-		SMPContextVladHome=2
+		SMPContextVladHome=2,
+		SMPContextVladOffice=4
 	}
 }

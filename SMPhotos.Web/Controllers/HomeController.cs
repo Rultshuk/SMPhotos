@@ -10,7 +10,7 @@ using SMPhotos.Web.ViewModel;
 
 namespace SMPhotos.Web.Controllers
 {
-	public class HomeController : Controller
+	public class HomeController : BaseController
 	{
 		SMPContext db = new DAL.SMPContext();
 	

@@ -217,6 +217,7 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Bootstrapper\Bootstrapper.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DependencyInjection\DependencyResolverConfig.cs" />
     <Compile Include="DependencyInjection\IWebTypeResolver.cs" />
@@ -231,6 +232,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="UserContext.cs" />
     <Compile Include="ViewModel\RegisterUserVM.cs" />
     <Compile Include="ViewModel\UsersLists.cs" />
     <Compile Include="ViewModel\UserVM.cs" />
@@ -268,6 +270,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Bootstrapper\Content\App_Start\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SMPhotos.DAL\SMPhotos.DAL.csproj">
@@ -290,9 +293,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55091</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://smphotos.com</IISUrl>
+          <IISUrl>http://www.smphotos.com</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://smphotos.com</IISAppRootUrl>
+          <IISAppRootUrl>http://www.smphotos.com</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

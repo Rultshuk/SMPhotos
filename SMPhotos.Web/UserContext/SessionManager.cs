@@ -1,5 +1,5 @@
 ﻿using SMPhotos.Web;
-namespace SMPhotos.Web.UserContext
+namespace SMPhotos.Web
 {
 	public class SessionManager
 	{

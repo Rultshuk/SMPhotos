@@ -1,16 +1,15 @@
-﻿@model SMPhotos.Web.ViewModel.UsersLists
-@{
-    ViewBag.Title = "Admin";
-}
+﻿@model SMPhotos.Web.ViewModel.UsersListsVM
+    @{
+        ViewBag.Title = "Admin";
+    }
 
     <div class="confirm">
-@using (Html.BeginForm("RegNewUsers", "Home", FormMethod.Post))
-{
-    <h3>New users: </h3>
+        @using (Html.BeginForm("RegNewUsers", "Home", FormMethod.Post))
+        {
+            <h3>New users: </h3>
             <table class="table">
                 <thead>
                     <tr>
-                        <th class="hidden">Id</th>
                         <th>Firstname</th>
                         <th>Lastname</th>
                         <th>Email</th>
@@ -20,15 +19,10 @@
                     </tr>
                 </thead>
                 <tbody>
-
-                  
-
                     @for (int i = 0; i < Model.NoActiveUsers.Count(); i++)
-                    { 
-           
-
+                    {
                         <tr>
-                            <td class="hidden">@Html.EditorFor(m => m.NoActiveUsers[i].Id)</td>
+                                @Html.HiddenFor(m => m.NoActiveUsers[i].Id)
                             <td>@Html.EditorFor(m => m.NoActiveUsers[i].FirstName, new { htmlAttributes = new { @readonly = "readonly", @class = "tdread" } })</td>
                             <td>@Html.EditorFor(m => m.NoActiveUsers[i].LastName, new { htmlAttributes = new { @readonly = "readonly", @class = "tdread" } })</td>
                             <td>@Html.EditorFor(m => m.NoActiveUsers[i].Email, new { htmlAttributes = new { @readonly = "readonly", @class = "tdread" } })</td>
@@ -36,17 +30,17 @@
                             <td>@Html.CheckBoxFor(m => m.NoActiveUsers[i].IsAdmin)</td>
                             <td>@Html.CheckBoxFor(m => m.NoActiveUsers[i].IsUploader)</td>
                         </tr>
-                        }
+                    }
                 </tbody>
             </table>
             <button type="submit" class="btn btn-primary">Apply changes</button>
-}
+        }
         <form method="post" action="Admin">
             <h3>Users: </h3>
             <table class="table">
                 <thead>
                     <tr>
-                        <th class="hidden">Id</th>
+                        
                         <th>Firstname</th>
                         <th>Lastname</th>
                         <th>Email</th>
@@ -59,7 +53,7 @@
                     @for (int i = 0; i < Model.AllUsers.Count(); i++)
                     {
                         <tr>
-                            <td class="hidden">@Html.EditorFor(m => m.AllUsers[i].Id)</td>
+                            @Html.HiddenFor(m => m.AllUsers[i].Id)
                             <td>@Html.EditorFor(m => m.AllUsers[i].FirstName, new { htmlAttributes = new { @readonly = "readonly", @class = "tdread" } })</td>
                             <td>@Html.EditorFor(m => m.AllUsers[i].LastName, new { htmlAttributes = new { @readonly = "readonly", @class = "tdread" } })</td>
                             <td>@Html.EditorFor(m => m.AllUsers[i].Email, new { htmlAttributes = new { @readonly = "readonly", @class = "tdread" } })</td>
@@ -73,7 +67,7 @@
         </form>
     </div>
 
-@section Styles
+    @section Styles
 {
-    @Styles.Render("~/Content/admin/css")
-}
+        @Styles.Render("~/Content/admin/css")
+    }

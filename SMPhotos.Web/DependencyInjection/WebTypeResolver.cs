@@ -10,11 +10,9 @@ namespace SMPhotos.Web.DependencyInjection
 	{
 		public void RegisterType(IUnityContainer container)
 		{
-			/*container.RegisterInstance<IMapper>(Mapper.Configuration.CreateMapper());
-
-			container.RegisterType<DbContext, SMPContext>(new InjectionConstructor(string.Format("name={0}", DbConnection.SMPContext)));
+			container.RegisterType<DbContext, SMPContext>(new InjectionConstructor());
 			container.RegisterType<IUnitOfWork, UnitOfWork>();
-			container.RegisterType<IUserRepository, UserRepository>(new HierarchicalLifetimeManager());*/
+			container.RegisterType<IUserRepository, UserRepository>(new HierarchicalLifetimeManager());
 		}
 	}
 }

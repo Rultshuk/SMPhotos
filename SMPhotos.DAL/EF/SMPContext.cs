@@ -6,10 +6,7 @@ namespace SMPhotos.DAL
 {
 	public class SMPContext : DbContext
 	{
-		public SMPContext()
-			: base(string.Format("name={0}", DbConnection.SMPContext))
-		{
-		}
+		public SMPContext() : base(string.Format("name={0}", DbConnection.SMPContext)) { }
 
 		public virtual DbSet<Album> Album { get; set; }
 		public virtual DbSet<Image> Image { get; set; }

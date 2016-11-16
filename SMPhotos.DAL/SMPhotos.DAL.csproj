@@ -71,10 +71,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Repository\Repository.cs" />
-    <Compile Include="UserRepository\UserRepository.cs" />
-    <Compile Include="Repository\IRepository.cs" />
-    <Compile Include="UserRepository\IUserRepository.cs" />
+    <Compile Include="Repository\BaseRepository\Repository.cs" />
+    <Compile Include="Repository\UserRepository\UserRepository.cs" />
+    <Compile Include="Repository\BaseRepository\IRepository.cs" />
+    <Compile Include="Repository\UserRepository\IUserRepository.cs" />
     <Compile Include="UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="UnitOfWork\UnitOfWork.cs" />
   </ItemGroup>

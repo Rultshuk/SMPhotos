@@ -12,13 +12,13 @@ namespace SMPhotos.DAL
 		{
 			return _dbContext.User
 				.Where(e => e.IsActive)
-				.AsEnumerable<User>();
+				.ToList<User>();
 		}
 		public IEnumerable<User> GetAdmin()
 		{
 			return _dbContext.User
 				.Where(e => e.IsAdmin)
-				.AsEnumerable<User>();
+				.ToList<User>();
 		}
 		public IEnumerable<User> GetNotActive()
 		{

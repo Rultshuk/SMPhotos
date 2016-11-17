@@ -6,10 +6,18 @@ namespace SMPhotos.DAL
 	public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
 	{
 		protected readonly IUnitOfWork _unitOfWork;
+		private SMPContext dbContext;
+
 		public Repository(IUnitOfWork unitOfWork)
 		{
 			_unitOfWork = unitOfWork;
 		}
+
+		public Repository(SMPContext dbContext)
+		{
+			this.dbContext = dbContext;
+		}
+
 		public IUnitOfWork UnitOfWork
 		{
 			get { return _unitOfWork; }

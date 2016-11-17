@@ -13,9 +13,10 @@ namespace SMPhotos.Web.Controllers
 	public class HomeController : BaseController
 	{
 		// GET: Home
-		private IUserRepository _userRepository;
-		List<User> list = new List<User>();
-		public HomeController(IUserRepository userRepository)
+		private readonly IUserRepository _userRepository;
+		public HomeController(
+			IUserRepository userRepository
+		)
 		{
 			_userRepository = userRepository;
 		}
@@ -23,14 +24,12 @@ namespace SMPhotos.Web.Controllers
 		{
 			return View();
 		}
-		public ActionResult Main()
-		{
-			return View();
-		}
+
 		public ActionResult Join()
 		{
 			return View();
 		}
+
 		public ActionResult Upload()
 		{
 			return View();

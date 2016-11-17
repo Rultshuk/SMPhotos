@@ -11,6 +11,7 @@ namespace SMPhotos.Web
 		protected override void Configure()
 		{
 			CreateMap<User, UserVM>();
+			CreateMap<Album, AlbumVM>();
 		}
 	}
 }

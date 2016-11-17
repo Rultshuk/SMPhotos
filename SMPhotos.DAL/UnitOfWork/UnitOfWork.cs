@@ -38,11 +38,10 @@ namespace SMPhotos.DAL
 			Dispose(true);
 			GC.SuppressFinalize(this);
 		}
+
 		~UnitOfWork()
 		{
 			Dispose(false);
 		}
-
-
 	}
 }

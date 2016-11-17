@@ -7,10 +7,11 @@ using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using SMPhotos.Web.ViewModel;
+using System.Net.Mail;
 
 namespace SMPhotos.Web.Controllers
 {
-	public class HomeController : BaseController
+	public class HomeController : Controller
 	{
 		// GET: Home
 		private readonly IUserRepository _userRepository;
@@ -24,10 +25,76 @@ namespace SMPhotos.Web.Controllers
 		{
 			return View();
 		}
-
-		public ActionResult Join()
+		[HttpGet]
+		public ActionResult ChangeProfile()
+		{
+			IList<User> uslist1 = (IList<User>)_userRepository.GetNotActiveYet().OrderBy(t => t.FirstName).ToList();
+			var usersVM = Mapper.Map<IList<User>, IList<UserVM>>(uslist1);
+			var UserVM= usersVM[1];
+			UserVM.Password = "";
+			return View(UserVM);
+		}
+		[HttpPost]
+		public ActionResult ChangeProfile(UserVM userVM)
+		{
+			var user = _userRepository.Get(userVM.Id);
+			user.FirstName = userVM.FirstName;
+			user.LastName = userVM.LastName;
+			user.Location = userVM.Location;
+			user.Email = userVM.Email;
+			if ( (userVM.Password==user.Password) && (userVM.NewPassword==userVM.ConfirmNewPassword))
+			{
+				user.Password = userVM.NewPassword;
+			}
+			_userRepository.UnitOfWork.SaveChanges();
+			return RedirectToAction("ChangeProfile");
+		}
+		public ActionResult Main()
 		{
 			return View();
+		}
+
+				[HttpGet]
+ 		public ActionResult Register()
+		{
+			return View();
+		}
+		[HttpPost]
+		public ActionResult Register(RegisterUserVM userVM)
+		{
+			if (!ValidateRegisterData(userVM))
+			return View();
+
+			var newUser = new User
+			{
+				Email = userVM.Email,
+				Password = userVM.Password,
+				FirstName = userVM.FirstName,
+				LastName = userVM.LastName,
+				Location = userVM.Location
+			};
+
+			_userRepository.Add(newUser);
+			_userRepository.UnitOfWork.SaveChanges();
+			return View(userVM);
+		}
+
+		private bool ValidateRegisterData(RegisterUserVM userVM)
+		{
+			bool isValid = true;
+
+			try
+			{
+				MailAddress email = new MailAddress(userVM.Email);
+			} catch(Exception)
+			{
+				isValid = false;
+			}
+
+			if (string.IsNullOrWhiteSpace(userVM.Password) || string.IsNullOrWhiteSpace(userVM.PasswordConfirmation) || userVM.Password != userVM.PasswordConfirmation)
+				isValid = false;
+
+			return isValid;
 		}
 
 		public ActionResult Upload()

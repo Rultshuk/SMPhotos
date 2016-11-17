@@ -28,7 +28,7 @@ namespace SMPhotos.DAL
 				if (disposing)
 				{
 					_dbContext.Dispose();
-				}
+		}
 				disposedValue = true;
 			}
 		}
@@ -42,6 +42,6 @@ namespace SMPhotos.DAL
 		~UnitOfWork()
 		{
 			Dispose(false);
-		}
+	}
 	}
 }

@@ -10,7 +10,7 @@ using SMPhotos.Web.ViewModel;
 
 namespace SMPhotos.Web.Controllers
 {
-    public class MainController : BaseController
+    public class MainController : Controller
 	{
 		private readonly IAlbumRepository _albumRepository;
 		public MainController(

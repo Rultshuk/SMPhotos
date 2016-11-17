@@ -234,7 +234,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="UserContext\SessionManager.cs" />
+    <Compile Include="Manager\SessionManager.cs" />
     <Compile Include="UserContext\UserContext.cs" />
     <Compile Include="ViewModel\AlbumListVM.cs" />
     <Compile Include="ViewModel\AlbumVM.cs" />
@@ -297,7 +297,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55091</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/SMPhotos.Web</IISUrl>
+          <IISUrl>http://smphotos.com</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
           <IISAppRootUrl>http://smphotos.com</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

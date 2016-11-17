@@ -7,6 +7,11 @@ namespace SMPhotos.Web
 {
 	public static class MVCManager
 	{
+		public static class SessionData
+		{
+			public const string UserContext = "UserContext";
+		}
+
 		public static class Controller
 		{
 			public static class User

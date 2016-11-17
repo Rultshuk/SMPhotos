@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using SMPhotos.Web.ViewModel;
+using System.Net.Mail;
 
 namespace SMPhotos.Web.Controllers
 {
@@ -24,10 +25,51 @@ namespace SMPhotos.Web.Controllers
 		{
 			return View();
 		}
-		public ActionResult Join()
+
+		[HttpGet]
+		public ActionResult Register()
 		{
 			return View();
 		}
+
+		[HttpPost]
+		public ActionResult Register(RegisterUserVM userVM)
+		{
+			if (!ValidateRegisterData(userVM))
+				return View();
+
+			var newUser = new User
+			{
+				Email = userVM.Email,
+				Password = userVM.Password,
+				FirstName = userVM.FirstName,
+				LastName = userVM.LastName,
+				Location = userVM.Location
+			};
+
+			usergroup.Users.Add(newUser);
+			usergroup.Save();
+			return View(userVM);
+		}
+
+		private bool ValidateRegisterData(RegisterUserVM userVM)
+		{
+			bool isValid = true;
+
+			try
+			{
+				MailAddress email = new MailAddress(userVM.Email);
+			} catch(Exception)
+			{
+				isValid = false;
+			}
+
+			if (string.IsNullOrWhiteSpace(userVM.Password) || string.IsNullOrWhiteSpace(userVM.PasswordConfirmation) || userVM.Password != userVM.PasswordConfirmation)
+				isValid = false;
+
+			return isValid;
+		}
+
 		public ActionResult Upload()
 		{
 			return View();

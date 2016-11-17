@@ -222,6 +222,7 @@
     <Compile Include="DependencyInjection\DependencyResolverConfig.cs" />
     <Compile Include="DependencyInjection\IWebTypeResolver.cs" />
     <Compile Include="DependencyInjection\WebTypeResolver.cs" />
+    <Compile Include="DomainValue\Dom.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

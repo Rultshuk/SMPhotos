@@ -16,6 +16,9 @@ namespace Guestbook
 						"~/Scripts/fileinput.js",
 						"~/Scripts/some.js"));
 
+			bundles.Add(new ScriptBundle("~/Scripts/change/js").Include(
+						"~/Scripts/passwordValidation.js"));
+
 			bundles.Add(new StyleBundle("~/Content/login/css").Include(
 						"~/Content/login.css"));
 

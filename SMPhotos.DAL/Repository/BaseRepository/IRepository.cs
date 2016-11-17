@@ -4,6 +4,7 @@ namespace SMPhotos.DAL
 {
 	public interface IRepository<TEntity> where TEntity : class
 	{
+		IUnitOfWork UnitOfWork { get;}
 		TEntity Get(int id);
 		IEnumerable<TEntity> GetAll();
 		void Add(TEntity entity);

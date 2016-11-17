@@ -219,9 +219,11 @@
     <Compile Include="Bootstrapper\Bootstrapper.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MainController.cs" />
     <Compile Include="DependencyInjection\DependencyResolverConfig.cs" />
     <Compile Include="DependencyInjection\IWebTypeResolver.cs" />
     <Compile Include="DependencyInjection\WebTypeResolver.cs" />
+    <Compile Include="DomainValue\Dom.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -234,6 +236,8 @@
     </Compile>
     <Compile Include="UserContext\SessionManager.cs" />
     <Compile Include="UserContext\UserContext.cs" />
+    <Compile Include="ViewModel\AlbumListVM.cs" />
+    <Compile Include="ViewModel\AlbumVM.cs" />
     <Compile Include="ViewModel\RegisterUserVM.cs" />
     <Compile Include="ViewModel\UsersLists.cs" />
     <Compile Include="ViewModel\UserVM.cs" />
@@ -251,9 +255,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Home\Main.cshtml" />
+    <Content Include="Views\Main\Main.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
-    <Content Include="Views\Home\_Navigation.cshtml" />
+    <Content Include="Views\Shared\_Navigation.cshtml" />
     <Content Include="Views\Home\Upload.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
     <None Include="Properties\Settings.settings">
@@ -289,11 +293,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55091</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://smphotos.com</IISUrl>
+          <IISUrl>http://localhost/SMPhotos.Web</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
           <IISAppRootUrl>http://smphotos.com</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

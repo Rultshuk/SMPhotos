@@ -14,6 +14,7 @@ namespace SMPhotos.Web.DependencyInjection
 			container.RegisterType<DbContext, SMPContext>(new InjectionConstructor());
 			container.RegisterType<IUnitOfWork, UnitOfWork>();
 			container.RegisterType<IUserRepository, UserRepository>(new HierarchicalLifetimeManager());
+			container.RegisterType<IAlbumRepository, AlbumRepository>(new HierarchicalLifetimeManager());
 			DependencyResolver.SetResolver(new UnityDependencyResolver(container));
 		}
 	}

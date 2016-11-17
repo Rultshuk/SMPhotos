@@ -53,6 +53,15 @@ INSERT INTO [smp].[User] ([Email], [Password], [FirstName], [LastName], [Locatio
 --Album
 SET IDENTITY_INSERT [smp].[Album] ON
 	INSERT INTO [smp].[Album] ([Id], [Name], [Description]) VALUES (1, 'First', 'First Album');
+	INSERT INTO [smp].[Album] ([Id], [Name], [Description]) VALUES (2, 'Second', 'Second Album');
+	INSERT INTO [smp].[Album] ([Id], [Name], [Description]) VALUES (3, 'Third', 'Third Album');
+	INSERT INTO [smp].[Album] ([Id], [Name], [Description]) VALUES (4, 'Fourth', 'Fourth Album');
+	INSERT INTO [smp].[Album] ([Id], [Name], [Description]) VALUES (5, 'Fifth', 'Fifth Album');
+	INSERT INTO [smp].[Album] ([Id], [Name], [Description]) VALUES (6, 'Sixth', 'Sixth Album');
+	INSERT INTO [smp].[Album] ([Id], [Name], [Description]) VALUES (7, 'Seventh', 'Seventh Album');
+	INSERT INTO [smp].[Album] ([Id], [Name], [Description]) VALUES (8, 'Eighth', 'Eighth Album');
+	INSERT INTO [smp].[Album] ([Id], [Name], [Description]) VALUES (9, 'Ninth', 'Ninth Album');
+	INSERT INTO [smp].[Album] ([Id], [Name], [Description]) VALUES (10, 'Tenth', 'Tenth Album');
 SET IDENTITY_INSERT [smp].[Album] OFF
 
 --Image

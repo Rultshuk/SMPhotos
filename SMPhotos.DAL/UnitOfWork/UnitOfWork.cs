@@ -1,4 +1,6 @@
-﻿namespace SMPhotos.DAL
+﻿using System;
+
+namespace SMPhotos.DAL
 {
 	public class UnitOfWork : IUnitOfWork
 	{
@@ -7,23 +9,40 @@
 		public UnitOfWork(SMPContext dbcontext)
 		{
 			_dbContext = dbcontext;
-			_userRepository = new UserRepository(_dbContext);
-			Images = new Repository<Image>(_dbContext);
-			Albums = new Repository<Album>(_dbContext);
 		}
-
-		public IUserRepository _userRepository { get; private set; }
-		public IRepository<Image> Images { get; private set; }
-		public IRepository<Album> Albums { get; private set; }
-
-		public int Save()
+		public SMPContext Context
 		{
-			return _dbContext.SaveChanges();
+			get { return _dbContext; }
+		}
+		public void SaveChanges()
+		{
+			_dbContext.SaveChanges();
 		}
 
+		private bool disposedValue = false;
+
+		protected virtual void Dispose(bool disposing)
+		{
+			if (!disposedValue)
+			{
+				if (disposing)
+				{
+					_dbContext.Dispose();
+		}
+				disposedValue = true;
+			}
+		}
 		public void Dispose()
 		{
-			_dbContext.Dispose();
+
+			Dispose(true);
+			GC.SuppressFinalize(this);
 		}
+		~UnitOfWork()
+		{
+			Dispose(false);
+	}
+
+
 	}
 }

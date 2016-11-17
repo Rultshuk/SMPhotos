@@ -4,7 +4,7 @@ namespace SMPhotos.DAL
 {
 	public interface IUnitOfWork : IDisposable
 	{
-		IUserRepository Users { get; }
+		IUserRepository _userRepository { get; }
 		IRepository<Image> Images { get; }
 		IRepository<Album> Albums { get; }
 		int Save();

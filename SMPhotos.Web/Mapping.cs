@@ -10,7 +10,9 @@ namespace SMPhotos.Web
 		[Obsolete]
 		protected override void Configure()
 		{
-			CreateMap<User, UserVM>();
+			CreateMap<User, UserVM>()
+				.ForMember(d => d.NewPassword, o => o.Ignore())
+				.ForMember(d => d.ConfirmNewPassword, o => o.Ignore());
 		}
 	}
 }

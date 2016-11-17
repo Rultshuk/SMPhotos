@@ -13,12 +13,36 @@ namespace SMPhotos.Web.Controllers
 	public class HomeController : BaseController
 	{
 		//SMPContext db = new DAL.SMPContext();
-		UnitOfWork usergroup = new UnitOfWork(new SMPContext());
+		UnitOfWork _unitOfWork = new UnitOfWork(new SMPContext());
 		// GET: Home
 		List<User> list = new List<User>();
 		public ActionResult Index()
 		{
 			return View();
+		}
+		[HttpGet]
+		public ActionResult ChangeProfile()
+		{
+			IList<User> uslist1 = (IList<User>)_unitOfWork._userRepository.GetNotActiveYet().OrderBy(t => t.FirstName).ToList();
+			var usersVM = Mapper.Map<IList<User>, IList<UserVM>>(uslist1);
+			var UserVM= usersVM[1];
+			UserVM.Password = "";
+			return View(UserVM);
+		}
+		[HttpPost]
+		public ActionResult ChangeProfile(UserVM userVM)
+		{
+			var user = _unitOfWork._userRepository.Get(userVM.Id);
+			user.FirstName = userVM.FirstName;
+			user.LastName = userVM.LastName;
+			user.Location = userVM.Location;
+			user.Email = userVM.Email;
+			if ( (userVM.Password==user.Password) && (userVM.NewPassword==userVM.ConfirmNewPassword))
+			{
+				user.Password = userVM.NewPassword;
+			}
+			_unitOfWork.Save();
+			return RedirectToAction("ChangeProfile");
 		}
 		public ActionResult Main()
 		{
@@ -37,8 +61,9 @@ namespace SMPhotos.Web.Controllers
 		public ActionResult Admin()
 		{
 			UsersListsVM usersListsVM = new UsersListsVM();
-			IList<User> uslist1 = (IList<User>)usergroup.Users.GetNotActiveYet().OrderBy(t => t.FirstName).ToList();
-			IList<User> uslist2 = (IList<User>)usergroup.Users.GetWasActivated().OrderBy(t => t.FirstName).ToList();
+
+			IList<User> uslist1 = (IList<User>)_unitOfWork._userRepository.GetNotActiveYet().OrderBy(t => t.FirstName).ToList();
+			IList<User> uslist2 = (IList<User>)_unitOfWork._userRepository.GetWasActivated().OrderBy(t => t.FirstName).ToList();
 			usersListsVM.NoActiveUsers = Mapper.Map<IList<User>, IList<UserVM>>(uslist1);
 			usersListsVM.AllUsers = Mapper.Map<IList<User>, IList<UserVM>>(uslist2);
 			return View("Admin", usersListsVM);
@@ -49,14 +74,14 @@ namespace SMPhotos.Web.Controllers
 		{
 			foreach (var userVM in usersLists.AllUsers)
 			{
-				var user = usergroup.Users.Get(userVM.Id);
+				var user = _unitOfWork._userRepository.Get(userVM.Id);
 				user.IsActive = userVM.IsActive;
 				user.IsAdmin = userVM.IsAdmin;
 				user.IsUploader = userVM.IsUploader;
 			}
-			usergroup.Save();
+			_unitOfWork.Save();
 
-			ICollection<User> users = usergroup.Users.GetAll().ToList();
+			ICollection<User> users = _unitOfWork._userRepository.GetAll().ToList();
 			ICollection<UserVM> newUsersVM = Mapper.Map<ICollection<User>, ICollection<UserVM>>(users);
 
 			return RedirectToAction("Admin", newUsersVM);
@@ -68,7 +93,7 @@ namespace SMPhotos.Web.Controllers
 		{
 			foreach (var userVM in usList.NoActiveUsers)
 			{
-				var user = usergroup.Users.Get(userVM.Id);
+				var user = _unitOfWork._userRepository.Get(userVM.Id);
 				user.IsActive = userVM.IsActive;
 				user.IsAdmin = userVM.IsAdmin;
 				user.IsUploader = userVM.IsUploader;
@@ -77,9 +102,9 @@ namespace SMPhotos.Web.Controllers
 					user.ActivationDate = DateTime.Now;
 				}
 			}
-			usergroup.Save();
+			_unitOfWork.Save();
 
-			ICollection<User> users = usergroup.Users.GetAll().ToList();
+			ICollection<User> users = _unitOfWork._userRepository.GetAll().ToList();
 			ICollection<UserVM> newUsersVM = Mapper.Map<ICollection<User>, ICollection<UserVM>>(users);
 
 			return RedirectToAction("Admin", newUsersVM);

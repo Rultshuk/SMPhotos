@@ -95,9 +95,12 @@ namespace SMPhotos.Web.Controllers
 				isValid = false;
 			}
 
-			if (string.IsNullOrWhiteSpace(userVM.Password) || string.IsNullOrWhiteSpace(userVM.PasswordConfirmation) || userVM.Password != userVM.PasswordConfirmation)
+			if (string.IsNullOrWhiteSpace(userVM.Password)
+				|| string.IsNullOrWhiteSpace(userVM.PasswordConfirmation)
+				|| userVM.Password != userVM.PasswordConfirmation)
+			{
 				isValid = false;
-
+			}
 			return isValid;
 		}
 		private bool ValidateChangeData(UserVM userVM, User userBase)
@@ -112,8 +115,19 @@ namespace SMPhotos.Web.Controllers
 			{
 				isValid = false;
 			}
-			if ((string.IsNullOrWhiteSpace(userVM.Password) && string.IsNullOrWhiteSpace(userVM.NewPassword) && string.IsNullOrWhiteSpace(userVM.ConfirmNewPassword)) || (!(string.IsNullOrWhiteSpace(userVM.Password)) && userVM.Password == userBase.Password && userVM.NewPassword == userVM.ConfirmNewPassword))
+			if (
+				(string.IsNullOrWhiteSpace(userVM.Password)
+					&& string.IsNullOrWhiteSpace(userVM.NewPassword)
+					&& string.IsNullOrWhiteSpace(userVM.ConfirmNewPassword)
+				)
+				|| (!string.IsNullOrWhiteSpace(userVM.Password)
+					&& userVM.Password == userBase.Password
+					&& userVM.NewPassword == userVM.ConfirmNewPassword
+				)
+			)
+			{
 				isValid = true;
+			}
 			else
 				isValid = false;
 			return isValid;

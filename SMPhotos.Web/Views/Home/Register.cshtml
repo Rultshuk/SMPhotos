@@ -1,50 +1,50 @@
 ﻿@model SMPhotos.Web.ViewModel.RegisterUserVM
-@{
-    ViewBag.Title = MVCManager.Controller.Register.Name;
-}
+@*@{
+    ViewBag.Title = Translation.Register;
+}*@
 
 @Html.Partial("_Navigation")
 @Styles.Render("~/Content/join/css")
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-            @using (Html.BeginForm(MVCManager.Controller.Register.Name, MVCManager.Controller.Home.Name, FormMethod.Post, new { @class = "joinus" }))
-            {<h2>@MVCManager.Controller.Register.PSU<small>@MVCManager.Controller.Register.IF</small></h2>
+            @using (Html.BeginForm(Translation.Register, MVCManager.Controller.Home.Name, FormMethod.Post, new { @class = "joinus" }))
+            {<h2>@Translation.PleaseSignUp<small>@Translation.ItsFreeJoke</small></h2>
             <hr>
                 <div class="row">
                     <div class="col-xs-6 col-sm-6 col-md-6">
                         <div class="form-group">
-                            @Html.TextBoxFor(m => m.FirstName, htmlAttributes: new { @class = "form-control input-lg", @placeholder = MVCManager.Translation.FirstName, @tabindex = "1" })
+                            @Html.TextBoxFor(m => m.FirstName, htmlAttributes: new { @class = "form-control input-lg", @placeholder = Translation.FirstName, @tabindex = "1" })
                         </div>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6">
                         <div class="form-group">
-                            @Html.TextBoxFor(m => m.LastName, htmlAttributes: new { @class = "form-control input-lg", @placeholder = MVCManager.Translation.LastName, @tabindex = "2" })
+                            @Html.TextBoxFor(m => m.LastName, htmlAttributes: new { @class = "form-control input-lg", @placeholder = Translation.LastName, @tabindex = "2" })
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.TextBoxFor(m => m.Location, htmlAttributes: new { @class = "form-control input-lg", @placeholder = MVCManager.Translation.Location, @tabindex = "3" })
+                    @Html.TextBoxFor(m => m.Location, htmlAttributes: new { @class = "form-control input-lg", @placeholder = Translation.Location, @tabindex = "3" })
                 </div>
                 <div class="form-group">
-                    @Html.TextBoxFor(m => m.Email, htmlAttributes: new { @class = "form-control input-lg", @placeholder = MVCManager.Translation.Email, @tabindex = "4", @type = "email", @required = "true" })
+                    @Html.TextBoxFor(m => m.Email, htmlAttributes: new { @class = "form-control input-lg", @placeholder = Translation.Email, @tabindex = "4", @type = "email", @required = "true" })
                 </div>
                 <div class="row">
                     <div class="col-xs-6 col-sm-6 col-md-6">
                         <div class="form-group">
-                            @Html.TextBoxFor(m => m.Password, htmlAttributes: new { @class = "form-control input-lg", @placeholder = MVCManager.Translation.Password, @tabindex = "5", @type = "password", @required = "true", @id = MVCManager.Translation.Password, pattern = ".{6,15}" })
+                            @Html.TextBoxFor(m => m.Password, htmlAttributes: new { @class = "form-control input-lg", @placeholder = Translation.Password, @tabindex = "5", @type = "password", @required = "true", @id = Translation.Password, pattern = ".{6,15}" })
                         </div>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6">
                         <div class="form-group">
-                            @Html.TextBoxFor(m => m.PasswordConfirmation, htmlAttributes: new { @class = "form-control input-lg", @placeholder = MVCManager.Translation.PasswordConfirmation, @tabindex = "6", @type = "password", @required = "true", @id = MVCManager.Translation.PasswordConfirmation, pattern = ".{6,15}" })
+                            @Html.TextBoxFor(m => m.PasswordConfirmation, htmlAttributes: new { @class = "form-control input-lg", @placeholder = Translation.PasswordConfirmation, @tabindex = "6", @type = "password", @required = "true", @id = Translation.PasswordConfirmation, pattern = ".{6,15}" })
                         </div>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-xs-6 col-md-6"><button type="submit" class="btn btn-primary btn-block btn-lg" tabindex="7">@MVCManager.Controller.Register.Name</button></div>
-                    <div class="col-xs-6 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">@MVCManager.Controller.Register.SignIn</a></div>
+                    <div class="col-xs-6 col-md-6"><button type="submit" class="btn btn-primary btn-block btn-lg" tabindex="7">@Translation.Register</button></div>
+                    <div class="col-xs-6 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">@Translation.SignIn</a></div>
                 </div>
             }
         </div>

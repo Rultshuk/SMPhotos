@@ -63,9 +63,9 @@ namespace SMPhotos.Web.Controllers
 		public ActionResult Register(RegisterUserVM userVM)
 		{
 			if (!ValidateRegisterData(userVM))
-			return View();
+				return View();
 
-			var newUser = new User
+			User newUser = new User
 			{
 				Email = userVM.Email,
 				Password = userVM.Password,
@@ -76,7 +76,7 @@ namespace SMPhotos.Web.Controllers
 
 			_userRepository.Add(newUser);
 			_userRepository.UnitOfWork.SaveChanges();
-			return View(userVM);
+			return View();
 		}
 
 		private bool ValidateRegisterData(RegisterUserVM userVM)

@@ -25,6 +25,15 @@ namespace SMPhotos.Web.Controllers
 		{
 			return View();
 		}
+		[HttpPost]
+		public ActionResult Index(UserCredentialsVM userCredentialsVM)
+		{
+			//TODO Validate credentials
+			User user = _userRepository.GetByCredentials(userCredentialsVM.Email, userCredentialsVM.Password);
+			if (user==null)
+				return View();
+			return RedirectToAction("Admin");
+		}
 		[HttpGet]
 		public ActionResult ChangeProfile()
 		{

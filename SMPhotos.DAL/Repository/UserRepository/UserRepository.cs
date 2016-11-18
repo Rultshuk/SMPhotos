@@ -8,6 +8,12 @@ namespace SMPhotos.DAL
 		public UserRepository(IUnitOfWork context) : base(context)
 		{
 		}
+		public User GetByCredentials(string email,string password)
+		{
+			return _unitOfWork.Context.User
+				.Where(e => e.Email == email && e.Password==password)
+				.FirstOrDefault<User>();
+		}
 		public IEnumerable<User> GetActive()
 		{
 			return _unitOfWork.Context.User

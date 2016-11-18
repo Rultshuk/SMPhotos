@@ -239,6 +239,7 @@
     <Compile Include="ViewModel\AlbumListVM.cs" />
     <Compile Include="ViewModel\AlbumVM.cs" />
     <Compile Include="ViewModel\RegisterUserVM.cs" />
+    <Compile Include="ViewModel\UserCredentialsVM.cs" />
     <Compile Include="ViewModel\UsersLists.cs" />
     <Compile Include="ViewModel\UserVM.cs" />
   </ItemGroup>

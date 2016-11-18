@@ -10,7 +10,7 @@ using SMPhotos.Web.ViewModel;
 
 namespace SMPhotos.Web.Controllers
 {
-    public class MainController : Controller
+	public class MainController : Controller
 	{
 		private readonly IAlbumRepository _albumRepository;
 		public MainController(
@@ -22,9 +22,9 @@ namespace SMPhotos.Web.Controllers
 
 		// GET: Main
 		public ActionResult Index()
-        {
-            return View();
-        }
+		{
+			return View();
+		}
 
 		public ActionResult Main()
 		{

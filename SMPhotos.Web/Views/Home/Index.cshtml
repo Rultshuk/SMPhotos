@@ -10,7 +10,7 @@
         @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-signin" }))
         {
             <h2 class="form-signin-heading">Please sign in or <a href="@Url.Action("Register", "Home")">Join us</a></h2>
-            @Html.TextBoxFor(m => m.Email, htmlAttributes: new { @class = "form-control input-lg", @placeholder = "Email Address", @type = "email", @required = "true" , @autofocus="true"})
+            @Html.TextBoxFor(m => m.Email, htmlAttributes: new { @class = "form-control input-lg", @placeholder = "Email Address", @type = "email", @required = "true", @autofocus = "true" })
             @Html.TextBoxFor(m => m.Password, htmlAttributes: new { @class = "form-control input-lg", @placeholder = "Password", @type = "password", @required = "true" })
             <div class="checkbox">
                 <label>

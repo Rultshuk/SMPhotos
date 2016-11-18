@@ -30,9 +30,14 @@ namespace SMPhotos.Web.Controllers
 		{
 			//TODO Validate credentials
 			User user = _userRepository.GetByCredentials(userCredentialsVM.Email, userCredentialsVM.Password);
-			if (user==null)
+			if (user == null)
 				return View();
-			return RedirectToAction("Admin");
+			//TODO Show wrong credentials message
+			SessionManager.CurentUserContext = Mapper.Map<User, UserContext>(user);
+			if (SessionManager.CurentUserContext.IsActive)
+				return RedirectToAction(MVCManager.Controller.Main.main, MVCManager.Controller.Main.Name);
+			return View();
+			//TODO Show not Activated view
 		}
 		[HttpGet]
 		public ActionResult ChangeProfile()

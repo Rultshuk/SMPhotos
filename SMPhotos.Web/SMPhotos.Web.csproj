@@ -186,6 +186,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Eighth Album\1.jpg" />
+    <Content Include="App_Data\Fifth Album\1.jpg" />
+    <Content Include="App_Data\First Album\1.jpg" />
+    <Content Include="App_Data\Fourth Album\1.jpg" />
+    <Content Include="App_Data\Ninth Album\1.jpg" />
+    <Content Include="App_Data\Second Album\1.jpg" />
+    <Content Include="App_Data\Seventh Album\1.jpg" />
+    <Content Include="App_Data\Sixth Album\1.jpg" />
+    <Content Include="App_Data\Tenth Album\1.jpg" />
+    <Content Include="App_Data\Third Album\1.jpg" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\base.css" />
     <Content Include="Content\bootstrap.css" />
@@ -239,6 +249,7 @@
     <Compile Include="ViewModel\AlbumListVM.cs" />
     <Compile Include="ViewModel\AlbumVM.cs" />
     <Compile Include="ViewModel\RegisterUserVM.cs" />
+    <Compile Include="ViewModel\UserCredentialsVM.cs" />
     <Compile Include="ViewModel\UsersLists.cs" />
     <Compile Include="ViewModel\UserVM.cs" />
   </ItemGroup>
@@ -273,7 +284,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>

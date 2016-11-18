@@ -25,26 +25,38 @@ namespace SMPhotos.Web.Controllers
 		{
 			return View();
 		}
+		[HttpPost]
+		public ActionResult Index(UserCredentialsVM userCredentialsVM)
+		{
+			//TODO Validate credentials
+			User user = _userRepository.GetByCredentials(userCredentialsVM.Email, userCredentialsVM.Password);
+			if (user==null)
+				return View();
+			return RedirectToAction("Admin");
+		}
 		[HttpGet]
 		public ActionResult ChangeProfile()
 		{
 			IList<User> uslist1 = (IList<User>)_userRepository.GetNotActiveYet().OrderBy(t => t.FirstName).ToList();
 			var usersVM = Mapper.Map<IList<User>, IList<UserVM>>(uslist1);
-			var UserVM= usersVM[1];
+			var UserVM = usersVM[1];
 			UserVM.Password = "";
 			return View(UserVM);
 		}
 		[HttpPost]
 		public ActionResult ChangeProfile(UserVM userVM)
 		{
-			var user = _userRepository.Get(userVM.Id);
-			user.FirstName = userVM.FirstName;
-			user.LastName = userVM.LastName;
-			user.Location = userVM.Location;
-			user.Email = userVM.Email;
-			if ( (userVM.Password==user.Password) && (userVM.NewPassword==userVM.ConfirmNewPassword))
+			User userBase = _userRepository.Get(userVM.Id);
+			if (!ValidateChangeData(userVM, userBase))
+				return RedirectToAction("ChangeProfile");
+
+			userBase.FirstName = userVM.FirstName;
+			userBase.LastName = userVM.LastName;
+			userBase.Location = userVM.Location;
+			userBase.Email = userVM.Email;
+			if ((userVM.Password == userBase.Password) && (userVM.NewPassword == userVM.ConfirmNewPassword))
 			{
-				user.Password = userVM.NewPassword;
+				userBase.Password = userVM.NewPassword;
 			}
 			_userRepository.UnitOfWork.SaveChanges();
 			return RedirectToAction("ChangeProfile");
@@ -54,8 +66,8 @@ namespace SMPhotos.Web.Controllers
 			return View();
 		}
 
-				[HttpGet]
- 		public ActionResult Register()
+		[HttpGet]
+		public ActionResult Register()
 		{
 			return View();
 		}
@@ -86,14 +98,47 @@ namespace SMPhotos.Web.Controllers
 			try
 			{
 				MailAddress email = new MailAddress(userVM.Email);
-			} catch(Exception)
+			}
+			catch (Exception)
 			{
 				isValid = false;
 			}
 
-			if (string.IsNullOrWhiteSpace(userVM.Password) || string.IsNullOrWhiteSpace(userVM.PasswordConfirmation) || userVM.Password != userVM.PasswordConfirmation)
+			if (string.IsNullOrWhiteSpace(userVM.Password)
+				|| string.IsNullOrWhiteSpace(userVM.PasswordConfirmation)
+				|| userVM.Password != userVM.PasswordConfirmation)
+			{
 				isValid = false;
+			}
+			return isValid;
+		}
+		private bool ValidateChangeData(UserVM userVM, User userBase)
+		{
+			bool isValid = true;
 
+			try
+			{
+				MailAddress email = new MailAddress(userVM.Email);
+			}
+			catch (Exception)
+			{
+				isValid = false;
+			}
+			if (
+				(string.IsNullOrWhiteSpace(userVM.Password)
+					&& string.IsNullOrWhiteSpace(userVM.NewPassword)
+					&& string.IsNullOrWhiteSpace(userVM.ConfirmNewPassword)
+				)
+				|| (!string.IsNullOrWhiteSpace(userVM.Password)
+					&& userVM.Password == userBase.Password
+					&& userVM.NewPassword == userVM.ConfirmNewPassword
+				)
+			)
+			{
+				isValid = true;
+			}
+			else
+				isValid = false;
 			return isValid;
 		}
 

@@ -186,6 +186,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Eighth Album\1.jpg" />
+    <Content Include="App_Data\Fifth Album\1.jpg" />
+    <Content Include="App_Data\First Album\1.jpg" />
+    <Content Include="App_Data\Fourth Album\1.jpg" />
+    <Content Include="App_Data\Ninth Album\1.jpg" />
+    <Content Include="App_Data\Second Album\1.jpg" />
+    <Content Include="App_Data\Seventh Album\1.jpg" />
+    <Content Include="App_Data\Sixth Album\1.jpg" />
+    <Content Include="App_Data\Tenth Album\1.jpg" />
+    <Content Include="App_Data\Third Album\1.jpg" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\base.css" />
     <Content Include="Content\bootstrap.css" />
@@ -227,7 +237,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Mapping.cs" />
+    <Compile Include="Mapping\Mapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -266,6 +276,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Content Include="Views\Home\ChangeProfile.cshtml" />
+    <Content Include="Views\Home\_Modal.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -274,7 +285,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>

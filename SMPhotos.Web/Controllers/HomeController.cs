@@ -82,7 +82,7 @@ namespace SMPhotos.Web.Controllers
 			if (!ValidateRegisterData(userVM))
 				return View();
 
-			var newUser = new User
+			User newUser = new User
 			{
 				Email = userVM.Email,
 				Password = userVM.Password,
@@ -93,7 +93,7 @@ namespace SMPhotos.Web.Controllers
 
 			_userRepository.Add(newUser);
 			_userRepository.UnitOfWork.SaveChanges();
-			return View(userVM);
+			return View();
 		}
 
 		private bool ValidateRegisterData(RegisterUserVM userVM)
@@ -109,9 +109,12 @@ namespace SMPhotos.Web.Controllers
 				isValid = false;
 			}
 
-			if (string.IsNullOrWhiteSpace(userVM.Password) || string.IsNullOrWhiteSpace(userVM.PasswordConfirmation) || userVM.Password != userVM.PasswordConfirmation)
+			if (string.IsNullOrWhiteSpace(userVM.Password)
+				|| string.IsNullOrWhiteSpace(userVM.PasswordConfirmation)
+				|| userVM.Password != userVM.PasswordConfirmation)
+			{
 				isValid = false;
-
+			}
 			return isValid;
 		}
 		private bool ValidateChangeData(UserVM userVM, User userBase)
@@ -126,8 +129,19 @@ namespace SMPhotos.Web.Controllers
 			{
 				isValid = false;
 			}
-			if ((string.IsNullOrWhiteSpace(userVM.Password) && string.IsNullOrWhiteSpace(userVM.NewPassword) && string.IsNullOrWhiteSpace(userVM.ConfirmNewPassword)) || (!(string.IsNullOrWhiteSpace(userVM.Password)) && userVM.Password == userBase.Password && userVM.NewPassword == userVM.ConfirmNewPassword))
+			if (
+				(string.IsNullOrWhiteSpace(userVM.Password)
+					&& string.IsNullOrWhiteSpace(userVM.NewPassword)
+					&& string.IsNullOrWhiteSpace(userVM.ConfirmNewPassword)
+				)
+				|| (!string.IsNullOrWhiteSpace(userVM.Password)
+					&& userVM.Password == userBase.Password
+					&& userVM.NewPassword == userVM.ConfirmNewPassword
+				)
+			)
+			{
 				isValid = true;
+			}
 			else
 				isValid = false;
 			return isValid;

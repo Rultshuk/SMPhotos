@@ -52,23 +52,26 @@ INSERT INTO [smp].[User] ([Email], [Password], [FirstName], [LastName], [Locatio
 
 --Album
 SET IDENTITY_INSERT [smp].[Album] ON
-	INSERT INTO [smp].[Album] ([Id], [Name], [Description]) VALUES (1, 'First', 'First Album');
-	INSERT INTO [smp].[Album] ([Id], [Name], [Description]) VALUES (2, 'Second', 'Second Album');
-	INSERT INTO [smp].[Album] ([Id], [Name], [Description]) VALUES (3, 'Third', 'Third Album');
-	INSERT INTO [smp].[Album] ([Id], [Name], [Description]) VALUES (4, 'Fourth', 'Fourth Album');
-	INSERT INTO [smp].[Album] ([Id], [Name], [Description]) VALUES (5, 'Fifth', 'Fifth Album');
-	INSERT INTO [smp].[Album] ([Id], [Name], [Description]) VALUES (6, 'Sixth', 'Sixth Album');
-	INSERT INTO [smp].[Album] ([Id], [Name], [Description]) VALUES (7, 'Seventh', 'Seventh Album');
-	INSERT INTO [smp].[Album] ([Id], [Name], [Description]) VALUES (8, 'Eighth', 'Eighth Album');
-	INSERT INTO [smp].[Album] ([Id], [Name], [Description]) VALUES (9, 'Ninth', 'Ninth Album');
-	INSERT INTO [smp].[Album] ([Id], [Name], [Description]) VALUES (10, 'Tenth', 'Tenth Album');
+	INSERT INTO [smp].[Album] ([Id], [Name], [Description], [Path]) VALUES (1, 'First', 'First Album', '~App_Data/');
+	INSERT INTO [smp].[Album] ([Id], [Name], [Description], [Path]) VALUES (3, 'Third', 'Third Album', '~App_Data/');
+	INSERT INTO [smp].[Album] ([Id], [Name], [Description], [Path]) VALUES (4, 'Fourth', 'Fourth Album', '~App_Data/');
+	INSERT INTO [smp].[Album] ([Id], [Name], [Description], [Path]) VALUES (5, 'Fifth', 'Fifth Album', '~App_Data/');
+	INSERT INTO [smp].[Album] ([Id], [Name], [Description], [Path]) VALUES (6, 'Sixth', 'Sixth Album', '~App_Data/');
+	INSERT INTO [smp].[Album] ([Id], [Name], [Description], [Path]) VALUES (7, 'Seventh', 'Seventh Album', '~App_Data/');
+	INSERT INTO [smp].[Album] ([Id], [Name], [Description], [Path]) VALUES (8, 'Eighth', 'Eighth Album', '~App_Data/');
+	INSERT INTO [smp].[Album] ([Id], [Name], [Description], [Path]) VALUES (9, 'Ninth', 'Ninth Album', '~App_Data/');
+	INSERT INTO [smp].[Album] ([Id], [Name], [Description], [Path]) VALUES (10,'Tenth', 'Tenth Album', '~App_Data/');
+	INSERT INTO [smp].[Album] ([Id], [Name], [Description], [Path]) VALUES (2, 'Second', 'Second Album', '~App_Data/');
 SET IDENTITY_INSERT [smp].[Album] OFF
 
 --Image
 INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1.jpg', 'First Album', '1');
-INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('2.jpg', 'First Album', '1');
-INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('3.jpg', 'First Album', '1');
-INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('4.jpg', 'First Album', '1');
-INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('5.jpg', 'First Album', '1');
-INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('6.jpg', 'First Album', '1');
-INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('7.jpg', 'First Album', '1');
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1.jpg', 'Second Album', '1');
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1.jpg', 'Third Album', '1');
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1.jpg', 'Fourth Album', '1');
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1.jpg', 'Fifth Album', '1');
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1.jpg', 'Sixth Album', '1');
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1.jpg', 'Seventh Album', '1');
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1.jpg', 'Eighth Album', '1');
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1.jpg', 'Ninth Album', '1');
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1.jpg', 'Tenth Album', '1');

@@ -22,6 +22,11 @@ namespace SMPhotos.Web
 			{
 				public const string Name = "Home";
 			}
+			public static class Main
+			{
+				public const string Name = "Main";
+				public const string main = "Main";
+			}
 
 		}
 		public static class View

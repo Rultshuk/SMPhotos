@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title</title>
+    <title>@ViewBag.Title - @Navigation.SMPhotos</title>
     @Styles.Render("~/Content/base/css")
     @RenderSection("Styles", false)
 </head>
@@ -12,7 +12,7 @@
     <div class="container">
         @RenderBody()
         <footer>
-            <p>SMStudents &copy; @DateTime.Now.Year</p>
+            <p>@Navigation.SMStudents &copy; @DateTime.Now.Year</p>
         </footer>
     </div>
     @Scripts.Render("~/Scripts/base/js")

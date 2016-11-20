@@ -18,6 +18,26 @@ namespace SMPhotos.Web
 		public const string PleaseSignUp = "Please Sign Up ";
 		public const string ItsFreeJoke = "It's free, don`t be scare.";
 	}
+	public static class Navigation
+	{
+		public const string Home = "Home";
+		public const string About = "About SMPhotos";
+		public const string Contact = "Contact";
+		public const string Settings = "Settings";
+		public const string ChangeProfile = "Change Profile";
+		public const string AdminTools = "Admin Tools";
+		public const string LogOut = "Log Out";
+		public const string SMStudents = "SMStudents";
+		public const string SMPhotos = "SMPhotos";
+	}
+	public static class View
+	{
+		public const string Index = "Index";
+		public const string Admin = "Admin";
+		public const string ChangeProfile = "ChangeProfile";
+		public const string Register = "Register";
+		public const string Upload = "Upload";
+	}
 
 	public static class MVCManager
 	{
@@ -35,6 +55,7 @@ namespace SMPhotos.Web
 			public static class Home
 			{
 				public const string Name = "Home";
+				public const string Index = "Index";
 			}
 			public static class Main
 			{

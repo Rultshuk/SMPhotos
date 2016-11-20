@@ -44,7 +44,10 @@
                 <hr>
                 <div class="row">
                     <div class="col-xs-6 col-md-6"><button type="submit" class="btn btn-primary btn-block btn-lg" tabindex="7">@Translation.Register</button></div>
-                    <div class="col-xs-6 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">@Translation.SignIn</a></div>
+                    <div class="col-xs-6 col-md-6">
+                    @Html.ActionLink(@Translation.SignIn, MVCManager.Controller.Home.Index, MVCManager.Controller.Home.Name, new { @class ="btn btn-success btn-block btn-lg"})
+                   @*<a href="#" class="btn btn-success btn-block btn-lg">@Translation.SignIn</a>*@
+                    </div>
                 </div>
             }
         </div>

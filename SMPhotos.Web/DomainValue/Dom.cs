@@ -11,12 +11,16 @@ namespace SMPhotos.Web
 		public const string LastName = "Last Name";
 		public const string Email = "Email";
 		public const string Password = "Password";
+		public const string NewPassword = "New Password";
 		public const string PasswordConfirmation = "Password Confirmation";
 		public const string Location = "Country";
 		public const string Register = "Register";
 		public const string SignIn = "Sign In";
 		public const string PleaseSignUp = "Please Sign Up ";
-		public const string ItsFreeJoke = "It's free, don`t be scare.";
+		public const string ItsFreeJoke = "It's free, don`t be scared.";
+		public const string ResetChanges = "Reset changes";
+		public const string ApplyChanges = "Apply changes";
+		public const string ChangesProfile = "Change your Profile ";
 	}
 	public static class Navigation
 	{
@@ -56,6 +60,8 @@ namespace SMPhotos.Web
 			{
 				public const string Name = "Home";
 				public const string Index = "Index";
+				public const string ChangeProfile = "ChangeProfile";
+
 			}
 			public static class Main
 			{

@@ -64,7 +64,7 @@ namespace SMPhotos.Web.Controllers
 				userBase.Password = userVM.NewPassword;
 			}
 			_userRepository.UnitOfWork.SaveChanges();
-			return RedirectToAction("ChangeProfile");
+			return View(userVM);
 		}
 		public ActionResult Main()
 		{

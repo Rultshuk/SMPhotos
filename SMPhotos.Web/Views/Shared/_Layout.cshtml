@@ -10,11 +10,20 @@
 <body>
     @Html.Partial("_Navigation")
     <div class="container">
+        @*@RenderSection("Body")*@
         @RenderBody()
+    </div>
+    @*Проверка наличия секции Footer в текущем представлении*@
+    @if (IsSectionDefined("Footer"))
+    {
+        @RenderSection("Footer");
+    }
+    else
+    {
         <footer>
             <p>@Navigation.SMStudents &copy; @DateTime.Now.Year</p>
         </footer>
-    </div>
+    }
     @Scripts.Render("~/Scripts/base/js")
     @RenderSection("Script", false)
 </body>

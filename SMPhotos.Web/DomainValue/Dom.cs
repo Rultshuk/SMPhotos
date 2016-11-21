@@ -16,7 +16,7 @@ namespace SMPhotos.Web
 		public const string Location = "Country";
 		public const string Register = "Register";
 		public const string SignIn = "Sign In";
-		public const string PleaseSignUp = "Please Sign Up ";
+		public const string PleaseSignUp = "Please, Sign Up ";
 		public const string ItsFreeJoke = "It's free, don`t be scared.";
 		public const string ResetChanges = "Reset changes";
 		public const string ApplyChanges = "Apply changes";

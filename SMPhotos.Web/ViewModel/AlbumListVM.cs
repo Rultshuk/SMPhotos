@@ -8,6 +8,5 @@ namespace SMPhotos.Web.ViewModel
 	public class AlbumListVM
 	{
 		public IList<AlbumVM> AllAlbums { get; set; }
-		public ICollection<AlbumVM> AllAlbumsC { get; set; }
 	}
 }

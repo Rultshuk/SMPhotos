@@ -19,16 +19,16 @@
     <!-- /.row -->
     <!-- Projects Row -->
     <div class="row">
-        @foreach (var alb in Model.AllAlbums)
+        @foreach (var albums in Model.AllAlbums)
         {
             <div class="col-md-4 portfolio-item">
                 <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+                    <img class="img-responsive" src="@albums.PathAlbum" alt="">
                 </a>
                 <h3>
-                    <a href="#">Album @alb.Name</a>
+                    <a href="#">Album @albums.Name</a>
                 </h3>
-                <p>@alb.Description</p>
+                <p>@albums.Description</p>
             </div>
         }
     </div>

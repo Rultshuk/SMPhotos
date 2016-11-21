@@ -201,20 +201,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Eighth Album\1.jpg" />
-    <Content Include="App_Data\Fifth Album\1.jpg" />
-    <Content Include="App_Data\First Album\1.jpg" />
-    <Content Include="App_Data\Fourth Album\1.jpg" />
-    <Content Include="App_Data\Ninth Album\1.jpg" />
-    <Content Include="App_Data\Second Album\1.jpg" />
-    <Content Include="App_Data\Seventh Album\1.jpg" />
-    <Content Include="App_Data\Sixth Album\1.jpg" />
-    <Content Include="App_Data\Tenth Album\1.jpg" />
-    <Content Include="App_Data\Third Album\1.jpg" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\base.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\2d62a4db-ec30-41d6-a9d9-c1e037b44a17\1.jpg" />
+    <Content Include="Content\img\39d09d90-b53c-47d8-bab6-f96630f9bc9b\1.jpg" />
+    <Content Include="Content\img\421aca62-f921-4c0a-b212-d0b5081e0a25\1.jpg" />
+    <Content Include="Content\img\4485b513-7817-4483-b7c9-af99bd0f15ea\1.jpg" />
+    <Content Include="Content\img\70b9ef63-f689-4cfb-9d6f-5ed125d491b2\1.jpg" />
+    <Content Include="Content\img\de78fd3c-4534-4a68-adc4-efcc72f89363\1.jpg" />
+    <Content Include="Content\img\e5af00cc-726e-4252-a13e-459c6567454a\1.jpg" />
+    <Content Include="Content\img\f56bd610-5320-48dd-b4cd-2825438a70be\1.jpg" />
+    <Content Include="Content\img\fb3840f6-67b5-4f49-a0dd-707895f680cb\1.jpg" />
+    <Content Include="Content\img\ff2fe1f2-7b29-4910-83db-fd7e0a86d116\1.jpg" />
     <Content Include="Content\upload.css" />
     <Content Include="Content\join.css" />
     <Content Include="Content\login.css" />
@@ -264,6 +264,7 @@
     <Compile Include="UserContext\UserContext.cs" />
     <Compile Include="ViewModel\AlbumListVM.cs" />
     <Compile Include="ViewModel\AlbumVM.cs" />
+    <Compile Include="ViewModel\ImageVM.cs" />
     <Compile Include="ViewModel\RegisterUserVM.cs" />
     <Compile Include="ViewModel\UserCredentialsVM.cs" />
     <Compile Include="ViewModel\UsersLists.cs" />
@@ -301,6 +302,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>

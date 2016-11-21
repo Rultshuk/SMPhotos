@@ -69,7 +69,7 @@ namespace SMPhotos.Web.Controllers
 			User userBase = _userRepository.Get(userVM.Id);
 			if (!ValidateChangeData(userVM, userBase))
 			{
-				userVM.Message = "Not Success!";
+				userVM.Message = "Your changes were not success!";
 				return View(userVM);
 			}
 
@@ -82,7 +82,7 @@ namespace SMPhotos.Web.Controllers
 				userBase.Password = userVM.NewPassword;
 			}
 			_userRepository.UnitOfWork.SaveChanges();
-			userVM.Message = "Success!";
+			userVM.Message = "Your changes were success!";
 			return View(userVM);
 		}
 		public ActionResult Main()

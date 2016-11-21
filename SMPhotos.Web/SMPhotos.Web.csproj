@@ -312,7 +312,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Content Include="Views\Home\ChangeProfile.cshtml" />
-    <Content Include="Views\Home\LoadImage.cshtml" />
+    <Content Include="Views\Main\ImageLoad.cshtml" />
     <Content Include="Views\Main\Album.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

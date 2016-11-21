@@ -90,26 +90,7 @@ namespace SMPhotos.Web.Controllers
 		{
 			return View();
 		}
-		[HttpGet]
-		public ActionResult LoadImage()
-		{
-			
-			return View();
-		}
-		[HttpPost]
-		public ActionResult LoadImage(PictureVM picture)
-		{
-			foreach (var file in picture.files)
-			{
-				if (file.ContentLength > 0)
-				{
-					var fileName = Path.GetFileName(file.FileName);
-					var filePath = Path.Combine(Server.MapPath("~/App_Data/TestAlbum"), fileName);
-					file.SaveAs(filePath);
-				}
-			}	
-			return View();
-		}
+
 		[HttpGet]
 		public ActionResult Register()
 		{

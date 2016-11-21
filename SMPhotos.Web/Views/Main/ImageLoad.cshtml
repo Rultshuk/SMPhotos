@@ -1,12 +1,12 @@
 ﻿@model SMPhotos.Web.ViewModel.PictureVM
 @{
-    ViewBag.Title = "LoadImage";
+    ViewBag.Title = "ImageLoad";
 }
 @Styles.Render("~/Content/loadImage/css")
 @section ScriptLoad{
     @Scripts.Render("~/Scripts/imageLoad/js")
 }
-@using (Html.BeginForm("LoadImage", MVCManager.Controller.Home.Name, FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm(MVCManager.Controller.Main.ImageLoad, MVCManager.Controller.Main.Name, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="content">
         <div id="drop-files" ondragover="return false">

@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using SMPhotos.Web.ViewModel;
+using System.IO;
 
 namespace SMPhotos.Web.Controllers
 {
@@ -42,6 +43,25 @@ namespace SMPhotos.Web.Controllers
 		{
 			return View();
 		}
+		[HttpGet]
+		public ActionResult ImageLoad()
+		{
 
+			return View();
+		}
+		[HttpPost]
+		public ActionResult ImageLoad(PictureVM picture)
+		{
+			foreach (var file in picture.files)
+			{
+				if (file.ContentLength > 0)
+				{
+					var fileName = Path.GetFileName(file.FileName);
+					var filePath = Path.Combine(Server.MapPath("~/App_Data/TestAlbum"), fileName);
+					file.SaveAs(filePath);
+				}
+			}
+			return View();
+		}
 	}
 }

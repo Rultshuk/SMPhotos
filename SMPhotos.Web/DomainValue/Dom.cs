@@ -65,6 +65,7 @@ namespace SMPhotos.Web
 			{
 				public const string Name = "Main";
 				public const string main = "Main";
+				public const string ImageLoad = "ImageLoad";
 			}
 
 		}

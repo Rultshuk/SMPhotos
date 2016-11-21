@@ -25,7 +25,7 @@ namespace SMPhotos.Web
 	public static class Navigation
 	{
 		public const string Home = "Home";
-		public const string About = "About SMPhotos";
+		public const string About = "About";
 		public const string Contact = "Contact";
 		public const string Settings = "Settings";
 		public const string ChangeProfile = "Change Profile";

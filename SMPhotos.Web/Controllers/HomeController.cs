@@ -53,7 +53,10 @@ namespace SMPhotos.Web.Controllers
 		{
 			User userBase = _userRepository.Get(userVM.Id);
 			if (!ValidateChangeData(userVM, userBase))
-				return RedirectToAction("ChangeProfile");
+			{
+				userVM.Message = "Not Success!";
+				return View(userVM);
+			}
 
 			userBase.FirstName = userVM.FirstName;
 			userBase.LastName = userVM.LastName;
@@ -64,6 +67,7 @@ namespace SMPhotos.Web.Controllers
 				userBase.Password = userVM.NewPassword;
 			}
 			_userRepository.UnitOfWork.SaveChanges();
+			userVM.Message = "Success!";
 			return View(userVM);
 		}
 		public ActionResult Main()

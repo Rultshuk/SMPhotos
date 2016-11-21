@@ -4,6 +4,7 @@ body {
 .content {
 	margin-top:80px;
 	padding: 20px;
+    height: 80vh;
 }
 #drop-files {
 	position:relative;

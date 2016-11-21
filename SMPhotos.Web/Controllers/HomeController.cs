@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using AutoMapper;
 using SMPhotos.Web.ViewModel;
 using System.Net.Mail;
+using System.IO;
 
 namespace SMPhotos.Web.Controllers
 {
@@ -92,11 +93,21 @@ namespace SMPhotos.Web.Controllers
 		[HttpGet]
 		public ActionResult LoadImage()
 		{
+			
 			return View();
 		}
 		[HttpPost]
-		public ActionResult LoadImage(Image VM)
+		public ActionResult LoadImage(PictureVM picture)
 		{
+			foreach (var file in picture.files)
+			{
+				if (file.ContentLength > 0)
+				{
+					var fileName = Path.GetFileName(file.FileName);
+					var filePath = Path.Combine(Server.MapPath("~/Images"), fileName);
+					file.SaveAs(filePath);
+				}
+			}	
 			return View();
 		}
 		[HttpGet]

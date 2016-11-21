@@ -12,6 +12,10 @@ namespace Guestbook
 						"~/Scripts/modernizr-2.6.2.js",
 						"~/Scripts/bootstrap.min.js"));
 
+			bundles.Add(new ScriptBundle("~/Scripts/imageLoad/js").Include(
+						"~/Scripts/jquery-2.1.3.min.js",
+						"~/Scripts/imageLoad.js"));
+
 			bundles.Add(new ScriptBundle("~/Scripts/upload/js").Include(
 						"~/Scripts/fileinput.js",
 						"~/Scripts/some.js"));
@@ -34,6 +38,9 @@ namespace Guestbook
 
 			bundles.Add(new StyleBundle("~/Content/admin/css").Include(
 						"~/Content/admin.css"));
+
+			bundles.Add(new StyleBundle("~/Content/loadImage/css").Include(
+			"~/Content/load.css"));
 
 			bundles.Add(new StyleBundle("~/Content/base/css").Include(
 						"~/Content/base.css",

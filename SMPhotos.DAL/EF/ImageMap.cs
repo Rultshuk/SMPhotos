@@ -8,7 +8,7 @@ namespace SMPhotos.DAL
 		{
 			ToTable("Image", "smp").HasKey(t => t.Id);
 			Property(t => t.Name).HasMaxLength(128).IsRequired();
-			Property(t => t.Name).HasMaxLength(64);
+			Property(t => t.Description).HasMaxLength(64);
 		}
 	}
 }

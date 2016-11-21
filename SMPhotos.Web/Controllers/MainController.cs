@@ -31,6 +31,10 @@ namespace SMPhotos.Web.Controllers
 			AlbumListVM viewModel = new AlbumListVM();
 			var albums = (IList<Album>)_albumRepository.GetAll();
 			viewModel.AllAlbums = AutoMapper.Mapper.Map<IList<AlbumVM>>(albums);
+			foreach (var alb in viewModel.AllAlbums)
+			{
+				alb.PathAlbum = alb.Path + alb.Guid + '/' + alb.Image[0].Name;
+			}
 			return View(viewModel);
 		}
 

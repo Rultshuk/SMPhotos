@@ -23,21 +23,36 @@ namespace SMPhotos.Web.Controllers
 		}
 		public ActionResult Index()
 		{
+			if (SessionManager.CurentUserContext == null ? false : SessionManager.CurentUserContext.IsLogged)
+			{
+				if (SessionManager.CurentUserContext.IsActive)
+					return RedirectToAction(MVCManager.Controller.Main.main, MVCManager.Controller.Main.Name);
+				else ////TODO Show not Activated view
+					return View();
+			}
 			return View();
+
 		}
 		[HttpPost]
 		public ActionResult Index(UserCredentialsVM userCredentialsVM)
 		{
-			//TODO Validate credentials
+			if (!ValidateCredentials(userCredentialsVM))
+				return View();
 			User user = _userRepository.GetByCredentials(userCredentialsVM.Email, userCredentialsVM.Password);
 			if (user == null)
+				//TODO Show wrong credentials message
 				return View();
-			//TODO Show wrong credentials message
 			SessionManager.CurentUserContext = Mapper.Map<User, UserContext>(user);
-			if (SessionManager.CurentUserContext.IsActive)
-				return RedirectToAction(MVCManager.Controller.Main.main, MVCManager.Controller.Main.Name);
-			return View();
-			//TODO Show not Activated view
+			SessionManager.CurentUserContext.IsLogged = true;
+			return RedirectToAction(MVCManager.Controller.Home.Index);
+		}
+		public ActionResult Logout()
+		{
+			if (SessionManager.CurentUserContext == null ? false : SessionManager.CurentUserContext.IsLogged)
+			{
+				SessionManager.CurentUserContext.IsLogged = false;
+			}
+			return RedirectToAction(MVCManager.Controller.Home.Index);
 		}
 		[HttpGet]
 		public ActionResult ChangeProfile()
@@ -99,7 +114,24 @@ namespace SMPhotos.Web.Controllers
 			_userRepository.UnitOfWork.SaveChanges();
 			return View();
 		}
+		private bool ValidateCredentials(UserCredentialsVM userCredentialsVM)
+		{
+			bool isValid = true;
 
+			try
+			{
+				MailAddress email = new MailAddress(userCredentialsVM.Email);
+			}
+			catch (Exception)
+			{
+				isValid = false;
+			}
+			if (string.IsNullOrWhiteSpace(userCredentialsVM.Password))
+			{
+				isValid = false;
+			}
+			return isValid;
+		}
 		private bool ValidateRegisterData(RegisterUserVM userVM)
 		{
 			bool isValid = true;

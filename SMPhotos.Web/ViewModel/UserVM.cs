@@ -16,6 +16,7 @@ namespace SMPhotos.Web.ViewModel
 		public string FirstName { get; set; }
 		public string LastName { get; set; }
 		public string Location { get; set; }
+		public string Message { get; set; }
 		public bool IsAdmin { get; set; }
 		public bool IsActive { get; set; }
 		public bool IsUploader { get; set; }

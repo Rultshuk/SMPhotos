@@ -1,17 +1,17 @@
 ﻿@model SMPhotos.Web.ViewModel.UserCredentialsVM
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Translation.SignIn;
 }
-@Html.Partial("_Navigation")
+@*@Html.Partial("_Navigation")*@
 @Styles.Render("~/Content/login/css")
 
 <div class="container">
     <div class="myform">
-        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-signin" }))
+        @using (Html.BeginForm(MVCManager.Controller.Home.Index, MVCManager.Controller.Home.Name, FormMethod.Post, new { @class = "form-signin" }))
         {
-            <h2 class="form-signin-heading">Please sign in or <a href="@Url.Action("Register", "Home")">Join us</a></h2>
-            @Html.TextBoxFor(m => m.Email, htmlAttributes: new { @class = "form-control input-lg", @placeholder = "Email Address", @type = "email", @required = "true", @autofocus = "true" })
-            @Html.TextBoxFor(m => m.Password, htmlAttributes: new { @class = "form-control input-lg", @placeholder = "Password", @type = "password", @required = "true" })
+            <h2 class="form-signin-heading">Please sign in or <a href="@Url.Action( MVCManager.Controller.Home.Register, MVCManager.Controller.Home.Name)">Join us</a></h2>
+            @Html.TextBoxFor(m => m.Email, htmlAttributes: new { @class = "form-control input-lg", @placeholder = Translation.Email, @type = "email", @required = "true", @autofocus = "true" })
+            @Html.TextBoxFor(m => m.Password, htmlAttributes: new { @class = "form-control input-lg", @placeholder = Translation.Password, @type = "password", @required = "true" })
             <div class="checkbox">
                 <label>
                     <input type="checkbox" class="checkbox-primary" value="remember-me"> Remember me

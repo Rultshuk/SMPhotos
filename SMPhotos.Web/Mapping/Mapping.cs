@@ -12,10 +12,11 @@ namespace SMPhotos.Web
 		{
 			CreateMap<User, UserVM>()
 				.ForMember(d => d.NewPassword, o => o.Ignore())
+				.ForMember(d => d.Message, o => o.Ignore())
 				.ForMember(d => d.ConfirmNewPassword, o => o.Ignore());
 			CreateMap<Album, AlbumVM>()
 				.ForMember(d => d.PathAlbum, o => o.Ignore());
-			CreateMap<User, UserContext>();
+				.ForMember(d => d.IsLogged, o => o.Ignore());
 			//CreateMap<Image, ImageVM>();
 		}
 	}

@@ -11,5 +11,6 @@ namespace SMPhotos.Web
 		public bool IsAdmin { get; set; }
 		public bool IsActive { get; set; }
 		public bool IsUploader { get; set; }
+		public bool IsLogged { get; set; }
 	}
 }

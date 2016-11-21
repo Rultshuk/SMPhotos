@@ -1,5 +1,5 @@
 ﻿--User
-INSERT INTO [smp].[User] ([Email], [Password], [FirstName], [LastName], [Location], [IsAdmin], [IsActive], [IsUploader]) VALUES ('mail@mail.com', 'password', 'Admin', 'Super', 'Estonia', 1, 1, 1);
+INSERT INTO [smp].[User] ([Email], [Password], [FirstName], [LastName], [Location], [IsAdmin], [IsActive], [IsUploader]) VALUES ('mail@mail.com', 'password', 'Adminka', 'Super', 'Estonia', 1, 1, 1);
 INSERT INTO [smp].[User] ([Email], [Password], [FirstName], [LastName], [Location], [IsAdmin], [IsActive], [IsUploader]) VALUES ('dmurray1@ed.gov', 'EZCPMHWORojt', 'Dorothy', 'Murray', 'Colombia', 0, 0, 0);
 INSERT INTO [smp].[User] ([Email], [Password], [FirstName], [LastName], [Location], [IsAdmin], [IsActive], [IsUploader]) VALUES ('aaustin2@comsenz.com', 'jLB8hUpGFC', 'Ashley', 'Austin', 'Cameroon', 0, 0, 0);
 INSERT INTO [smp].[User] ([Email], [Password], [FirstName], [LastName], [Location], [IsAdmin], [IsActive], [IsUploader]) VALUES ('awalker3@archive.org', 'HLcHDA0', 'Anna', 'Walker', 'China', 0, 0, 0);

@@ -1,25 +1,25 @@
 ﻿@model SMPhotos.Web.ViewModel.UserVM
 @{
-    ViewBag.Title = "ChangeProfile";
+    ViewBag.Title = View.ChangeProfile;
 }
 @Styles.Render("~/Content/join/css")
 
 <div class="row">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-        @using (Html.BeginForm("ChangeProfile", "Home", FormMethod.Post, new { @class = "joinus" }))
+        @using (Html.BeginForm(View.ChangeProfile, MVCManager.Controller.Home.Name, FormMethod.Post, new { @class = "joinus" }))
         {
-            <h2>Change your Profile <small>It's free, don`t be scared.</small></h2>
+            <h2>@Translation.ChangesProfile<small>@Translation.ItsFreeJoke</small></h2>
             <hr>
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="form-group">
                         @Html.HiddenFor(m => m.Id)
-                        @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control input-lg has-feedback", required = "required", title = "This field can`t be empty", placeholder = "First Name" } })
+                        @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control input-lg has-feedback", @placeholder = Translation.FirstName } })
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="form-group">
-                        @Html.EditorFor(m => m.LastName, new { htmlAttributes = new { @class = "form-control input-lg", required = "required", title = "This field can`t be empty", placeholder = "Last Name" } })
+                        @Html.EditorFor(m => m.LastName, new { htmlAttributes = new { @class = "form-control input-lg", @placeholder = Translation.LastName } })
                     </div>
                 </div>
             </div>
@@ -27,35 +27,33 @@
                 @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control input-lg", @type = "email", @required = "true" } })
             </div>
             <div class="form-group">
-                @Html.EditorFor(m => m.Location, new { htmlAttributes = new { @class = "form-control input-lg", required = "required", title = "This field can`t be empty", placeholder = "Location" } })
+                @Html.EditorFor(m => m.Location, new { htmlAttributes = new { @class = "form-control input-lg", @placeholder = Translation.Location } })
             </div>
             <div class="form-group">
-                @Html.EditorFor(m => m.Password, new { htmlAttributes = new { @type = "password", @class = "form-control input-lg", placeholder = "Password"  } })
+                @Html.EditorFor(m => m.Password, new { htmlAttributes = new { @type = "password", @class = "form-control input-lg", @placeholder = Translation.Password } })
             </div>
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="form-group">
-                        @Html.EditorFor(m => m.NewPassword, new { htmlAttributes = new { @type = "password", @class = "form-control input-lg", @id ="password", placeholder = "New Password", pattern = ".{6,}", title = "Six or more characters" } })
+                        @Html.EditorFor(m => m.NewPassword, new { htmlAttributes = new { @type = "password", @class = "form-control input-lg", @id = "password", @placeholder = Translation.NewPassword, @pattern = ".{6,}", @title = "Six or more characters" } })
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="form-group">
-                        @Html.EditorFor(m => m.ConfirmNewPassword, new { htmlAttributes = new { @type = "password", @class = "form-control input-lg", @id = "confirm_password", placeholder = "Confirm New Password" } })
+                        @Html.EditorFor(m => m.ConfirmNewPassword, new { htmlAttributes = new { @type = "password", @class = "form-control input-lg", @id = "confirm_password", @placeholder = Translation.PasswordConfirmation } })
                     </div>
                 </div>
             </div>
-                <hr>
-                <div class="row">
-                    <div class="col-xs-6 col-md-6"><button type="submit" class="btn btn-primary btn-block btn-lg" data-toggle="modal" data-target="#myModal">Apply changes</button></div>
-                    <div class="col-xs-6 col-md-6"><a href="#" class="btn btn-danger btn-block btn-lg">Reset changes</a></div>
+            <hr>
+            <div class="row">
+                <div class="col-xs-6 col-md-6"><button type="submit" class="btn btn-primary btn-block btn-lg">@Translation.ApplyChanges</button></div>
+                <div class="col-xs-6 col-md-6">
+                    @Html.ActionLink(@Translation.ResetChanges, MVCManager.Controller.Home.ChangeProfile, MVCManager.Controller.Home.Name, new { @class = "btn btn-danger btn-block btn-lg" })
                 </div>
+            </div>
         }
     </div>
 </div>
-@Html.Partial("_Modal")
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    Modal Window
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -63,10 +61,10 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Название модали</h4>
+                <h4 class="modal-title" id="myModalLabel">Operation status:</h4>
             </div>
             <div class="modal-body">
-                Status : Success!
+                @Model.Message
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
@@ -75,6 +73,16 @@
     </div>
 </div>
 
-@section Script{
-    @Scripts.Render("~/Scripts/passwordValidation/js")
+@if (!string.IsNullOrWhiteSpace(Model.Message))
+{
+    @section Script
+{
+        @Scripts.Render("~/Scripts/modalValidation/js")
+    }
+}
+else
+{
+    @section Script{
+        @Scripts.Render("~/Scripts/passwordValidation/js")
+    }
 }

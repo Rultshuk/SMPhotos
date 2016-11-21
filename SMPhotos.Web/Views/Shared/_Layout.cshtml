@@ -3,18 +3,27 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - @Navigation.SMPhotos</title>
     @Styles.Render("~/Content/base/css")
     @RenderSection("Styles", false)
 </head>
 <body>
     @Html.Partial("_Navigation")
     <div class="container">
+        @*@RenderSection("Body")*@
         @RenderBody()
-        <footer>
-            <p>SMStudents &copy; @DateTime.Now.Year</p>
-        </footer>
     </div>
+    @*Проверка наличия секции Footer в текущем представлении*@
+    @if (IsSectionDefined("Footer"))
+    {
+        @RenderSection("Footer");
+    }
+    else
+    {
+        <footer>
+            <p>@Navigation.SMStudents &copy; @DateTime.Now.Year</p>
+        </footer>
+    }
     @Scripts.Render("~/Scripts/base/js")
     @RenderSection("Script", false)
 </body>

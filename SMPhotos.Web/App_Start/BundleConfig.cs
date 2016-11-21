@@ -19,6 +19,10 @@ namespace Guestbook
 			bundles.Add(new ScriptBundle("~/Scripts/passwordValidation/js").Include(
 						"~/Scripts/passwordValidation.js"));
 
+			bundles.Add(new ScriptBundle("~/Scripts/modalValidation/js").Include(
+						"~/Scripts/passwordValidation.js",
+						"~/Scripts/modal.js"));
+
 			bundles.Add(new StyleBundle("~/Content/login/css").Include(
 						"~/Content/login.css"));
 

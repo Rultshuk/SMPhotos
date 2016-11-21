@@ -104,7 +104,7 @@ namespace SMPhotos.Web.Controllers
 				if (file.ContentLength > 0)
 				{
 					var fileName = Path.GetFileName(file.FileName);
-					var filePath = Path.Combine(Server.MapPath("~/Images"), fileName);
+					var filePath = Path.Combine(Server.MapPath("~/App_Data/TestAlbum"), fileName);
 					file.SaveAs(filePath);
 				}
 			}	

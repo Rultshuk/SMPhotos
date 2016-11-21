@@ -38,5 +38,10 @@ namespace SMPhotos.Web.Controllers
 			return View(viewModel);
 		}
 
+		public ActionResult Album()
+		{
+			return View();
+		}
+
 	}
 }

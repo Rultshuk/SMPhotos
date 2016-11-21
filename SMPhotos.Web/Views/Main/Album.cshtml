@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Album";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles
+{
+    @Styles.Render("~/Content/fancyBox/css")
+}
+
+<hr />
+
+<div @*class="container"*@>
+    <h2>Fancy Test</h2>
+
+    <a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm6.staticflickr.com/5444/17679973232_568353a624_b.jpg" title="Golden Manarola (Sanjeev Deo)">
+        <img src="http://farm6.staticflickr.com/5444/17679973232_568353a624_m.jpg" alt="" />
+    </a>
+    <a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm8.staticflickr.com/7367/16426879675_e32ac817a8_b.jpg" title="Codirosso spazzacamino (Massimo Greco _Foligno)">
+        <img src="http://farm8.staticflickr.com/7367/16426879675_e32ac817a8_m.jpg" alt="" />
+    </a>
+    <a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm6.staticflickr.com/5612/15344856989_449794889d_b.jpg" title="Morning Twilight (Jose Hamra Images)">
+        <img src="http://farm6.staticflickr.com/5612/15344856989_449794889d_m.jpg" alt="" />
+    </a>
+    <a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm8.staticflickr.com/7289/16207238089_0124105172_b.jpg" title="(Eric Goncalves (cathing up again!))">
+        <img src="http://farm8.staticflickr.com/7289/16207238089_0124105172_m.jpg" alt="" />
+    </a>
+
+</div>
+
+@section Script
+{
+    @Scripts.Render("~/Scripts/fancyBox/js")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".fancybox-thumb").fancybox({
+                prevEffect: 'none',
+                nextEffect: 'none',
+                closeBtn: false,
+                helpers: {
+                    title: {
+                        type: 'outside'
+                    },
+                    thumbs: {
+                        width: 50,
+                        height: 50
+                    },
+                    buttons: {}
+                }
+            });
+        });
+    </script>
+}

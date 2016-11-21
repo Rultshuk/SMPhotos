@@ -313,6 +313,7 @@
     </None>
     <Content Include="Views\Home\ChangeProfile.cshtml" />
     <Content Include="Views\Home\LoadImage.cshtml" />
+    <Content Include="Views\Main\Album.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -323,7 +324,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SMPhotos.DAL\SMPhotos.DAL.csproj">

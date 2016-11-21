@@ -14,7 +14,8 @@ namespace SMPhotos.Web
 				.ForMember(d => d.NewPassword, o => o.Ignore())
 				.ForMember(d => d.ConfirmNewPassword, o => o.Ignore());
 			CreateMap<Album, AlbumVM>();
-			CreateMap<User, UserContext>();
+			CreateMap<User, UserContext>()
+				.ForMember(d => d.IsLogged, o => o.Ignore());
 		}
 	}
 }

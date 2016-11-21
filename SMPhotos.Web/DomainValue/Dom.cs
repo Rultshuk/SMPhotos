@@ -52,15 +52,13 @@ namespace SMPhotos.Web
 
 		public static class Controller
 		{
-			public static class User
-			{
-				public const string Name = "User";
-			}
 			public static class Home
 			{
 				public const string Name = "Home";
 				public const string Index = "Index";
 				public const string ChangeProfile = "ChangeProfile";
+				public const string Logout = "Logout";
+				public const string Register = "Register";
 
 			}
 			public static class Main
@@ -69,12 +67,6 @@ namespace SMPhotos.Web
 				public const string main = "Main";
 			}
 
-		}
-		public static class View
-		{
-			public static class User
-			{
-			}
 		}
 	}
 }

@@ -26,7 +26,7 @@ namespace SMPhotos.Web.Controllers
 		{
 			return View();
 		}
-
+		[Authorize(Roles = "User")]
 		public ActionResult Main()
 		{
 			AlbumListVM viewModel = new AlbumListVM();

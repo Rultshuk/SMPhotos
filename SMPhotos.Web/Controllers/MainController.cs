@@ -34,7 +34,7 @@ namespace SMPhotos.Web.Controllers
 			viewModel.AllAlbums = AutoMapper.Mapper.Map<IList<AlbumVM>>(albums);
 			foreach (var alb in viewModel.AllAlbums)
 			{
-				alb.PathAlbum = alb.Path + alb.Guid + '/' + alb.Image[0].Name;
+				alb.PathAlbum = alb.Path + alb.Guid + '/';
 			}
 			return View(viewModel);
 		}
@@ -44,9 +44,16 @@ namespace SMPhotos.Web.Controllers
 		{
 			var albums = (IList<Album>)_albumRepository.GetAll();
 			var album = albums.FirstOrDefault(x => x.Id == id);
-			AlbumVM albumVM = AutoMapper.Mapper.Map<AlbumVM>(album);
-			albumVM.PathAlbum = albumVM.Path + albumVM.Guid + '/';
-			return View(albumVM);
+			if(album==null)
+			{
+				return RedirectToAction(MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Name);
+			}
+			else
+			{
+				AlbumVM albumVM = AutoMapper.Mapper.Map<AlbumVM>(album);
+				albumVM.PathAlbum = albumVM.Path + albumVM.Guid + '/';
+				return View(albumVM);
+			}
 		}
 
 		[HttpGet]

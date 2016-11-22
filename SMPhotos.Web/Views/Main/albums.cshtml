@@ -23,7 +23,7 @@
         {
             <div class="col-md-4 portfolio-item">
                 <a href="#">
-                    <a href="@Url.Action("album", new { id = albums.Id})"><img class="img-responsive" src="@albums.PathAlbum" alt=""></a>
+                    <a href="@Url.Action("album", new { id = albums.Id})"><img class="img-responsive" src="@albums.PathAlbum@albums.Image[0].Name" alt=""></a>
                     
                 </a>
                 <h3>

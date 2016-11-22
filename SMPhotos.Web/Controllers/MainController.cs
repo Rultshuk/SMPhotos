@@ -44,7 +44,7 @@ namespace SMPhotos.Web.Controllers
 		{
 			var albums = (IList<Album>)_albumRepository.GetAll();
 			var album = albums.FirstOrDefault(x => x.Id == id);
-			if(album==null)
+			if (album == null)
 			{
 				return RedirectToAction(MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Name);
 			}
@@ -74,20 +74,19 @@ namespace SMPhotos.Web.Controllers
 					file.SaveAs(filePath);
 				}
 			}
-
 			InitImages(picture);
-
 			return View();
 		}
 
 		void InitImages(PictureVM pictureVM)
 		{
 			var album = _albumRepository.GetAlbumByGuid(_albumRepository.Get(1).Guid);
-			foreach (var file in pictureVM.files) {
+			foreach (var file in pictureVM.files)
+			{
 				Image image = new Image();
-				image.Name= Path.GetFileName(file.FileName).ToString();
+				image.Name = Path.GetFileName(file.FileName).ToString();
 				album.Image.Add(image);
-					}
+			}
 			_albumRepository.UnitOfWork.SaveChanges();
 		}
 	}

@@ -14,13 +14,13 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    @Html.ActionLink(Navigation.Home, View.Index, MVCManager.Controller.Home.Name, new { }, new { @title = "Go to " + @Navigation.SMPhotos + " " + @Navigation.Home })
+                    @Html.ActionLink(Navigation.Home, View.Index, MVCManager.Controller.Home.Name, null, new { @title = "Go to " + @Navigation.SMPhotos + " " + @Navigation.Home })
                 </li>
                 <li>
-                    @Html.ActionLink(Navigation.About, View.Index, MVCManager.Controller.Home.Name, new { }, new { @title = Navigation.About })
+                    @Html.ActionLink(Navigation.About, View.Index, MVCManager.Controller.Home.Name, null, new { @title = Navigation.About })
                 </li>
                 <li>
-                    @Html.ActionLink(Navigation.Contact, View.Index, MVCManager.Controller.Home.Name, new { }, new { @title = Navigation.Contact })
+                    @Html.ActionLink(Navigation.Contact, View.Index, MVCManager.Controller.Home.Name, null, new { @title = Navigation.Contact })
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

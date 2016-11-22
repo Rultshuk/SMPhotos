@@ -12,6 +12,10 @@ namespace Guestbook
 						"~/Scripts/modernizr-2.6.2.js",
 						"~/Scripts/bootstrap.min.js"));
 
+			bundles.Add(new ScriptBundle("~/Scripts/imageLoad/js").Include(
+						"~/Scripts/jquery-2.1.3.min.js",
+						"~/Scripts/imageLoad.js"));
+
 			bundles.Add(new ScriptBundle("~/Scripts/upload/js").Include(
 						"~/Scripts/fileinput.js",
 						"~/Scripts/some.js"));
@@ -22,6 +26,14 @@ namespace Guestbook
 			bundles.Add(new ScriptBundle("~/Scripts/modalValidation/js").Include(
 						"~/Scripts/passwordValidation.js",
 						"~/Scripts/modal.js"));
+
+			bundles.Add(new ScriptBundle("~/Scripts/fancyBox/js")
+				.Include("~/Scripts/jquery.fancybox.js")
+				.Include("~/Scripts/jquery.fancybox.pack.js")
+				.Include("~/Scripts/jquery.fancybox-buttons.js")
+				.Include("~/Scripts/jquery.fancybox-media.js")
+				.Include("~/Scripts/jquery.fancybox-thumbs.js")
+				.Include("~/Scripts/jquery.mousewheel-3.0.6.pack.js"));
 
 			bundles.Add(new StyleBundle("~/Content/login/css").Include(
 						"~/Content/login.css"));
@@ -35,9 +47,15 @@ namespace Guestbook
 			bundles.Add(new StyleBundle("~/Content/admin/css").Include(
 						"~/Content/admin.css"));
 
+			bundles.Add(new StyleBundle("~/Content/loadImage/css").Include(
+			"~/Content/load.css"));
+
 			bundles.Add(new StyleBundle("~/Content/base/css").Include(
 						"~/Content/base.css",
 						"~/Content/bootstrap.min.css"));
+
+			bundles.Add(new StyleBundle("~/Content/fancyBox/css")
+				.Include("~/Content/jquery.fancybox*"));
 		}
 	}
 }

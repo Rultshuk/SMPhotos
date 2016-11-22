@@ -18,5 +18,10 @@ namespace SMPhotos.DAL
 				.Where(e => e.AlbumId == Id)
 				.ToList<Image>();
 		}
+		public Album GetAlbumByGuid(Guid Id)
+		{
+			return _unitOfWork.Context.Album
+				.Where(e => e.Guid == Id).FirstOrDefault();
+		}
 	}
 }

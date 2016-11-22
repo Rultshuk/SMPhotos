@@ -40,7 +40,7 @@ namespace SMPhotos.Web.Controllers
 		}
 
 		[HttpGet]
-		public ActionResult album(int id)
+		public ActionResult album(int? id)
 		{
 			var albums = (IList<Album>)_albumRepository.GetAll();
 			var album = albums.FirstOrDefault(x => x.Id == id);
@@ -55,7 +55,7 @@ namespace SMPhotos.Web.Controllers
 				return View(albumVM);
 			}
 		}
-
+		
 		[HttpGet]
 		public ActionResult ImageLoad()
 		{

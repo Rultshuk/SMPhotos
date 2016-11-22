@@ -9,15 +9,18 @@
     <div class="myform">
         @using (Html.BeginForm(MVCManager.Controller.Home.Index, MVCManager.Controller.Home.Name, FormMethod.Post, new { @class = "form-signin" }))
         {
-            <h2 class="form-signin-heading">Please sign in or <a href="@Url.Action( MVCManager.Controller.Home.Register, MVCManager.Controller.Home.Name)">Join us</a></h2>
+            <h2 class="form-signin-heading">Please sign in or <a href="@Url.Action(MVCManager.Controller.Home.Register, MVCManager.Controller.Home.Name)">Join us</a></h2>
             @Html.TextBoxFor(m => m.Email, htmlAttributes: new { @class = "form-control input-lg", @placeholder = Translation.Email, @type = "email", @required = "true", @autofocus = "true" })
             @Html.TextBoxFor(m => m.Password, htmlAttributes: new { @class = "form-control input-lg", @placeholder = Translation.Password, @type = "password", @required = "true" })
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" class="checkbox-primary" value="remember-me"> Remember me
+                    @Html.CheckBoxFor(m => m.RememberMe, htmlAttributes: new { @class = "checkbox-primary", })
+                    Remember Me
                 </label>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                @Html.ValidationMessage("credentials")
+            
         }
     </div>
 </div>

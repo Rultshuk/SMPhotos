@@ -65,15 +65,6 @@ namespace SMPhotos.Web.Controllers
 		[HttpPost]
 		public ActionResult ImageLoad(PictureVM picture)
 		{
-			foreach (var file in picture.files)
-			{
-				if (file.ContentLength > 0)
-				{
-					var fileName = Path.GetFileName(file.FileName);
-					var filePath = Path.Combine(Server.MapPath("~/App_Data/TestAlbum"), fileName);
-					file.SaveAs(filePath);
-				}
-			}
 			InitImages(picture);
 			return View();
 		}
@@ -84,7 +75,9 @@ namespace SMPhotos.Web.Controllers
 			foreach (var file in pictureVM.files)
 			{
 				Image image = new Image();
-				image.Name = Path.GetFileName(file.FileName).ToString();
+				image.Name = Guid.NewGuid().ToString() + Path.GetFileName(file.FileName);
+				var filePath = Path.Combine(Server.MapPath("~/App_Data/TestAlbum"), image.Name);
+				file.SaveAs(filePath);
 				album.Image.Add(image);
 			}
 			_albumRepository.UnitOfWork.SaveChanges();

@@ -16,10 +16,6 @@ namespace Guestbook
 						"~/Scripts/jquery-2.1.3.min.js",
 						"~/Scripts/imageLoad.js"));
 
-			bundles.Add(new ScriptBundle("~/Scripts/upload/js").Include(
-						"~/Scripts/fileinput.js",
-						"~/Scripts/some.js"));
-
 			bundles.Add(new ScriptBundle("~/Scripts/passwordValidation/js").Include(
 						"~/Scripts/passwordValidation.js"));
 

@@ -26,7 +26,8 @@ namespace SMPhotos.Web.Controllers
 			return View();
 		}
 
-		public ActionResult Main()
+		[HttpGet]
+		public ActionResult albums()
 		{
 			AlbumListVM viewModel = new AlbumListVM();
 			var albums = (IList<Album>)_albumRepository.GetAll();
@@ -38,5 +39,14 @@ namespace SMPhotos.Web.Controllers
 			return View(viewModel);
 		}
 
+		[HttpGet]
+		public ActionResult album(int id)
+		{
+			var albums = (IList<Album>)_albumRepository.GetAll();
+			var album = albums.FirstOrDefault(x => x.Id == id);
+			AlbumVM albumVM = AutoMapper.Mapper.Map<AlbumVM>(album);
+			albumVM.PathAlbum = albumVM.Path + albumVM.Guid + '/';
+			return View(albumVM);
+		}
 	}
 }

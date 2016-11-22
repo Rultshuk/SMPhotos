@@ -1,0 +1,37 @@
+﻿@model SMPhotos.Web.ViewModel.AlbumVM
+@{
+    ViewBag.Title = "Album images";
+}
+<link href="~/Content/img.css" media="all" rel="stylesheet" type="text/css" />
+<!-- Navigation -->
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Page Header -->
+    <div>
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Photos from the album!
+            </h1>
+        </div>
+    </div>
+    <!-- /.row -->
+    <!-- Projects Row -->
+    <div class="row images">
+        @foreach (var image in Model.Image)
+        {
+            <div class="col-xs-4 col-sm-2 ">
+                <a href="#">
+                    <img class="img-responsive" src="@Model.PathAlbum@image.Name" alt="">
+                </a>
+                <p></p>
+            </div>
+        }
+    </div>
+    <!-- /.row -->
+</div>
+
+@section Styles
+{
+    @Styles.Render("~/Content/img/css")
+}

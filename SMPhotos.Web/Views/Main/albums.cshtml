@@ -1,6 +1,6 @@
 ﻿@model SMPhotos.Web.ViewModel.AlbumListVM
 @{
-    ViewBag.Title = "Main";
+    ViewBag.Title = "Main albums";
 }
     <!-- Navigation -->
 
@@ -23,10 +23,11 @@
         {
             <div class="col-md-4 portfolio-item">
                 <a href="#">
-                    <img class="img-responsive" src="@albums.PathAlbum" alt="">
+                    <a href="@Url.Action("album", new { id = albums.Id})"><img class="img-responsive" src="@albums.PathAlbum" alt=""></a>
+                    
                 </a>
                 <h3>
-                    <a href="#">Album @albums.Name</a>
+                    <a href="@Url.Action("album", new { id = albums.Id})">Album @albums.Name</a>
                 </h3>
                 <p>@albums.Description</p>
             </div>

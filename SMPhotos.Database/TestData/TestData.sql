@@ -67,6 +67,16 @@ SET IDENTITY_INSERT [smp].[Album] OFF
 
 --Image
 INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1.jpg', 'First Album', 1);
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('2.jpg', 'First Album', 1);
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('3.jpg', 'First Album', 1);
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('4.jpg', 'First Album', 1);
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('5.jpg', 'First Album', 1);
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('6.jpg', 'First Album', 1);
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('7.jpg', 'First Album', 1);
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('8.jpg', 'First Album', 1);
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('9.jpg', 'First Album', 1);
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('10.jpg', 'First Album', 1);
+
 INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1.jpg', 'Second Album', 2);
 INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1.jpg', 'Third Album', 3);
 INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1.jpg', 'Fourth Album', 4);

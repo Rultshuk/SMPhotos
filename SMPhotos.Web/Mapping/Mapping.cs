@@ -18,6 +18,7 @@ namespace SMPhotos.Web
 				.ForMember(d => d.PathAlbum, o => o.Ignore());
 			CreateMap<User, UserContext>()
 				.ForMember(d => d.IsLogged, o => o.Ignore());
+			CreateMap<Image, ImageVM>();
 		}
 	}
 }

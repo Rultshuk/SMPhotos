@@ -6,7 +6,7 @@ using System.Web;
 
 namespace SMPhotos.Web.ViewModel
 {
-	public class AlbumVM
+	public class AlbumVM : Base
 	{
 		//public AlbumVM()
 		//{

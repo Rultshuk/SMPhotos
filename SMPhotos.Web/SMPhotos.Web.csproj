@@ -211,10 +211,20 @@
     <Content Include="Content\img\4485b513-7817-4483-b7c9-af99bd0f15ea\1.jpg" />
     <Content Include="Content\img\70b9ef63-f689-4cfb-9d6f-5ed125d491b2\1.jpg" />
     <Content Include="Content\img\de78fd3c-4534-4a68-adc4-efcc72f89363\1.jpg" />
+    <Content Include="Content\img\de78fd3c-4534-4a68-adc4-efcc72f89363\10.jpg" />
+    <Content Include="Content\img\de78fd3c-4534-4a68-adc4-efcc72f89363\2.jpg" />
+    <Content Include="Content\img\de78fd3c-4534-4a68-adc4-efcc72f89363\3.jpg" />
+    <Content Include="Content\img\de78fd3c-4534-4a68-adc4-efcc72f89363\4.jpg" />
+    <Content Include="Content\img\de78fd3c-4534-4a68-adc4-efcc72f89363\5.jpg" />
+    <Content Include="Content\img\de78fd3c-4534-4a68-adc4-efcc72f89363\6.jpg" />
+    <Content Include="Content\img\de78fd3c-4534-4a68-adc4-efcc72f89363\7.jpg" />
+    <Content Include="Content\img\de78fd3c-4534-4a68-adc4-efcc72f89363\8.jpg" />
+    <Content Include="Content\img\de78fd3c-4534-4a68-adc4-efcc72f89363\9.jpg" />
     <Content Include="Content\img\e5af00cc-726e-4252-a13e-459c6567454a\1.jpg" />
     <Content Include="Content\img\f56bd610-5320-48dd-b4cd-2825438a70be\1.jpg" />
     <Content Include="Content\img\fb3840f6-67b5-4f49-a0dd-707895f680cb\1.jpg" />
     <Content Include="Content\img\ff2fe1f2-7b29-4910-83db-fd7e0a86d116\1.jpg" />
+    <Content Include="Content\img.css" />
     <Content Include="Content\upload.css" />
     <Content Include="Content\join.css" />
     <Content Include="Content\login.css" />
@@ -264,6 +274,7 @@
     <Compile Include="UserContext\UserContext.cs" />
     <Compile Include="ViewModel\AlbumListVM.cs" />
     <Compile Include="ViewModel\AlbumVM.cs" />
+    <Compile Include="ViewModel\ImageListVM.cs" />
     <Compile Include="ViewModel\ImageVM.cs" />
     <Compile Include="ViewModel\RegisterUserVM.cs" />
     <Compile Include="ViewModel\UserCredentialsVM.cs" />
@@ -283,7 +294,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Main\Main.cshtml" />
+    <Content Include="Views\Main\albums.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
     <Content Include="Views\Home\Upload.cshtml" />
@@ -293,7 +304,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Content Include="Views\Home\ChangeProfile.cshtml" />
-    <Content Include="Views\Home\_Modal.cshtml" />
+    <Content Include="Views\Main\album.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

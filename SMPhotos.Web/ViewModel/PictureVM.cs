@@ -7,6 +7,7 @@ namespace SMPhotos.Web.ViewModel
 {
 	public class PictureVM
 	{
+		public Guid Guid { get; set; }
 		public IEnumerable<HttpPostedFileBase> files { get; set; }
 
 	}

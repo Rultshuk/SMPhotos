@@ -13,6 +13,6 @@ namespace SMPhotos.DAL
 		public string Description { get; set; }
 		public string Path { get; set; }
 		public Guid Guid { get; set; }
-		public virtual ICollection<Image> Image { get; set; }
+		public ICollection<Image> Image { get; set; }
 	}
 }

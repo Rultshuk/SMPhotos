@@ -66,9 +66,9 @@ SET IDENTITY_INSERT [smp].[Album] ON
 SET IDENTITY_INSERT [smp].[Album] OFF
 
 --Image
-INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1.jpg', 'First Album', 1);
-INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('2.jpg', 'First Album', 1);
-INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('3.jpg', 'First Album', 1);
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1.jpg', 'C# is the best', 1);
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('2.jpg', 'new photos', 1);
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('3.jpg', 'my desc of photos', 1);
 INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('4.jpg', 'First Album', 1);
 INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('5.jpg', 'First Album', 1);
 INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('6.jpg', 'First Album', 1);

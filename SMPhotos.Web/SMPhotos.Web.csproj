@@ -212,6 +212,7 @@
     <Content Include="Content\fancybox\fancybox_overlay.png" />
     <Content Include="Content\fancybox\fancybox_sprite%402x.png" />
     <Content Include="Content\fancybox\fancybox_sprite.png" />
+    <Content Include="Content\img.css" />
     <Content Include="Content\img\2d62a4db-ec30-41d6-a9d9-c1e037b44a17\1.jpg" />
     <Content Include="Content\img\39d09d90-b53c-47d8-bab6-f96630f9bc9b\1.jpg" />
     <Content Include="Content\img\421aca62-f921-4c0a-b212-d0b5081e0a25\1.jpg" />
@@ -231,17 +232,10 @@
     <Content Include="Content\img\f56bd610-5320-48dd-b4cd-2825438a70be\1.jpg" />
     <Content Include="Content\img\fb3840f6-67b5-4f49-a0dd-707895f680cb\1.jpg" />
     <Content Include="Content\img\ff2fe1f2-7b29-4910-83db-fd7e0a86d116\1.jpg" />
-<<<<<<< .mine
-    <Content Include="Content\img.css" />
-
-
-
-=======
     <Content Include="Content\jquery.fancybox-buttons.css" />
     <Content Include="Content\jquery.fancybox-thumbs.css" />
     <Content Include="Content\jquery.fancybox.css" />
     <Content Include="Content\load.css" />
->>>>>>> .theirs
     <Content Include="Content\upload.css" />
     <Content Include="Content\join.css" />
     <Content Include="Content\login.css" />
@@ -319,7 +313,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Main\albums.cshtml" />
+    <Content Include="Views\Main\Main.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
     <Content Include="Views\Home\Upload.cshtml" />
@@ -330,7 +324,8 @@
     </None>
     <Content Include="Views\Home\ChangeProfile.cshtml" />
     <Content Include="Views\Main\ImageLoad.cshtml" />
-    <Content Include="Views\Main\album.cshtml" />
+    <Content Include="Views\Main\Album.cshtml" />
+    <Content Include="Views\Main\albums.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -293,7 +293,16 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Bootstrapper\Bootstrapper.cs" />
+    <Compile Include="Controllers\HomeController.Admin.cs">
+      <DependentUpon>HomeController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\HomeController.Auth.cs">
+      <DependentUpon>HomeController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HomeController.Validation.cs">
+      <DependentUpon>HomeController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="DependencyInjection\DependencyResolverConfig.cs" />
     <Compile Include="DependencyInjection\IWebTypeResolver.cs" />

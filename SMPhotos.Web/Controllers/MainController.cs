@@ -103,7 +103,7 @@ namespace SMPhotos.Web.Controllers
 			foreach (var file in pictureVM.files)
 			{
 				Image image = new Image();
-				image.Name = Guid.NewGuid().ToString() + Path.GetFileName(file.FileName);
+				image.Name = DateTime.Now.Ticks.ToString() + Path.GetFileName(file.FileName);
 				var filePath = Path.Combine(Server.MapPath("~/App_Data/TestAlbum"), image.Name);
 				file.SaveAs(filePath);
 				album.Image.Add(image);

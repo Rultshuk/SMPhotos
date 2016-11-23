@@ -76,6 +76,11 @@ INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('7.jpg', 'F
 INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('8.jpg', 'First Album', 1);
 INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('9.jpg', 'First Album', 1);
 INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('10.jpg', 'First Album', 1);
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('3200_2600.png', '3200_2600', 1);
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('800_533.png', '800*533', 1);
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1600_1200.png', '1600*1200', 1);
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1600_3200.png', '1600*3200', 1);
+INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1200_1600.png', '1200*1600', 1);
 
 INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1.jpg', 'Second Album', 2);
 INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1.jpg', 'Third Album', 3);

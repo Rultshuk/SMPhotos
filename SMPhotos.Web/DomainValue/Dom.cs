@@ -65,7 +65,9 @@ namespace SMPhotos.Web
 			public static class Main
 			{
 				public const string Name = "Main";
-				public const string Albums = "albums";
+				public const string album = "album";
+				public const string albums = "albums";
+				public const string albumtext = "albumtext";
 				public const string ImageLoad = "ImageLoad";
 			}
 

@@ -22,19 +22,26 @@
             }*@
         </div>
     </div>
-    @Html.ActionLink("Return to " + MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Name, null, new { @title = "Return to " + @MVCManager.Controller.Main.Albums })
-    <br>
-    @Html.ActionLink("View as list of files", "albumtext/" + Model.Id, MVCManager.Controller.Main.Name, null, new { @title = "View as list of files" })
-    <hr />
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6 left">
+            <a href="@Url.Action(MVCManager.Controller.Main.albums, MVCManager.Controller.Main.Name)" title="Return to Albums" class="lead"><span class="glyphicon glyphicon-arrow-left"></span> Return to @MVCManager.Controller.Main.albums</a>
+        </div>
+        <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
+            <span class="pull-right lead">
+                View as
+                <strong title="View as grid"><span class="glyphicon glyphicon-th-large"></span></strong>
+                <a href="@Url.Action(MVCManager.Controller.Main.albumtext, MVCManager.Controller.Main.Name, new { Id = Model.Id})" title="View as list"><span class="glyphicon glyphicon-th-list"></span></a>
+            </span>
+        </div>
+    </div>
     <div class="row">
         @foreach (var image in Model.Image)
         {
-            <div class="center-cropped col-sm-3 col-md-3 col-xs-3">
+            <div class="center-cropped col-sm-3 col-md-3 col-xs-3 col-lg-3">
                 <a class="fancybox-thumb" rel="fancybox-thumb" href="@Model.PathAlbum@image.Name" title="@image.Description">
                     <img src="@Model.PathAlbum@image.Name" alt="@image.Description" />
                 </a>
-            </div>
-        }
+            </div>}
     </div>
 </div>
 @section Script

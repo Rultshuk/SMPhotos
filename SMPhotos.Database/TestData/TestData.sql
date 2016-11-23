@@ -81,7 +81,6 @@ INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('800_533.pn
 INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1600_1200.png', '1600*1200', 1);
 INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1600_3200.png', '1600*3200', 1);
 INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1200_1600.png', '1200*1600', 1);
-
 INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1.jpg', 'Second Album', 2);
 INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1.jpg', 'Third Album', 3);
 INSERT INTO [smp].[Image] ([Name], [Description], [AlbumId]) VALUES ('1.jpg', 'Fourth Album', 4);

@@ -17,7 +17,7 @@ namespace SMPhotos.Web.Controllers
 		{
 			if (User.Identity.IsAuthenticated)
 				if (User.IsInRole("User"))
-					return RedirectToAction(MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Name);
+					return RedirectToAction(MVCManager.Controller.Main.albums, MVCManager.Controller.Main.Name);
 				else ////TODO Show not Activated view
 					return View();
 			return View();

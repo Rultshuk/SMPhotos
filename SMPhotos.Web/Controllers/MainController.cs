@@ -99,12 +99,12 @@ namespace SMPhotos.Web.Controllers
 
 		void InitImages(PictureVM pictureVM)
 		{
-			var album = _albumRepository.GetAlbumByGuid(_albumRepository.Get(1).Guid);
+			var album = _albumRepository.GetAlbumByGuid(pictureVM.Guid);
 			foreach (var file in pictureVM.files)
 			{
 				Image image = new Image();
-				image.Name = DateTime.Now.Ticks.ToString() + Path.GetFileName(file.FileName);
-				var filePath = Path.Combine(Server.MapPath("~/App_Data/TestAlbum"), image.Name);
+				image.Name = Path.GetFileName(file.FileName);
+				var filePath = Path.Combine(Server.MapPath("~/App_Data/TestAlbum"), DateTime.Now.Ticks.ToString() + Path.GetFileName(file.FileName));
 				file.SaveAs(filePath);
 				album.Image.Add(image);
 			}

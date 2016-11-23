@@ -55,6 +55,15 @@ namespace SMPhotos.Web.Controllers
 				return View(albumVM);
 			}
 		}
+		//[HttpPost]
+		//public ActionResult album(AlbumVM albumVM)
+		//{
+		//	var album = _albumRepository.Get(albumVM.Id);
+		//	//PictureVM picture = new PictureVM();
+		//	PictureVM picture = AutoMapper.Mapper.Map<PictureVM>(album);
+		//	picture.Guid = album.Guid;
+		//	return RedirectToAction("ImageLoad", picture);
+		//}
 
 		[HttpGet]
 		public ActionResult albumtext(int? id)
@@ -74,10 +83,12 @@ namespace SMPhotos.Web.Controllers
 		}
 
 		[HttpGet]
-		public ActionResult ImageLoad()
+		public ActionResult ImageLoad(int id)
 		{
-
-			return View();
+			var album = _albumRepository.Get(id);
+			PictureVM picture = Mapper.Map<PictureVM>(album);
+			picture.Guid = album.Guid;
+			return View(picture);
 		}
 		[HttpPost]
 		public ActionResult ImageLoad(PictureVM picture)

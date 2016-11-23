@@ -8,6 +8,7 @@
 }
 @using (Html.BeginForm(MVCManager.Controller.Main.ImageLoad, MVCManager.Controller.Main.Name, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    @Html.HiddenFor(m => m.Guid)
     <div class="content">
         <div id="drop-files" ondragover="return false">
             <p>Drag an image here</p>

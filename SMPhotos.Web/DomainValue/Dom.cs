@@ -41,6 +41,7 @@ namespace SMPhotos.Web
 		public const string ChangeProfile = "ChangeProfile";
 		public const string Register = "Register";
 		public const string Upload = "Upload";
+		public const string ImageLoad = "ImageLoad";
 	}
 
 	public static class MVCManager

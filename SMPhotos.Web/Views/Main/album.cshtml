@@ -9,7 +9,19 @@
 }
 @*<hr />*@
 <div class="container">
-    <h2>@Model.Description</h2>
+    <div class="row">
+        <div class="col-sm-6 col-lg-6 col-md-6"><h2>@Model.Description</h2></div>
+        <div class="col-sm-6 col-lg-6 col-md-6">
+            <a href="@Url.Action(MVCManager.Controller.Main.ImageLoad, MVCManager.Controller.Main.Name, new { id = Model.Id}) ">
+                <button class="btn btn-default navbar-right" type="submit">Add images</button>
+            </a>
+
+            @*@using (Html.BeginForm("album", "Main", FormMethod.Post, new { }))
+            {
+                <button class="btn btn-default navbar-right" type="submit">Add images</button>
+            }*@
+        </div>
+    </div>
     @Html.ActionLink("Return to " + MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Name, null, new { @title = "Return to " + @MVCManager.Controller.Main.Albums })
     <br>
     @Html.ActionLink("View as list of files", "albumtext/" + Model.Id, MVCManager.Controller.Main.Name, null, new { @title = "View as list of files" })

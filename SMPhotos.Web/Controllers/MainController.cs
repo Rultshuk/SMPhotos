@@ -100,11 +100,13 @@ namespace SMPhotos.Web.Controllers
 		void InitImages(PictureVM pictureVM)
 		{
 			var album = _albumRepository.GetAlbumByGuid(pictureVM.Guid);
+			string datetimeff = null;
 			foreach (var file in pictureVM.files)
 			{
 				Image image = new Image();
 				image.Name = Path.GetFileName(file.FileName);
-				var filePath = Path.Combine(Server.MapPath("~/App_Data/TestAlbum"), DateTime.Now.Ticks.ToString() + Path.GetFileName(file.FileName));
+				datetimeff = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + "_" + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + "_";
+				var filePath = Path.Combine(Server.MapPath("~/App_Data/TestAlbum"), datetimeff + Path.GetFileName(file.FileName));
 				file.SaveAs(filePath);
 				album.Image.Add(image);
 			}

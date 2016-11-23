@@ -55,7 +55,24 @@ namespace SMPhotos.Web.Controllers
 				return View(albumVM);
 			}
 		}
-		
+
+		[HttpGet]
+		public ActionResult albumtext(int? id)
+		{
+			var albums = (IList<Album>)_albumRepository.GetAll();
+			var album = albums.FirstOrDefault(x => x.Id == id);
+			if (album == null)
+			{
+				return RedirectToAction(MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Name);
+			}
+			else
+			{
+				AlbumVM albumVM = AutoMapper.Mapper.Map<AlbumVM>(album);
+				albumVM.PathAlbum = albumVM.Path + albumVM.Guid + '/';
+				return View(albumVM);
+			}
+		}
+
 		[HttpGet]
 		public ActionResult ImageLoad()
 		{

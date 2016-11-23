@@ -345,6 +345,7 @@
     <Content Include="Views\Main\ImageLoad.cshtml" />
     <Content Include="Views\Main\album.cshtml" />
     <Content Include="Views\Main\albums.cshtml" />
+    <Content Include="Views\Main\albumtext.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

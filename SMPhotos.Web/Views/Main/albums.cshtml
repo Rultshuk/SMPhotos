@@ -2,8 +2,7 @@
 @{
     ViewBag.Title = "Main albums";
 }
-    <!-- Navigation -->
-
+<!-- Navigation -->
 <!-- Page Content -->
 <div class="container">
 
@@ -22,10 +21,7 @@
         @foreach (var albums in Model.AllAlbums)
         {
             <div class="col-md-4 portfolio-item">
-                <a href="#">
-                    <a href="@Url.Action("album", new { id = albums.Id})"><img class="img-responsive" src="@albums.PathAlbum@albums.Image[0].Name" alt=""></a>
-                    
-                </a>
+                <a href="@Url.Action("album", new { id = albums.Id})" title="@albums.Description"><img class="img-responsive" src="@albums.PathAlbum@albums.Image[0].Name" alt="@albums.Description"></a>
                 <h3>
                     <a href="@Url.Action("album", new { id = albums.Id})">Album @albums.Name</a>
                 </h3>
@@ -34,10 +30,7 @@
         }
     </div>
     <!-- /.row -->
-
-
     <hr>
-
     <!-- Pagination -->
     <div class="row text-center">
         <div class="col-lg-12">
@@ -68,7 +61,6 @@
     </div>
     <!-- /.row -->
     <hr>
-
 </div>
 
 @section Styles

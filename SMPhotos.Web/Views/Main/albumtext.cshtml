@@ -1,0 +1,45 @@
+﻿@model SMPhotos.Web.ViewModel.AlbumVM
+@{
+    ViewBag.Title = "Album";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles
+{
+    @Styles.Render("~/Content/fancyBox/css")
+}
+
+<hr />
+<div class="row">
+    <h2>@Model.Description</h2>
+    @Html.ActionLink("Return to " + MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Name, null, new { @title = "Return to " + @MVCManager.Controller.Main.Albums })
+    <br>
+    @Html.ActionLink("View as thumbnails", "album/" + Model.Id, MVCManager.Controller.Main.Name, null, new { @title = "View as thumbnails" })
+    <hr />
+    <div class="container">
+        @foreach (var image in Model.Image)
+        {
+            <a class="fancybox-button" rel="fancybox-thumb" href="@Model.PathAlbum@image.Name" title="@image.Description">
+                @image.Name
+            </a><span>&nbsp;|&nbsp;</span>
+        }
+    </div>
+</div>
+@section Script
+{
+    @Scripts.Render("~/Scripts/fancyBox/js")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".fancybox-button").fancybox({
+                prevEffect: 'none',
+                nextEffect: 'none',
+                closeBtn: false,
+                helpers: {
+                    title: {
+                        type: 'outside'
+                    },
+                    buttons: {}
+                }
+            });
+        });
+    </script>
+}

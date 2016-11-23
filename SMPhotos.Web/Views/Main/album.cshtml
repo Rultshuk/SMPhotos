@@ -9,45 +9,67 @@
 }
 
 <hr />
-
-<div @*class="container"*@>
+<div class="container">
     <h2>@Model.Description</h2>
-
-    @foreach (var image in Model.Image)
-    {
-        <div class="thumbnail">
-            <a class="fancybox-thumb" rel="fancybox-thumb" href="@Model.PathAlbum@image.Name" title="@image.Description">
-                <img class="portrait" src="@Model.PathAlbum@image.Name" alt="@image.Description" />
-            </a>
-        </div>
-        @*<hr />*@
+    @Html.ActionLink("Return to " + MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Name, null, new { @title = "Return to " + @MVCManager.Controller.Main.Albums })
+    <br>
+    @Html.ActionLink("View as list of files", "albumtext/" + Model.Id, MVCManager.Controller.Main.Name, null, new { @title = "View as list of files" })
+    <hr />
+    <div class="row">
+        @foreach (var image in Model.Image)
+        {
+            <div class="thumbnail col-md-3 portfolio-item">
+                <a class="fancybox-thumb" rel="fancybox-thumb" href="@Model.PathAlbum@image.Name" title="@image.Description">
+                    <img class="portrait" src="@Model.PathAlbum@image.Name" alt="@image.Description" />
+                </a>
+            </div>
+            @*<hr />*@
         }
-
-        @*<a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm6.staticflickr.com/5444/17679973232_568353a624_b.jpg" title="Golden Manarola (Sanjeev Deo)">
-                <img src="http://farm6.staticflickr.com/5444/17679973232_568353a624_m.jpg" alt="" />
-            </a>*@
+        @foreach (var image in Model.Image)
+        {
+            <div class="thumbnail col-md-3 portfolio-item">
+                <a class="fancybox-thumb" rel="fancybox-thumb" href="@Model.PathAlbum@image.Name" title="@image.Description">
+                    <img class="portrait" src="@Model.PathAlbum@image.Name" alt="@image.Description" />
+                </a>
+            </div>
+            @*<hr />*@
+        }
+        @foreach (var image in Model.Image)
+        {
+            <div class="thumbnail col-md-3 portfolio-item">
+                <a class="fancybox-thumb" rel="fancybox-thumb" href="@Model.PathAlbum@image.Name" title="@image.Description">
+                    <img class="portrait" src="@Model.PathAlbum@image.Name" alt="@image.Description" />
+                </a>
+            </div>
+            @*<hr />*@
+        }
     </div>
 
-    @section Script
+    @*<div class="thumbnail col-md-2 portfolio-item">
+        <a class="fancybox-thumb" rel="fancybox-thumb" href="http://farm6.staticflickr.com/5444/17679973232_568353a624_b.jpg" title="Golden Manarola (Sanjeev Deo)">
+            <img class="portrait" src="http://farm6.staticflickr.com/5444/17679973232_568353a624_m.jpg" alt="" />
+        </a>*@
+</div>
+@section Script
 {
-        @Scripts.Render("~/Scripts/fancyBox/js")
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $(".fancybox-thumb").fancybox({
-                    prevEffect: 'none',
-                    nextEffect: 'none',
-                    closeBtn: false,
-                    helpers: {
-                        title: {
-                            type: 'outside'
-                        },
-                        thumbs: {
-                            width: 50,
-                            height: 50
-                        },
-                        buttons: {}
-                    }
-                });
+    @Scripts.Render("~/Scripts/fancyBox/js")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".fancybox-thumb").fancybox({
+                prevEffect: 'none',
+                nextEffect: 'none',
+                closeBtn: false,
+                helpers: {
+                    title: {
+                        type: 'outside'
+                    },
+                    thumbs: {
+                        width: 50,
+                        height: 50
+                    },
+                    buttons: {}
+                }
             });
-        </script>
-    }
+        });
+    </script>
+}

@@ -1,21 +1,20 @@
 ﻿@model SMPhotos.Web.ViewModel.AlbumVM
 @{
-    ViewBag.Title = "Album";
-    //Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = Model.Name;
 }
 @section Styles
 {
     @Styles.Render("~/Content/fancyBox/css")
+    @Styles.Render("~/Content/main/css")
 }
 
-<hr />
-<div class="row">
+<div class="container">
     <h2>@Model.Description</h2>
     @Html.ActionLink("Return to " + MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Name, null, new { @title = "Return to " + @MVCManager.Controller.Main.Albums })
     <br>
     @Html.ActionLink("View as thumbnails", "album/" + Model.Id, MVCManager.Controller.Main.Name, null, new { @title = "View as thumbnails" })
     <hr />
-    <div class="container">
+    <div class="row">
         @foreach (var image in Model.Image)
         {
             <a class="fancybox-button" rel="fancybox-thumb" href="@Model.PathAlbum@image.Name" title="@image.Description">

@@ -14,34 +14,3 @@ footer {
     width: 100%;
     text-align: center;
 }
-
-.content {
-    display: flex;
-}
-
-.thumbnail {
-    margin: 10px;
-    position: relative;
-    width: 200px;
-    height: 200px;
-    overflow: hidden;
-    /*-webkit-column-width: 200px;
-  -moz-column-width: 200px;
-  column-width: 200px;*/
-}
-
-    .thumbnail img {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        height: 100%;
-        width: auto;
-        -webkit-transform: translate(-50%,-50%);
-        -ms-transform: translate(-50%,-50%);
-        transform: translate(-50%,-50%);
-    }
-
-        .thumbnail img.portrait {
-            width: 100%;
-            height: auto;
-        }

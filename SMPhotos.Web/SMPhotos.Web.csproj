@@ -225,6 +225,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\2d62a4db-ec30-41d6-a9d9-c1e037b44a17\1.jpg" />
+    <Content Include="App_Data\39d09d90-b53c-47d8-bab6-f96630f9bc9b\1.jpg" />
+    <Content Include="App_Data\421aca62-f921-4c0a-b212-d0b5081e0a25\1.jpg" />
+    <Content Include="App_Data\4485b513-7817-4483-b7c9-af99bd0f15ea\1.jpg" />
+    <Content Include="App_Data\70b9ef63-f689-4cfb-9d6f-5ed125d491b2\1.jpg" />
+    <Content Include="App_Data\de78fd3c-4534-4a68-adc4-efcc72f89363\1.jpg" />
+    <Content Include="App_Data\de78fd3c-4534-4a68-adc4-efcc72f89363\10.jpg" />
+    <Content Include="App_Data\de78fd3c-4534-4a68-adc4-efcc72f89363\2.jpg" />
+    <Content Include="App_Data\de78fd3c-4534-4a68-adc4-efcc72f89363\3.jpg" />
+    <Content Include="App_Data\de78fd3c-4534-4a68-adc4-efcc72f89363\4.jpg" />
+    <Content Include="App_Data\de78fd3c-4534-4a68-adc4-efcc72f89363\5.jpg" />
+    <Content Include="App_Data\de78fd3c-4534-4a68-adc4-efcc72f89363\6.jpg" />
+    <Content Include="App_Data\de78fd3c-4534-4a68-adc4-efcc72f89363\7.jpg" />
+    <Content Include="App_Data\de78fd3c-4534-4a68-adc4-efcc72f89363\8.jpg" />
+    <Content Include="App_Data\de78fd3c-4534-4a68-adc4-efcc72f89363\9.jpg" />
+    <Content Include="App_Data\e5af00cc-726e-4252-a13e-459c6567454a\1.jpg" />
+    <Content Include="App_Data\f56bd610-5320-48dd-b4cd-2825438a70be\1.jpg" />
+    <Content Include="App_Data\fb3840f6-67b5-4f49-a0dd-707895f680cb\1.jpg" />
+    <Content Include="App_Data\ff2fe1f2-7b29-4910-83db-fd7e0a86d116\1.jpg" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\base.css" />
     <Content Include="Content\bootstrap.css" />
@@ -303,6 +322,7 @@
     <Compile Include="Controllers\HomeController.Validation.cs">
       <DependentUpon>HomeController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="DependencyInjection\DependencyResolverConfig.cs" />
     <Compile Include="DependencyInjection\IWebTypeResolver.cs" />
@@ -365,6 +385,7 @@
   <ItemGroup>
     <Folder Include="App_Data\TestAlbum\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Image\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SMPhotos.DAL\SMPhotos.DAL.csproj">

@@ -26,9 +26,10 @@
         @foreach (var albums in Model.AllAlbums)
         {
             <div class="col-md-4 portfolio-item">
-                <a href="@Url.Action("album", new { id = albums.Id})" title="@albums.Description">
-                    <img class="img-responsive" src="@albums.PathAlbum@albums.Image[0].Name" alt="@albums.Description">
+                <a href="@Url.Action("album", new { id = albums.Id })" title="@albums.Description">
+                    <img class="img-responsive" src="@Url.Action("GetImage", "Image", new { id = albums.Id, name = albums.Image[0].Name})" alt="@albums.Description">
                 </a>
+               
                 <h3>
                     <a href="@Url.Action("album", new { id = albums.Id})">Album @albums.Name</a>
                 </h3>

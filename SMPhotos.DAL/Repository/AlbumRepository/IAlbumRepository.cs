@@ -8,7 +8,6 @@ namespace SMPhotos.DAL
 {
 	public interface IAlbumRepository : IRepository<Album>
 	{
-		IList<Image> GetImagesByIdAlbum(int Id);
 		Album GetAlbumByGuid(Guid guid);
 	}
 }

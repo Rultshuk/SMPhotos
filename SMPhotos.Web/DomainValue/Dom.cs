@@ -60,7 +60,8 @@ namespace SMPhotos.Web
 				public const string ChangeProfile = "ChangeProfile";
 				public const string Logout = "Logout";
 				public const string Register = "Register";
-
+				public const string about = "about";
+				public const string contact = "contact";
 			}
 			public static class Main
 			{

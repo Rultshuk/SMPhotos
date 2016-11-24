@@ -23,25 +23,31 @@
                     @Html.ActionLink(Navigation.Contact, MVCManager.Controller.Home.contact, MVCManager.Controller.Home.Name, null, new { @title = Navigation.Contact })
                 </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown ">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle" title="@Navigation.Settings">
-                        <span class="glyphicon glyphicon-cog"></span> @Navigation.Settings
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="@Url.Action(View.ChangeProfile, MVCManager.Controller.Home.Name)" title="@Navigation.ChangeProfile"><span class="glyphicon glyphicon-user"></span> @Navigation.ChangeProfile</a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action(View.Admin, MVCManager.Controller.Home.Name)" title="@Navigation.AdminTools"><span class="glyphicon glyphicon-flash"></span> @Navigation.AdminTools</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="@Url.Action(MVCManager.Controller.Home.Logout, MVCManager.Controller.Home.Name)" title="@Navigation.LogOut"><span class="glyphicon glyphicon-log-out"></span> @Navigation.LogOut</a>
-                </li>
-            </ul>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <ul class="nav navbar-nav navbar-right">
+                    @if (User.IsInRole("User"))
+                    {
+                        <li class="dropdown ">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle" title="@Navigation.Settings">
+                                <span class="glyphicon glyphicon-cog"></span> @Navigation.Settings
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="@Url.Action(View.ChangeProfile, MVCManager.Controller.Home.Name)" title="@Navigation.ChangeProfile"><span class="glyphicon glyphicon-user"></span> @Navigation.ChangeProfile</a>
+                                </li>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li>
+                                        <a href="@Url.Action(View.Admin, MVCManager.Controller.Home.Name)" title="@Navigation.AdminTools"><span class="glyphicon glyphicon-flash"></span> @Navigation.AdminTools</a>
+                                    </li>}
+                            </ul>
+                        </li>}
+                    <li>
+                        <a href="@Url.Action(MVCManager.Controller.Home.Logout, MVCManager.Controller.Home.Name)" title="@Navigation.LogOut"><span class="glyphicon glyphicon-log-out"></span> @Navigation.LogOut</a>
+                    </li>
+                </ul>}
         </div>
         <!-- /.navbar-collapse -->
     </div>

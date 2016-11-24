@@ -27,6 +27,7 @@ namespace SMPhotos.Web.Controllers
 			return View();
 		}
 		[HttpGet]
+		[Authorize(Roles = Roles.User)]
 		public ActionResult albums()
 		{
 			AlbumListVM viewModel = new AlbumListVM();
@@ -40,6 +41,7 @@ namespace SMPhotos.Web.Controllers
 		}
 
 		[HttpGet]
+		[Authorize(Roles = Roles.User)]
 		public ActionResult album(int? id)
 		{
 			var albums = (IList<Album>)_albumRepository.GetAll();
@@ -65,11 +67,13 @@ namespace SMPhotos.Web.Controllers
 		//	return RedirectToAction("ImageLoad", picture);
 		//}
 		[HttpGet]
+		[Authorize(Roles = Roles.User)]
 		public ActionResult CreateAlbum()
 		{
 			return View();
 		}
 		[HttpPost]
+		[Authorize(Roles = Roles.User)]
 		public ActionResult CreateAlbum(AlbumVM albumVM)
 		{
 			Album album = new Album();
@@ -77,12 +81,14 @@ namespace SMPhotos.Web.Controllers
 			album.Description = albumVM.Description;
 			album.Guid = Guid.NewGuid();
 			album.Path = album.Guid.ToString();
+			Directory.CreateDirectory(Path.Combine(Server.MapPath("~/App_Data"), album.Path));
 			_albumRepository.Add(album);
 			_albumRepository.UnitOfWork.SaveChanges();
 			//return RedirectToAction("albums");
 			return View();
 		}
 		[HttpGet]
+		[Authorize(Roles = Roles.User)]
 		public ActionResult albumtext(int? id)
 		{
 			var albums = (IList<Album>)_albumRepository.GetAll();
@@ -100,6 +106,7 @@ namespace SMPhotos.Web.Controllers
 		}
 
 		[HttpGet]
+		[Authorize(Roles = Roles.Uploader)]
 		public ActionResult ImageLoad(int id)
 		{
 			var album = _albumRepository.Get(id);
@@ -108,6 +115,7 @@ namespace SMPhotos.Web.Controllers
 			return View(picture);
 		}
 		[HttpPost]
+		[Authorize(Roles = Roles.Uploader)]
 		public ActionResult ImageLoad(PictureVM picture)
 		{
 			var album = _albumRepository.GetAlbumByGuid(picture.Guid);
@@ -121,8 +129,8 @@ namespace SMPhotos.Web.Controllers
 			foreach (var file in pictureVM.files)
 			{
 				Image image = new Image();
-				image.Name = Path.GetFileName(file.FileName);
 				datetimeff = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + "_" + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + "_";
+				image.Name = datetimeff + Path.GetFileName(file.FileName);
 				var filePath = Path.Combine(Server.MapPath("~/App_Data/"+pictureVM.Guid.ToString()), datetimeff + Path.GetFileName(file.FileName));
 				file.SaveAs(filePath);
 				album.Image.Add(image);

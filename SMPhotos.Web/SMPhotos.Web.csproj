@@ -359,6 +359,7 @@
     <Content Include="Views\Home\about.cshtml" />
     <Content Include="Views\Home\contact.cshtml" />
     <Content Include="Views\Main\CreateAlbum.cshtml" />
+    <Content Include="Views\Home\NotActivated.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

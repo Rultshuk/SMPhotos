@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+
 namespace SMPhotos.DAL
 {
 	public class Album:Base

@@ -16,10 +16,10 @@ namespace SMPhotos.Web.Controllers
 		public ActionResult Index()
 		{
 			if (User.Identity.IsAuthenticated)
-				if (User.IsInRole("User"))
+				if (User.IsInRole(Roles.User))
 					return RedirectToAction(MVCManager.Controller.Main.albums, MVCManager.Controller.Main.Name);
-				else ////TODO Show not Activated view
-					return View();
+				else 
+					return View("NotActivated");
 			return View();
 
 		}
@@ -39,14 +39,16 @@ namespace SMPhotos.Web.Controllers
 			List<Claim> claims = new List<Claim>();
 			claims.Add(new Claim(ClaimTypes.Name, SessionManager.CurentUserContext.FirstName));
 			if (SessionManager.CurentUserContext.IsAdmin)
-				claims.Add(new Claim(ClaimTypes.Role, "Admin"));
+				claims.Add(new Claim(ClaimTypes.Role, Roles.Admin));
 			if (SessionManager.CurentUserContext.IsActive)
-				claims.Add(new Claim(ClaimTypes.Role, "User"));
+				claims.Add(new Claim(ClaimTypes.Role, Roles.User));
+			if (SessionManager.CurentUserContext.IsUploader)
+				claims.Add(new Claim(ClaimTypes.Role, Roles.Uploader));
 			var identity = new ClaimsIdentity(claims.ToArray<Claim>(), DefaultAuthenticationTypes.ApplicationCookie);
 			HttpContext.GetOwinContext().Authentication.SignIn(new AuthenticationProperties { IsPersistent = userCredentialsVM.RememberMe }, identity);
 			return RedirectToAction(MVCManager.Controller.Home.Index);
 		}
-
+		[Authorize]
 		public ActionResult Logout()
 		{
 			HttpContext.GetOwinContext().Authentication.SignOut();

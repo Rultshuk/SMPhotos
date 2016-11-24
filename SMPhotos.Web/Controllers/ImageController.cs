@@ -19,13 +19,17 @@ namespace SMPhotos.Web.Controllers
 		}
 
 		[Authorize(Roles = Roles.User)]
+
 		public ActionResult GetImage(int ImageId)
 		{
 			ImageVM image = AutoMapper.Mapper.Map<ImageVM>(_imageRepository.Get(ImageId));
+			string[] split = image.Name.Split('.');
+			string imageType = "image/" + split[split.Length - 1];
 			return File(
 				Server.MapPath(string.Format("~/App_Data/{0}/{1}", image.Album.Guid, image.Name)),
-				"image/unknown"
+				imageType
 			);
 		}
+
 	}
 }

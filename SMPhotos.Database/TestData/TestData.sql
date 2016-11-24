@@ -62,7 +62,7 @@ SET IDENTITY_INSERT [smp].[Album] ON
 	INSERT INTO [smp].[Album] ([Id], [Name], [Description], [Path], [Guid]) VALUES (8, 'Eighth', 'Eighth Album', '/App_data/', '421ACA62-F921-4C0A-B212-D0B5081E0A25');
 	INSERT INTO [smp].[Album] ([Id], [Name], [Description], [Path], [Guid]) VALUES (9, 'Ninth', 'Ninth Album', '/App_data/', 'FF2FE1F2-7B29-4910-83DB-FD7E0A86D116');
 	INSERT INTO [smp].[Album] ([Id], [Name], [Description], [Path], [Guid]) VALUES (10,'Tenth', 'Tenth Album', '/App_data/', '4485B513-7817-4483-B7C9-AF99BD0F15EA');
-	INSERT INTO [smp].[Album] ([Id], [Name], [Description], [Path], [Guid]) VALUES (10,'No image', 'test Album', '/App_data/', 'E23D410F-BF88-4258-B4D3-6B4EAE15189D');
+	INSERT INTO [smp].[Album] ([Id], [Name], [Description], [Path], [Guid]) VALUES (11,'No image', 'test Album', '/App_data/', 'E23D410F-BF88-4258-B4D3-6B4EAE15189D');
 
 SET IDENTITY_INSERT [smp].[Album] OFF
 

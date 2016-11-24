@@ -26,7 +26,7 @@
         @*<hr />*@
         @foreach (var image in Model.Image)
         {
-            <a class="fancybox-button" rel="fancybox-thumb" href="@Model.PathAlbum@image.Name" title="@image.Description">
+            <a class="fancybox-button" rel="fancybox-thumb" href="@Url.Action("GetImage", "Image", new { ImageId = image.Id })" title="@image.Description">
                 @image.Name
             </a><span>&nbsp;|&nbsp;</span>}
     </div>

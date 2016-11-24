@@ -6,7 +6,7 @@ using System.Web;
 
 namespace SMPhotos.Web.ViewModel
 {
-	public class ImageVM
+	public class ImageVM : Base
 	{
 		public string Name { get; set; }
 		public string Description { get; set; }

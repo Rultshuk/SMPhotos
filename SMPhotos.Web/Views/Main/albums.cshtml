@@ -35,7 +35,7 @@
                 <a href="@Url.Action("album", new { id = albums.Id })" title="@albums.Name - @albums.Description">
                     @if (@albums.Image.Count > 0)
                     {
-                        <img class="" src="@Url.Action("GetImage", "Image", new { id = albums.Id, name = albums.Image[0].Name})" alt="@albums.Description">
+                        <img class="" src="@Url.Action("GetImage", "Image", new { ImageId = albums.Image[0].Id })" alt="@albums.Description">
 }
                     else
                     {

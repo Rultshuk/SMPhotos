@@ -10,20 +10,22 @@ namespace SMPhotos.Web.Controllers
 {
     public class ImageController : Controller
     {
-		private readonly IAlbumRepository _albumRepository;
+		private readonly IImageRepository _imageRepository;
 		public ImageController(
-			IAlbumRepository albumRepository
+			IImageRepository imageRepository
 		)
 		{
-			_albumRepository = albumRepository;
+			_imageRepository = imageRepository;
 		}
-		// GET: Image
-		public ActionResult GetImage(int id, string name)
+
+		[Authorize(Roles = Roles.User)]
+		public ActionResult GetImage(int ImageId)
 		{
-			AlbumVM album = AutoMapper.Mapper.Map<AlbumVM>(_albumRepository.Get(id));
-			string path = Server.MapPath(String.Format("~/App_Data/{0}/{1}", album.Guid, name));
-			byte[] imageByteData = System.IO.File.ReadAllBytes(path);
-			return File(imageByteData, "image/png");
+			ImageVM image = AutoMapper.Mapper.Map<ImageVM>(_imageRepository.Get(ImageId));
+			return File(
+				Server.MapPath(string.Format("~/App_Data/{0}/{1}", image.Album.Guid, image.Name)),
+				"image/png"
+			);
 		}
-    }
+	}
 }

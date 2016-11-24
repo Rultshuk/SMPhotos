@@ -12,12 +12,6 @@ namespace SMPhotos.DAL
 		{
 		}
 
-		public IList<Image> GetImagesByIdAlbum(int Id)
-		{
-			return _unitOfWork.Context.Image
-				.Where(e => e.AlbumId == Id)
-				.ToList<Image>();
-		}
 		public Album GetAlbumByGuid(Guid Id)
 		{
 			return _unitOfWork.Context.Album

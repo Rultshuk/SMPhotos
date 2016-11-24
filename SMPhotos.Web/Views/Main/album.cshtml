@@ -40,8 +40,8 @@
         @foreach (var image in Model.Image)
         {
             <div class="center-cropped col-sm-3 col-md-3 col-xs-3 col-lg-3">
-                <a class="fancybox-thumb" rel="fancybox-thumb" href="@Url.Action("GetImage", "Image", new { id = Model.Id, name = image.Name})" title="@image.Description">
-                    <img src="@Url.Action("GetImage", "Image", new { id = Model.Id, name = image.Name})" alt="@image.Description" />
+                <a class="fancybox-thumb" rel="fancybox-thumb" href="@Url.Action("GetImage", "Image", new { ImageId = image.Id})" title="@image.Description">
+                    <img src="@Url.Action("GetImage", "Image", new { ImageId = image.Id })" alt="@image.Description" />
                 </a>
             </div>}
     </div>

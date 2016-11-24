@@ -74,6 +74,8 @@
     <Compile Include="Repository\AlbumRepository\AlbumRepository.cs" />
     <Compile Include="Repository\AlbumRepository\IAlbumRepository.cs" />
     <Compile Include="Repository\BaseRepository\Repository.cs" />
+    <Compile Include="Repository\ImageRRepository\ImageRepository.cs" />
+    <Compile Include="Repository\ImageRRepository\IImageRepository.cs" />
     <Compile Include="Repository\UserRepository\UserRepository.cs" />
     <Compile Include="Repository\BaseRepository\IRepository.cs" />
     <Compile Include="Repository\UserRepository\IUserRepository.cs" />

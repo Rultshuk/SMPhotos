@@ -27,6 +27,7 @@ namespace SMPhotos.Web.Controllers
 			return View();
 		}
 		[HttpGet]
+		[Authorize(Roles = Roles.User)]
 		public ActionResult albums()
 		{
 			AlbumListVM viewModel = new AlbumListVM();
@@ -40,6 +41,7 @@ namespace SMPhotos.Web.Controllers
 		}
 
 		[HttpGet]
+		[Authorize(Roles = Roles.User)]
 		public ActionResult album(int? id)
 		{
 			var albums = (IList<Album>)_albumRepository.GetAll();
@@ -65,11 +67,13 @@ namespace SMPhotos.Web.Controllers
 		//	return RedirectToAction("ImageLoad", picture);
 		//}
 		[HttpGet]
+		[Authorize(Roles = Roles.User)]
 		public ActionResult CreateAlbum()
 		{
 			return View();
 		}
 		[HttpPost]
+		[Authorize(Roles = Roles.User)]
 		public ActionResult CreateAlbum(AlbumVM albumVM)
 		{
 			Album album = new Album();
@@ -84,6 +88,7 @@ namespace SMPhotos.Web.Controllers
 			return View();
 		}
 		[HttpGet]
+		[Authorize(Roles = Roles.User)]
 		public ActionResult albumtext(int? id)
 		{
 			var albums = (IList<Album>)_albumRepository.GetAll();
@@ -101,6 +106,7 @@ namespace SMPhotos.Web.Controllers
 		}
 
 		[HttpGet]
+		[Authorize(Roles = Roles.Uploader)]
 		public ActionResult ImageLoad(int id)
 		{
 			var album = _albumRepository.Get(id);
@@ -109,6 +115,7 @@ namespace SMPhotos.Web.Controllers
 			return View(picture);
 		}
 		[HttpPost]
+		[Authorize(Roles = Roles.Uploader)]
 		public ActionResult ImageLoad(PictureVM picture)
 		{
 			var album = _albumRepository.GetAlbumByGuid(picture.Guid);

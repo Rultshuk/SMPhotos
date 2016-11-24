@@ -12,7 +12,7 @@ namespace SMPhotos.Web.Controllers
 	public partial  class HomeController
 	{
 		[HttpGet]
-		[Authorize(Roles = "Admin")]
+		[Authorize(Roles = Roles.Admin)]
 		public ActionResult Admin()
 		{
 			UsersListsVM usersListsVM = new UsersListsVM();
@@ -24,6 +24,7 @@ namespace SMPhotos.Web.Controllers
 		}
 
 		[HttpPost]
+		[Authorize(Roles = Roles.Admin)]
 		public ActionResult Admin(UsersListsVM usersLists)
 		{
 			foreach (var userVM in usersLists.AllUsers)
@@ -42,6 +43,7 @@ namespace SMPhotos.Web.Controllers
 		}
 
 		[HttpPost]
+		[Authorize(Roles = Roles.Admin)]
 		public ActionResult RegNewUsers(UsersListsVM usList)
 		{
 			foreach (var userVM in usList.NoActiveUsers)

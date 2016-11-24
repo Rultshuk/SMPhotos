@@ -43,6 +43,12 @@ namespace SMPhotos.Web
 		public const string Upload = "Upload";
 		public const string ImageLoad = "ImageLoad";
 	}
+	public static class Roles
+	{
+		public const string User = "User";
+		public const string Admin = "Admin";
+		public const string Uploader = "Uploader";
+	}
 
 	public static class MVCManager
 	{

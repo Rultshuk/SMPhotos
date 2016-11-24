@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace SMPhotos.DAL
 {
@@ -12,7 +11,6 @@ namespace SMPhotos.DAL
 			Image = new HashSet<Image>();
 		}
 		public string Name { get; set; }
-		//[DataType(DataType.MultilineText)]
 		public string Description { get; set; }
 		public string Path { get; set; }
 		public Guid Guid { get; set; }

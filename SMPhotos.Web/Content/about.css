@@ -10,6 +10,9 @@ font-size: 15px;
     line-height: 1.6;
     font-weight: 300;
 }
+.about p{
+    font-size: 15px;
+}
 .pull-right{
 color: #565656;
 }

@@ -121,7 +121,7 @@ namespace SMPhotos.Web.Controllers
 			var album = _albumRepository.GetAlbumByGuid(picture.Guid);
 			if(InitImages(picture, album))
 			{
-				picture.Message = "You have downloaded "+picture.files.Count().ToString()+" images successful!";
+				picture.Message = "You have uploaded "+picture.files.Count().ToString()+" images successful!";
 			}
 			else
 			{

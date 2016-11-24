@@ -2,22 +2,28 @@
 @{
     ViewBag.Title = Navigation.Contact;
 }
-<hr />
-<h2>@Navigation.Contact</h2>
-<br />
+@Styles.Render("~/Content/about/css")
 <div class="container">
-    <h3>Address</h3>
-
-    <strong>Dutch office</strong><br />
-    SharpMinds B.V.<br />
-    Julianalaan 1 1213 AP Hilversum
-    Netherlands<br />
-    <br />
-    <strong>Ukrainian office</strong><br />
-    SharpMinds B.V.<br />
-    Sadova 16 Chernivtsi
-    Ukraine<br />
-    e-mail: 
-    <a href="mailto:smstudents2016@gmail.com">smstudents2016@gmail.com</a>
+  <div class="wel-info text-center">
+        <h2 class="text-info">Our Contacts</h2>
+        <span class="brk"></span>
+        <p>
+            SharpMinds is an international IT company established in 2005 in a picturesque tourist and
+            educational centre of the Western Ukraine, Chernivtsi.</p>
+      <hr />
+      <div class="row about text-left">
+          <div class="col-sm-6">
+              <h3>Ukrainian office</h3>
+              <p><span class="glyphicon glyphicon-map-marker"></span> Sadova 16 Chernivtsi Ukraine</p>
+              <p><span class="glyphicon glyphicon-phone"></span>+38 (095) 276 37 77</p>
+              <p><span class="glyphicon glyphicon-envelope"></span> <a href="mailto:smstudents2016@gmail.com">smstudents2016@gmail.com</a></p>
+          </div>
+          <div class="col-sm-6">
+              <h3>Dutch office</h3>
+              <p><span class="glyphicon glyphicon-map-marker"></span> Julianalaan 1 1213 AP Hilversum Netherlands</p>
+              <p><span class="glyphicon glyphicon-phone"></span> +31 (655) 49 56 37</p>
+              <p><span class="glyphicon glyphicon-envelope"></span> <a href="vmeyer@sharpminds.com">vmeyer@sharpminds.com</a></p>
+          </div>
+      </div>
+      </div>
 </div>
-

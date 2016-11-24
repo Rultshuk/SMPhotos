@@ -24,7 +24,7 @@ namespace SMPhotos.Web.Controllers
 			ImageVM image = AutoMapper.Mapper.Map<ImageVM>(_imageRepository.Get(ImageId));
 			return File(
 				Server.MapPath(string.Format("~/App_Data/{0}/{1}", image.Album.Guid, image.Name)),
-				"image/png"
+				"image/jpg"
 			);
 		}
 	}

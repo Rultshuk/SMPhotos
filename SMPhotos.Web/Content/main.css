@@ -25,8 +25,8 @@ div.portfolio-item img {
 div.center-cropped {
     margin: 0.5%;
     border: 1px solid #ccc;
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     overflow: hidden;
     padding-left: 0px;
     padding-right: 0px;

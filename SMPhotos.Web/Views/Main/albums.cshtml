@@ -10,14 +10,13 @@
 <!-- Navigation -->
 <!-- Page Content -->
 <div class="container">
-
     <!-- Page Header -->
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">
+            <h2 class="page-header">
                 Welcome to SMPhoto!
                 <small>Some other text</small>
-            </h1>
+            </h2>
         </div>
     </div>
     <!-- /.row -->
@@ -25,22 +24,28 @@
     <div class="row">
         @foreach (var albums in Model.AllAlbums)
         {
-            <div class="col-md-4 portfolio-item">
-                <a href="@Url.Action("album", new { id = albums.Id })" title="@albums.Description">
-                    <img class="img-responsive" src="@Url.Action("GetImage", "Image", new { id = albums.Id, name = albums.Image[0].Name})" alt="@albums.Description">
+            <div class="portfolio-item col-sm-3 col-md-3 col-xs-3 col-lg-3">
+                <a href="@Url.Action("album", new { id = albums.Id })" title="@albums.Name - @albums.Description">
+                    @if (@albums.Image.Count >= 0)
+                    {
+                        <img class="" src="@Url.Action("GetImage", "Image", new { id = albums.Id, name = albums.Image[0].Name})" alt="@albums.Description">
+}
+                    else
+                    {
+                        <img class="" src="~/Images/no_image_thumb.gif" title="@albums.Description" alt="@albums.Description">
+}
                 </a>
-               
-                <h3>
-                    <a href="@Url.Action("album", new { id = albums.Id})">Album @albums.Name</a>
-                </h3>
-                <p>@albums.Description</p>
+                <h4 class="text-center">
+                    <a href="@Url.Action("album", new { id = albums.Id})" title="@albums.Name">@albums.Name</a>
+                </h4>
+                <p class="text-center">@albums.Description</p>
             </div>
         }
     </div>
     <!-- /.row -->
     <hr>
     <!-- Pagination -->
-    <div class="row text-center">
+    @*<div class="row text-center">
         <div class="col-lg-12">
             <ul class="pagination">
                 <li>
@@ -66,7 +71,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div>*@
     <!-- /.row -->
-    <hr>
+    @*<hr>*@
 </div>

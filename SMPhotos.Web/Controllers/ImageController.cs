@@ -8,8 +8,8 @@ using System.Web.Mvc;
 
 namespace SMPhotos.Web.Controllers
 {
-    public class ImageController : Controller
-    {
+	public class ImageController : Controller
+	{
 		private readonly IImageRepository _imageRepository;
 		public ImageController(
 			IImageRepository imageRepository
@@ -25,10 +25,7 @@ namespace SMPhotos.Web.Controllers
 			ImageVM image = AutoMapper.Mapper.Map<ImageVM>(_imageRepository.Get(ImageId));
 			string[] split = image.Name.Split('.');
 			string imageType = "image/" + split[split.Length - 1];
-			return File(
-				Server.MapPath(string.Format("~/App_Data/{0}/{1}", image.Album.Guid, image.Name)),
-				imageType
-			);
+			return File(Server.MapPath(string.Format("~/App_Data/{0}/{1}", image.Album.Guid, image.Name)), imageType);
 		}
 
 	}

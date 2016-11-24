@@ -77,6 +77,7 @@ namespace SMPhotos.Web.Controllers
 			album.Description = albumVM.Description;
 			album.Guid = Guid.NewGuid();
 			album.Path = album.Guid.ToString();
+			Directory.CreateDirectory(Path.Combine(Server.MapPath("~/App_Data"), album.Path));
 			_albumRepository.Add(album);
 			_albumRepository.UnitOfWork.SaveChanges();
 			//return RedirectToAction("albums");

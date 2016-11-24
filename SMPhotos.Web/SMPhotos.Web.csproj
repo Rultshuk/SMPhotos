@@ -356,6 +356,9 @@
     <Content Include="Views\Main\album.cshtml" />
     <Content Include="Views\Main\albums.cshtml" />
     <Content Include="Views\Main\albumtext.cshtml" />
+    <Content Include="Views\Home\about.cshtml" />
+    <Content Include="Views\Home\contact.cshtml" />
+    <Content Include="Views\Main\CreateAlbum.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

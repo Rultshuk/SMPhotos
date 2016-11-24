@@ -64,7 +64,24 @@ namespace SMPhotos.Web.Controllers
 		//	picture.Guid = album.Guid;
 		//	return RedirectToAction("ImageLoad", picture);
 		//}
-
+		[HttpGet]
+		public ActionResult CreateAlbum()
+		{
+			return View();
+		}
+		[HttpPost]
+		public ActionResult CreateAlbum(AlbumVM albumVM)
+		{
+			Album album = new Album();
+			album.Name = albumVM.Name;
+			album.Description = albumVM.Description;
+			album.Guid = Guid.NewGuid();
+			album.Path = album.Guid.ToString();
+			_albumRepository.Add(album);
+			_albumRepository.UnitOfWork.SaveChanges();
+			//return RedirectToAction("albums");
+			return View();
+		}
 		[HttpGet]
 		public ActionResult albumtext(int? id)
 		{
@@ -93,18 +110,20 @@ namespace SMPhotos.Web.Controllers
 		[HttpPost]
 		public ActionResult ImageLoad(PictureVM picture)
 		{
-			InitImages(picture);
+			var album = _albumRepository.GetAlbumByGuid(picture.Guid);
+			InitImages(picture, album);
 			return View();
 		}
 
-		void InitImages(PictureVM pictureVM)
+		void InitImages(PictureVM pictureVM, Album album)
 		{
-			var album = _albumRepository.GetAlbumByGuid(_albumRepository.Get(1).Guid);
+			string datetimeff = null;
 			foreach (var file in pictureVM.files)
 			{
 				Image image = new Image();
-				image.Name = DateTime.Now.Ticks.ToString() + Path.GetFileName(file.FileName);
-				var filePath = Path.Combine(Server.MapPath("~/App_Data/TestAlbum"), image.Name);
+				image.Name = Path.GetFileName(file.FileName);
+				datetimeff = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + "_" + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + "_";
+				var filePath = Path.Combine(Server.MapPath("~/App_Data/"+pictureVM.Guid.ToString()), datetimeff + Path.GetFileName(file.FileName));
 				file.SaveAs(filePath);
 				album.Image.Add(image);
 			}

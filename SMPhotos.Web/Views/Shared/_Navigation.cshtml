@@ -17,10 +17,10 @@
                     @Html.ActionLink(Navigation.Home, View.Index, MVCManager.Controller.Home.Name, null, new { @title = "Go to " + @Navigation.SMPhotos + " " + @Navigation.Home })
                 </li>
                 <li>
-                    @Html.ActionLink(Navigation.About, View.Index, MVCManager.Controller.Home.Name, null, new { @title = Navigation.About })
+                    @Html.ActionLink(Navigation.About, MVCManager.Controller.Home.about, MVCManager.Controller.Home.Name, null, new { @title = Navigation.About })
                 </li>
                 <li>
-                    @Html.ActionLink(Navigation.Contact, View.Index, MVCManager.Controller.Home.Name, null, new { @title = Navigation.Contact })
+                    @Html.ActionLink(Navigation.Contact, MVCManager.Controller.Home.contact, MVCManager.Controller.Home.Name, null, new { @title = Navigation.Contact })
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

@@ -85,7 +85,7 @@ $(document).ready(function() {
 		}
 		for (i = start; i < end; i++) {
 			if($('#dropped-files > .image').length <= maxFiles) { 
-				$('#dropped-files').append('<div id="img-'+i+'" class="image" style="background: url('+dataArray[i].value+'); background-size: cover;"> <a href="#" id="drop-'+i+'" class="drop-button">Remoove image</a></div>'); 
+				$('#dropped-files').append('<div id="img-'+i+'" class="image" style="background: url('+dataArray[i].value+'); background-size: cover;"> <a href="#" id="drop-'+i+'" class="drop-button">Remove image</a></div>'); 
 			}
 		}
 		return false;

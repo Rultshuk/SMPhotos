@@ -80,8 +80,16 @@ namespace SMPhotos.Web.Controllers
 			_userRepository.UnitOfWork.SaveChanges();
 			return View();
 		}
-		
+
 		public ActionResult Upload()
+		{
+			return View();
+		}
+		public ActionResult about()
+		{
+			return View();
+		}
+		public ActionResult contact()
 		{
 			return View();
 		}

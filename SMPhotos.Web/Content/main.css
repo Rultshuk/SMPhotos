@@ -3,11 +3,28 @@ body {
 }
 
 .portfolio-item {
-    margin-bottom: 25px;
+    margin: 0.5%;
+    border: 1px solid #ccc;
+    width: 220px;
+    height: 220px;
+    overflow: hidden;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+div.portfolio-item img {
+    height: 65%;
+    min-width: 65%;
+    left: 50%;
+    position: relative;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
 }
 
 div.center-cropped {
     margin: 0.5%;
+    border: 1px solid #ccc;
     width: 200px;
     height: 200px;
     overflow: hidden;

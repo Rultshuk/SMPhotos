@@ -23,11 +23,9 @@ namespace SMPhotos.Web.Controllers
 		[Authorize(Roles = "User")]
 		public ActionResult ChangeProfile()
 		{
-			IList<User> uslist1 = (IList<User>)_userRepository.GetNotActiveYet().OrderBy(t => t.FirstName).ToList();
-			var usersVM = Mapper.Map<IList<User>, IList<UserVM>>(uslist1);
-			var UserVM = usersVM[1];
-			UserVM.Password = "";
-			return View(UserVM);
+			UserVM userVM = Mapper.Map<UserVM>(_userRepository.Get(SessionManager.CurentUserContext.Id));
+			userVM.Password = "";
+			return View(userVM);
 		}
 		[HttpPost]
 		public ActionResult ChangeProfile(UserVM userVM)

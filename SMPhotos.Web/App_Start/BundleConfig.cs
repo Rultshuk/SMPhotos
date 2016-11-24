@@ -23,6 +23,9 @@ namespace Guestbook
 						"~/Scripts/passwordValidation.js",
 						"~/Scripts/modal.js"));
 
+			bundles.Add(new ScriptBundle("~/Scripts/modal/js").Include(
+			"~/Scripts/modal.js"));
+
 			bundles.Add(new ScriptBundle("~/Scripts/fancyBox/js")
 				.Include("~/Scripts/jquery.fancybox.js")
 				.Include("~/Scripts/jquery.fancybox.pack.js")

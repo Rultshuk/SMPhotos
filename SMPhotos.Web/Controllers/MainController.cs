@@ -119,12 +119,23 @@ namespace SMPhotos.Web.Controllers
 		public ActionResult ImageLoad(PictureVM picture)
 		{
 			var album = _albumRepository.GetAlbumByGuid(picture.Guid);
-			InitImages(picture, album);
-			return View();
+			if(InitImages(picture, album))
+			{
+				picture.Message = "You have downloaded "+picture.files.Count().ToString()+" images successful!";
+			}
+			else
+			{
+				picture.Message = "Your upload is not successful!";
+			}
+			return View(picture);
 		}
 
-		void InitImages(PictureVM pictureVM, Album album)
+		bool InitImages(PictureVM pictureVM, Album album)
 		{
+			if (pictureVM==null || album==null||pictureVM.files==null)
+			{
+				return false;
+			}
 			string datetimeff = null;
 			foreach (var file in pictureVM.files)
 			{
@@ -136,6 +147,7 @@ namespace SMPhotos.Web.Controllers
 				album.Image.Add(image);
 			}
 			_albumRepository.UnitOfWork.SaveChanges();
+			return true;
 		}
 	}
 }

@@ -28,8 +28,8 @@ div.center-cropped {
     width: 250px;
     height: 250px;
     overflow: hidden;
-    padding-left: 0px;
-    padding-right: 0px;
+    /*padding-left: 0px;
+    padding-right: 0px;*/
 }
 
     div.center-cropped img {
@@ -44,4 +44,9 @@ div.center-cropped {
 
 div.left {
     float: left;
+}
+
+.col-centered {
+    display: inline-block;
+    float: none;
 }

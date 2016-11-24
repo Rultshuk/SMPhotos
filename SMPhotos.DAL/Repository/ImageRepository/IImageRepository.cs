@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SMPhotos.DAL
 {
-	interface IImageRepository : IRepository<Image>
+	public interface IImageRepository : IRepository<Image>
 	{
 	}
 }

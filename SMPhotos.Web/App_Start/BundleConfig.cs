@@ -46,6 +46,9 @@ namespace Guestbook
 			bundles.Add(new StyleBundle("~/Content/admin/css").Include(
 						"~/Content/admin.css"));
 
+			bundles.Add(new StyleBundle("~/Content/about/css").Include(
+			"~/Content/about.css"));
+
 			bundles.Add(new StyleBundle("~/Content/loadImage/css").Include(
 			"~/Content/load.css"));
 

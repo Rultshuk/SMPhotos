@@ -244,6 +244,7 @@
     <Content Include="App_Data\f56bd610-5320-48dd-b4cd-2825438a70be\1.jpg" />
     <Content Include="App_Data\fb3840f6-67b5-4f49-a0dd-707895f680cb\1.jpg" />
     <Content Include="App_Data\ff2fe1f2-7b29-4910-83db-fd7e0a86d116\1.jpg" />
+    <Content Include="Content\about.css" />
     <Content Include="Content\admin.css" />
     <Content Include="Content\base.css" />
     <Content Include="Content\bootstrap.css" />

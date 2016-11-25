@@ -55,15 +55,24 @@ namespace SMPhotos.Web.Controllers
 				return View(albumVM);
 			}
 		}
-		//[HttpPost]
-		//public ActionResult album(AlbumVM albumVM)
-		//{
-		//	var album = _albumRepository.Get(albumVM.Id);
-		//	//PictureVM picture = new PictureVM();
-		//	PictureVM picture = AutoMapper.Mapper.Map<PictureVM>(album);
-		//	picture.Guid = album.Guid;
-		//	return RedirectToAction("ImageLoad", picture);
-		//}
+		[HttpGet]
+		[Authorize(Roles = Roles.User)]
+		public ActionResult ChangeAlbum(int id)
+		{
+			AlbumVM albumVM = Mapper.Map<AlbumVM>(_albumRepository.Get(id));
+			return View(albumVM);
+		}
+		[HttpPost]
+		[Authorize(Roles = Roles.User)]
+		public ActionResult ChangeAlbum(AlbumVM albumVM)
+		{
+			Album album = _albumRepository.Get(albumVM.Id);
+			album.Name = albumVM.Name;
+			album.Description = albumVM.Description;
+			album.Path = album.Guid.ToString();
+			_albumRepository.UnitOfWork.SaveChanges();
+			return View();
+		}
 		[HttpGet]
 		[Authorize(Roles = Roles.User)]
 		public ActionResult CreateAlbum()

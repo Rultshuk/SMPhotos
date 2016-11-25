@@ -29,7 +29,7 @@
                 <a href="@Url.Action(MVCManager.Controller.Main.albumaslist, MVCManager.Controller.Main.name, new { Id = Model.Id})" title="View as list"><span class="glyphicon glyphicon-th-list"></span></a>
             </span>
             <span class="lead btn btn-default">
-                <a href="@Url.Action(MVCManager.Controller.Main.albumaslist, MVCManager.Controller.Main.name, new { Id = Model.Id})" title="Edit this album"><span class="glyphicon glyphicon-edit"></span></a>
+                <a href="@Url.Action(MVCManager.Controller.Main.ChangeAlbum, MVCManager.Controller.Main.name, new { Id = Model.Id})" title="Edit this album"><span class="glyphicon glyphicon-edit"></span></a>
             </span>
             <span class="lead btn btn-default">
                 <a href="@Url.Action(MVCManager.Controller.Main.albumaslist, MVCManager.Controller.Main.name, new { Id = Model.Id})" title="Remove this album"><span class="glyphicon glyphicon-remove"></span></a>
@@ -44,7 +44,7 @@
     {
         <div class="center-cropped col-sm-2 col-lg-2 col-md-2 col-xs-2 col-centered">
             <span class="">
-                <a href="@Url.Action(MVCManager.Controller.Main.albumaslist, MVCManager.Controller.Main.name, new { Id = Model.Id})" title="Remove this image"><span class="glyphicon glyphicon-remove"></span></a>
+                <a href="@Url.Action(MVCManager.Controller.Main.ChangeAlbum, MVCManager.Controller.Main.name, new { Id = Model.Id})" title="Remove this image"><span class="glyphicon glyphicon-remove"></span></a>
             </span>
             <a class="fancybox-thumb" rel="fancybox-thumb" href="@Url.Action("GetImage", "Image", new { ImageId = image.Id, name = image.Name})" title="@image.Description">
                 <img src="@Url.Action("GetImage", "Image", new { ImageId = image.Id, name = image.Name })" alt="@image.Description" />

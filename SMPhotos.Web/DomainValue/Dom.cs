@@ -86,6 +86,7 @@ namespace SMPhotos.Web
 				public const string albumaslist = "albumaslist";
 				public const string imageload = "imageload";
 				public const string createalbum = "createalbum";
+				public const string ChangeAlbum = "ChangeAlbum";
 			}
 		}
 	}

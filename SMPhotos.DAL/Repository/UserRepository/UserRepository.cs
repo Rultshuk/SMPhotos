@@ -14,6 +14,12 @@ namespace SMPhotos.DAL
 				.Where(e => e.Email == email && e.Password==password)
 				.FirstOrDefault<User>();
 		}
+		public User GetByEmail(string email)
+		{
+			return _unitOfWork.Context.User
+				.Where(e => e.Email == email)
+				.FirstOrDefault<User>();
+		}
 		public IEnumerable<User> GetActive()
 		{
 			return _unitOfWork.Context.User

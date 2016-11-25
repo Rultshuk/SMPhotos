@@ -23,14 +23,14 @@ namespace SMPhotos.Web.Controllers
 		[Authorize(Roles = "User")]
 		public ActionResult ChangeProfile()
 		{
-			UserVM userVM = Mapper.Map<UserVM>(_userRepository.Get(SessionManager.CurentUserContext.Id));
+			UserVM userVM = Mapper.Map<UserVM>(_userRepository.GetByEmail(User.Identity.Name));
 			userVM.Password = "";
 			return View(userVM);
 		}
 		[HttpPost]
 		public ActionResult ChangeProfile(UserVM userVM)
 		{
-			User userBase = _userRepository.Get(userVM.Id);
+			User userBase = _userRepository.GetByEmail(userVM.Email);
 			if (!ValidateChangeData(userVM, userBase))
 			{
 				userVM.Message = "Your changes are not successful!";

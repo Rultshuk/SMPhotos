@@ -37,7 +37,7 @@ namespace SMPhotos.Web.Controllers
 			}
 			SessionManager.CurentUserContext = Mapper.Map<User, UserContext>(user);
 			List<Claim> claims = new List<Claim>();
-			claims.Add(new Claim(ClaimTypes.Name, SessionManager.CurentUserContext.FirstName));
+			claims.Add(new Claim(ClaimTypes.Name, user.Email));
 			if (SessionManager.CurentUserContext.IsAdmin)
 				claims.Add(new Claim(ClaimTypes.Role, Roles.Admin));
 			if (SessionManager.CurentUserContext.IsActive)

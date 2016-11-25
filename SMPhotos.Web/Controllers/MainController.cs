@@ -1,13 +1,11 @@
-﻿using SMPhotos.DAL;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
+using System.IO;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
+using SMPhotos.DAL;
 using SMPhotos.Web.ViewModel;
-using System.IO;
 
 namespace SMPhotos.Web.Controllers
 {
@@ -32,7 +30,7 @@ namespace SMPhotos.Web.Controllers
 		{
 			AlbumListVM viewModel = new AlbumListVM();
 			var albums = (IList<Album>)_albumRepository.GetAll();
-			viewModel.AllAlbums = AutoMapper.Mapper.Map<IList<AlbumVM>>(albums);
+			viewModel.AllAlbums = Mapper.Map<IList<AlbumVM>>(albums);
 			foreach (var alb in viewModel.AllAlbums)
 			{
 				alb.PathAlbum = alb.Path + alb.Guid + '/';
@@ -99,7 +97,7 @@ namespace SMPhotos.Web.Controllers
 			}
 			else
 			{
-				AlbumVM albumVM = AutoMapper.Mapper.Map<AlbumVM>(album);
+				AlbumVM albumVM = Mapper.Map<AlbumVM>(album);
 				albumVM.PathAlbum = albumVM.Path + albumVM.Guid + '/';
 				return View(albumVM);
 			}
@@ -119,7 +117,7 @@ namespace SMPhotos.Web.Controllers
 		public ActionResult ImageLoad(PictureVM picture)
 		{
 			var album = _albumRepository.GetAlbumByGuid(picture.Guid);
-			if(InitImages(picture, album))
+			if (InitImages(picture, album))
 			{
 				picture.Message = "Your photos have successfully uploaded";
 			}
@@ -132,7 +130,7 @@ namespace SMPhotos.Web.Controllers
 
 		bool InitImages(PictureVM pictureVM, Album album)
 		{
-			if (pictureVM==null || album==null||pictureVM.files==null)
+			if (pictureVM == null || album == null || pictureVM.files == null)
 			{
 				return false;
 			}
@@ -142,7 +140,7 @@ namespace SMPhotos.Web.Controllers
 				Image image = new Image();
 				datetimeff = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + "_" + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + "_";
 				image.Name = datetimeff + Path.GetFileName(file.FileName);
-				var filePath = Path.Combine(Server.MapPath("~/App_Data/"+pictureVM.Guid.ToString()), datetimeff + Path.GetFileName(file.FileName));
+				var filePath = Path.Combine(Server.MapPath("~/App_Data/" + pictureVM.Guid.ToString()), datetimeff + Path.GetFileName(file.FileName));
 				file.SaveAs(filePath);
 				album.Image.Add(image);
 			}

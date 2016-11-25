@@ -17,7 +17,7 @@ namespace SMPhotos.Web
 			app.UseCookieAuthentication(new CookieAuthenticationOptions
 			{
 				AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-				LoginPath = new PathString("/Home/Index"),
+				LoginPath = new PathString("/home/index"),
 				SlidingExpiration = false,
 				ExpireTimeSpan = TimeSpan.FromDays(20)
 			});

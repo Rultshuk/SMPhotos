@@ -17,11 +17,11 @@ namespace SMPhotos.Web
 			else
 				return null;
 		}
+
 		public static UserContext CurentUserContext
 		{
 			get { return GetSessionData<UserContext>(MVCManager.SessionData.UserContext); }
 			set { SetSessionData<UserContext>(MVCManager.SessionData.UserContext, value); }
 		}
-
 	}
 }

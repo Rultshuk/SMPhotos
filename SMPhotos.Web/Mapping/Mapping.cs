@@ -1,7 +1,7 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using SMPhotos.DAL;
 using SMPhotos.Web.ViewModel;
-using System;
 
 namespace SMPhotos.Web
 {
@@ -17,7 +17,7 @@ namespace SMPhotos.Web
 			CreateMap<Album, AlbumVM>()
 				.ForMember(d => d.PathAlbum, o => o.Ignore());
 			CreateMap<Album, PictureVM>()
-				.ForMember(d=>d.Message, o=>o.Ignore())
+				.ForMember(d => d.Message, o => o.Ignore())
 				.ForMember(d => d.files, o => o.Ignore());
 			CreateMap<User, UserContext>();
 			CreateMap<Image, ImageVM>();

@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
-using Microsoft.Practices.Unity.Mvc;
 using SMPhotos.Web.DependencyInjection;
-using System.Web.Mvc;
 
 namespace SMPhotos.Web
 {
@@ -12,8 +10,6 @@ namespace SMPhotos.Web
 			DependencyResolverConfig.RegisterType(
 				new WebTypeResolver()
 			);
-
-			
 
 			Mapper.Initialize(config =>
 			{

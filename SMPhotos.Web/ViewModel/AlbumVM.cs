@@ -1,9 +1,7 @@
-﻿using SMPhotos.DAL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+using SMPhotos.DAL;
 
 namespace SMPhotos.Web.ViewModel
 {

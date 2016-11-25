@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Threading.Tasks;
-using Microsoft.Owin;
-using Owin;
-using Microsoft.Owin.Security.Cookies;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin;
+using Microsoft.Owin.Security.Cookies;
+using Owin;
 
 [assembly: OwinStartup(typeof(SMPhotos.Web.Startup))]
 

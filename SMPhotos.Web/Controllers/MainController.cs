@@ -62,6 +62,7 @@ namespace SMPhotos.Web.Controllers
 			AlbumVM albumVM = Mapper.Map<AlbumVM>(_albumRepository.Get(id));
 			return View(albumVM);
 		}
+
 		[HttpPost]
 		[Authorize(Roles = Roles.User)]
 		public ActionResult ChangeAlbum(AlbumVM albumVM)
@@ -73,12 +74,14 @@ namespace SMPhotos.Web.Controllers
 			_albumRepository.UnitOfWork.SaveChanges();
 			return View();
 		}
+
 		[HttpGet]
 		[Authorize(Roles = Roles.User)]
 		public ActionResult CreateAlbum()
 		{
 			return View();
 		}
+
 		[HttpPost]
 		[Authorize(Roles = Roles.User)]
 		public ActionResult CreateAlbum(AlbumVM albumVM)
@@ -94,6 +97,7 @@ namespace SMPhotos.Web.Controllers
 			return RedirectToAction("albums");
 			//return View();
 		}
+
 		[HttpGet]
 		[Authorize(Roles = Roles.User)]
 		public ActionResult AlbumAsList(int? id)
@@ -121,6 +125,7 @@ namespace SMPhotos.Web.Controllers
 			picture.Guid = album.Guid;
 			return View(picture);
 		}
+
 		[HttpPost]
 		[Authorize(Roles = Roles.Uploader)]
 		public ActionResult ImageLoad(PictureVM picture)

@@ -1,9 +1,8 @@
-﻿using AutoMapper;
+﻿using System.Data.Entity;
+using System.Web.Mvc;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Mvc;
 using SMPhotos.DAL;
-using System.Data.Entity;
-using System.Web.Mvc;
 
 namespace SMPhotos.Web.DependencyInjection
 {

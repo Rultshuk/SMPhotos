@@ -20,7 +20,7 @@ namespace SMPhotos.Web.Controllers
 			_userRepository = userRepository;
 		}
 		[HttpGet]
-		[Authorize(Roles = "User")]
+		[Authorize(Roles = Roles.User)]
 		public ActionResult ChangeProfile()
 		{
 			UserVM userVM = Mapper.Map<UserVM>(_userRepository.GetByEmail(User.Identity.Name));
@@ -33,7 +33,7 @@ namespace SMPhotos.Web.Controllers
 			User userBase = _userRepository.GetByEmail(userVM.Email);
 			if (!ValidateChangeData(userVM, userBase))
 			{
-				userVM.Message = "Your changes are not successful!";
+				userVM.Message = "Something wrong, Your changes were not saved!";
 				return View(userVM);
 			}
 
@@ -46,7 +46,7 @@ namespace SMPhotos.Web.Controllers
 				userBase.Password = userVM.NewPassword;
 			}
 			_userRepository.UnitOfWork.SaveChanges();
-			userVM.Message = "Your changes are successful!";
+			userVM.Message = "Your changes were successfully saved!";
 			return View(userVM);
 		}
 		public ActionResult Main()
@@ -59,6 +59,7 @@ namespace SMPhotos.Web.Controllers
 		{
 			return View();
 		}
+
 		[HttpPost]
 		public ActionResult Register(RegisterUserVM userVM)
 		{
@@ -83,11 +84,11 @@ namespace SMPhotos.Web.Controllers
 		{
 			return View();
 		}
-		public ActionResult about()
+		public ActionResult About()
 		{
 			return View();
 		}
-		public ActionResult contact()
+		public ActionResult Contact()
 		{
 			return View();
 		}

@@ -1,11 +1,7 @@
-﻿using SMPhotos.DAL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using AutoMapper;
+using SMPhotos.DAL;
 using SMPhotos.Web.ViewModel;
-using System.Net.Mail;
 
 namespace SMPhotos.Web.Controllers
 {

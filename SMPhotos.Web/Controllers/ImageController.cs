@@ -1,10 +1,6 @@
-﻿using SMPhotos.DAL;
+﻿using System.Web.Mvc;
+using SMPhotos.DAL;
 using SMPhotos.Web.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 
 namespace SMPhotos.Web.Controllers
 {
@@ -19,13 +15,15 @@ namespace SMPhotos.Web.Controllers
 		}
 
 		[Authorize(Roles = Roles.User)]
-
-		public ActionResult GetImage(int ImageId)
+		[HttpGet]
+		public ActionResult GetImage(int id)
 		{
-			ImageVM image = AutoMapper.Mapper.Map<ImageVM>(_imageRepository.Get(ImageId));
+			ImageVM image = AutoMapper.Mapper.Map<ImageVM>(_imageRepository.Get(id));
 			string[] split = image.Name.Split('.');
-			string imageType = "image/" + split[split.Length - 1];
-			return File(Server.MapPath(string.Format("~/App_Data/{0}/{1}", image.Album.Guid, image.Name)), imageType);
+			string type = "image/" + split[split.Length - 1];
+			return File(
+				Server.MapPath(string.Format("~/App_Data/{0}/{1}", image.Album.Guid, image.Name)), 
+				type);
 		}
 
 	}

@@ -28,33 +28,33 @@ div.center-cropped {
     padding-left: 0px;
     padding-right: 0px;
 }
+
 .content-center {
     padding-bottom: 25px;
-	vertical-align:middle;
-	text-align:center;
+    vertical-align: middle;
+    text-align: center;
 }
 
-.btn-toolbar{
-  text-align: center;
-}​
-.toolbar{
-     padding: 20%;
- }
- .btn-group a {
-    display:inline-block;
+.btn-toolbar {
+    text-align: center;
 }
-    div.center-cropped img {
-        height: 100%;
-        min-width: 100%;
-        left: 50%;
-        position: relative;
-        -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-        transform: translateX(-50%);
-    }
 
-div.left {
-    float: left;
+​ .toolbar {
+    padding: 20%;
+}
+
+.btn-group a {
+    display: inline-block;
+}
+
+div.center-cropped img {
+    height: 100%;
+    min-width: 100%;
+    left: 50%;
+    position: relative;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
 }
 
 .col-centered {
@@ -74,6 +74,17 @@ div.left {
     transition: all .25s;
     opacity: .75;
 }
+
 .center-cropped:hover .glyphicon {
     opacity: 1;
+}
+
+.standard-description {
+    text-align: center;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 6%;
+    padding-right: 1%;
 }

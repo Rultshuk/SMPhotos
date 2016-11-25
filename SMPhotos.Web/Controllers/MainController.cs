@@ -127,7 +127,7 @@ namespace SMPhotos.Web.Controllers
 			{
 				picture.Message = "Your upload is not successful!";
 			}
-			return View();
+			return View(picture);
 		}
 
 		bool InitImages(PictureVM pictureVM, Album album)

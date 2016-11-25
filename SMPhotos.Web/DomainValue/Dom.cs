@@ -29,6 +29,8 @@ namespace SMPhotos.Web
 		public const string Active = "Active";
 		public const string Admin = "Admin";
 		public const string Uploader = "Uploader";
+		public const string AlbumName = "Album Name";
+		public const string Description = "Description";
 		public const string OurContacts = "Our Contacts";
 		public const string AboutUs = "About Us";
 		public const string CreateAlbum = "Create New Album";

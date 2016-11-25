@@ -1,26 +1,55 @@
 ﻿@model SMPhotos.Web.ViewModel.AlbumVM
 @{
-    ViewBag.Title = "ChangeAlbum";
+    ViewBag.Title = Translation.ChangeAlbum;
 }
-
-@Styles.Render("~/Content/login/css")
+@section Styles
+{
+    @Styles.Render("~/Content/login/css")
+    @Styles.Render("~/Content/main/css")
+}
+<div class="row content-center">
+    @*<div class="col-sm-12 col-lg-12 col-md-12 col-xs-12">
+            <h2>@Model.Name - @Model.Description</h2>
+        </div>*@
+    <div class="toolbar" role="toolbar">
+        <div class="btn-group pagination-centered">
+            <a href="@Url.Action(MVCManager.Controller.Main.albums, MVCManager.Controller.Main.name)" title="Return to Albums">
+                <button class="glyphicon glyphicon-arrow-left btn btn-default"></button>
+            </a>
+            @if (User.IsInRole("Uploader"))
+            {
+                <a href="@Url.Action(MVCManager.Controller.Main.imageload, MVCManager.Controller.Main.name, new { id = Model.Id })" title="Add images">
+                    <button class="glyphicon glyphicon-plus btn btn-default"></button>
+                </a>}
+            <a href="@Url.Action(MVCManager.Controller.Main.album, MVCManager.Controller.Main.name, new { id = Model.Id})" title="View as grid">
+                <button class="glyphicon glyphicon-th-large btn btn-default"></button>
+            </a>
+            <a href="@Url.Action(MVCManager.Controller.Main.albumaslist, MVCManager.Controller.Main.name, new { id = Model.Id})" title="View as list">
+                <button class="glyphicon glyphicon-th-list btn btn-default"></button>
+            </a>
+            <strong title="Edit this album"><button class="glyphicon glyphicon-edit btn btn-disabled"></button></strong>
+            <a href="@Url.Action(MVCManager.Controller.Main.albumaslist, MVCManager.Controller.Main.name, new { id = Model.Id})" title="Remove this album">
+                <button class="glyphicon glyphicon-remove btn btn-default"></button>
+            </a>
+        </div>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
         @using (Html.BeginForm(MVCManager.Controller.Main.ChangeAlbum, MVCManager.Controller.Main.name, FormMethod.Post, new { @class = "form-signin" }))
         {
-            <h2>@Translation.ChangeAlbum</h2>
-                <hr>
+            <h2>Changing the album @Model.Name</h2>
+            <hr>
+            <div class="form-group">
+                @Html.HiddenFor(m => m.Id)
+                @Html.HiddenFor(m => m.Guid)
+                @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control input-lg", @placeholder = Translation.AlbumName, @label = Translation.AlbumName, @required = "true" } })
+            </div>
                 <div class="form-group">
-                    @Html.HiddenFor(m => m.Id)
-                    @Html.HiddenFor(m => m.Guid)
-                    @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control input-lg", @placeholder = "Album Name", @required = "true" } })
+                    @Html.EditorFor(m => m.Description, new { htmlAttributes = new { @class = "form-control input-lg", @placeholder = Translation.Description, @label = Translation.Description } })
                 </div>
-                        <div class="form-group">
-                            @Html.EditorFor(m => m.Description, new { htmlAttributes = new { @class = "form-control input-lg", @placeholder = "Description" } })
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block btn-lg">@Translation.ApplyChanges</button>
-        }
+                <button type="submit" class="btn btn-primary btn-block btn-lg">@Translation.ApplyChanges</button>}
     </div>
 </div>
 

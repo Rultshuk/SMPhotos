@@ -35,17 +35,17 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="@Url.Action(View.ChangeProfile, MVCManager.Controller.Home.Name)" title="@Navigation.ChangeProfile"><span class="glyphicon glyphicon-user"></span> @Navigation.ChangeProfile</a>
+                                    <a href="@Url.Action(MVCManager.Controller.Home.changeprofile, MVCManager.Controller.Home.Name)" title="@Navigation.ChangeProfile"><span class="glyphicon glyphicon-user"></span> @Navigation.ChangeProfile</a>
                                 </li>
                                 @if (User.IsInRole("Admin"))
                                 {
                                     <li>
-                                        <a href="@Url.Action(View.Admin, MVCManager.Controller.Home.Name)" title="@Navigation.AdminTools"><span class="glyphicon glyphicon-flash"></span> @Navigation.AdminTools</a>
+                                        <a href="@Url.Action(MVCManager.Controller.Home.admin, MVCManager.Controller.Home.Name)" title="@Navigation.AdminTools"><span class="glyphicon glyphicon-flash"></span> @Navigation.AdminTools</a>
                                     </li>}
                             </ul>
                         </li>}
                     <li>
-                        <a href="@Url.Action(MVCManager.Controller.Home.Logout, MVCManager.Controller.Home.Name)" title="@Navigation.LogOut"><span class="glyphicon glyphicon-log-out"></span> @Navigation.LogOut</a>
+                        <a href="@Url.Action(MVCManager.Controller.Home.logout, MVCManager.Controller.Home.Name)" title="@Navigation.LogOut"><span class="glyphicon glyphicon-log-out"></span> @Navigation.LogOut</a>
                     </li>
                 </ul>}
         </div>

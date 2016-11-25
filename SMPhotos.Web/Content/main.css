@@ -59,7 +59,7 @@ div.left {
     position: absolute;
     top: 2%;
     margin-top: 0px; /* half icon's height */
-    left: 90%;
+    left: 85%;
     margin-left: 0px; /* half icon's width */
     z-index: 999;
     color: white;

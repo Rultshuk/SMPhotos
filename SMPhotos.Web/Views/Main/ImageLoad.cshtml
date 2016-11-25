@@ -6,6 +6,20 @@
 @section ScriptLoad{
     @Scripts.Render("~/Scripts/imageLoad/js")
 }
+<hr />
+<div class="btn-toolbar" role="toolbar">
+    <div class="btn-group">
+        <span class="lead btn btn-default">
+            <a href="@Url.Action(MVCManager.Controller.Main.albums, MVCManager.Controller.Main.name)" title="Return to Albums">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+            </a>
+        </span>
+       <span class="lead btn btn-default">
+            <a href="@Request.UrlReferrer" title="Return to current album"><span class="glyphicon glyphicon-th-large"></span></a>
+        </span>
+    </div>
+</div>
+
 @using (Html.BeginForm(MVCManager.Controller.Main.imageload, MVCManager.Controller.Main.name, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.HiddenFor(m => m.Guid)

@@ -1,4 +1,4 @@
-body {
+﻿body {
     padding-top: 70px;
 }
 
@@ -31,11 +31,21 @@ div.center-cropped {
     padding-left: 0px;
     padding-right: 0px;
 }
-.content {
+.content-center {
+    padding-bottom: 25px;
 	vertical-align:middle;
 	text-align:center;
 }
 
+.btn-toolbar{
+  text-align: center;
+}​
+.toolbar{
+     padding: 20%;
+ }
+ .btn-group a {
+    display:inline-block;
+}
     div.center-cropped img {
         height: 100%;
         min-width: 100%;

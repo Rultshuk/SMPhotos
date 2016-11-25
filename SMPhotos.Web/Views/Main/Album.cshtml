@@ -7,38 +7,39 @@
     @Styles.Render("~/Content/fancyBox/css")
     @Styles.Render("~/Content/main/css")
 }
-@*<hr />*@
-<div class="row">
+
+<div class="row content-center">
     <div class="col-sm-12 col-lg-12 col-md-12 col-xs-12"><h2>@Model.Name - @Model.Description</h2></div>
-</div>
-<div class="btn-toolbar" role="toolbar">
-    <div class="btn-group">
-        <span class="lead btn btn-default">
-            <a href="@Url.Action(MVCManager.Controller.Main.albums, MVCManager.Controller.Main.name)" title="Return to Albums">
-                <span class="glyphicon glyphicon-arrow-left"></span>
-            </a>
-        </span>
-        @if (User.IsInRole("Uploader"))
-        {
+    <div class="toolbar" role="toolbar">
+        <div class="btn-group pagination-centered">
             <span class="lead btn btn-default">
-                <a href="@Url.Action(MVCManager.Controller.Main.imageload, MVCManager.Controller.Main.name, new { id = Model.Id })" title="Add images"><span class="glyphicon glyphicon-plus"></span></a>
-            </span>}
-        <span class="lead btn btn-default btn-disabled">
-            <strong title="View as grid"><span class="glyphicon glyphicon-th-large"></span></strong>
-        </span>
-        <span class="lead btn btn-default">
-            <a href="@Url.Action(MVCManager.Controller.Main.albumaslist, MVCManager.Controller.Main.name, new { Id = Model.Id})" title="View as list"><span class="glyphicon glyphicon-th-list"></span></a>
-        </span>
-        <span class="lead btn btn-default">
-            <a href="@Url.Action(MVCManager.Controller.Main.albumaslist, MVCManager.Controller.Main.name, new { Id = Model.Id})" title="Edit this album"><span class="glyphicon glyphicon-edit"></span></a>
-        </span>
-        <span class="lead btn btn-default">
-            <a href="@Url.Action(MVCManager.Controller.Main.albumaslist, MVCManager.Controller.Main.name, new { Id = Model.Id})" title="Remove this album"><span class="glyphicon glyphicon-remove"></span></a>
-        </span>
+                <a href="@Url.Action(MVCManager.Controller.Main.albums, MVCManager.Controller.Main.name)" title="Return to Albums">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                </a>
+            </span>
+            @if (User.IsInRole("Uploader"))
+            {
+                <span class="lead btn btn-default">
+                    <a href="@Url.Action(MVCManager.Controller.Main.imageload, MVCManager.Controller.Main.name, new { id = Model.Id })" title="Add images"><span class="glyphicon glyphicon-plus"></span></a>
+                </span>}
+            <span class="lead btn btn-default btn-disabled">
+                <strong title="View as grid"><span class="glyphicon glyphicon-th-large"></span></strong>
+            </span>
+            <span class="lead btn btn-default">
+                <a href="@Url.Action(MVCManager.Controller.Main.albumaslist, MVCManager.Controller.Main.name, new { Id = Model.Id})" title="View as list"><span class="glyphicon glyphicon-th-list"></span></a>
+            </span>
+            <span class="lead btn btn-default">
+                <a href="@Url.Action(MVCManager.Controller.Main.albumaslist, MVCManager.Controller.Main.name, new { Id = Model.Id})" title="Edit this album"><span class="glyphicon glyphicon-edit"></span></a>
+            </span>
+            <span class="lead btn btn-default">
+                <a href="@Url.Action(MVCManager.Controller.Main.albumaslist, MVCManager.Controller.Main.name, new { Id = Model.Id})" title="Remove this album"><span class="glyphicon glyphicon-remove"></span></a>
+            </span>
+        </div>
     </div>
 </div>
 
-<div class="row content">
+
+<div class="row content-center">
     @foreach (var image in Model.Image)
     {
         <div class="center-cropped col-sm-2 col-lg-2 col-md-2 col-xs-2 col-centered">

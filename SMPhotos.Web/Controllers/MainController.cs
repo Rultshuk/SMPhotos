@@ -26,7 +26,7 @@ namespace SMPhotos.Web.Controllers
 		}
 		[HttpGet]
 		[Authorize(Roles = Roles.User)]
-		public ActionResult albums()
+		public ActionResult Albums()
 		{
 			AlbumListVM viewModel = new AlbumListVM();
 			var albums = (IList<Album>)_albumRepository.GetAll();
@@ -40,7 +40,7 @@ namespace SMPhotos.Web.Controllers
 
 		[HttpGet]
 		[Authorize(Roles = Roles.User)]
-		public ActionResult album(int? id)
+		public ActionResult Album(int? id)
 		{
 			var albums = (IList<Album>)_albumRepository.GetAll();
 			var album = albums.FirstOrDefault(x => x.Id == id);
@@ -72,7 +72,7 @@ namespace SMPhotos.Web.Controllers
 			album.Description = albumVM.Description;
 			album.Path = album.Guid.ToString();
 			_albumRepository.UnitOfWork.SaveChanges();
-			return View();
+			return View(albumVM);
 		}
 
 		[HttpGet]

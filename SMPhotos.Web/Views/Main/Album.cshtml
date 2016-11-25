@@ -41,7 +41,7 @@
             <span class="">
                 <a href="@Url.Action(MVCManager.Controller.Main.ChangeAlbum, MVCManager.Controller.Main.name, new { Id = Model.Id})" title="Remove this image"><span class="glyphicon glyphicon-remove"></span></a>
             </span>
-            <a class="fancybox-thumb" rel="fancybox-thumb" href="@Url.Action("getimage", "image", new { id = image.Id, name = image.Name})" title="@image.Description">
+            <a class="fancybox-thumb" rel="fancybox-thumb" href="@Url.Action("getimage", "image", new { id = image.Id, name = image.Name})" title="@image.Name - @image.Description">
                 <img src="@Url.Action("getimage", "image", new { id = image.Id })" alt="@image.Description" />
             </a>
         </div>

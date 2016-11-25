@@ -28,8 +28,8 @@ div.center-cropped {
     width: 250px;
     height: 250px;
     overflow: hidden;
-    /*padding-left: 0px;
-    padding-right: 0px;*/
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
     div.center-cropped img {
@@ -49,4 +49,20 @@ div.left {
 .col-centered {
     display: inline-block;
     float: none;
+}
+
+.center-cropped .glyphicon {
+    position: absolute;
+    top: 2%;
+    margin-top: 0px; /* half icon's height */
+    left: 90%;
+    margin-left: 0px; /* half icon's width */
+    z-index: 999;
+    color: white;
+    font-size: 20px;
+    transition: all .25s;
+    opacity: .75;
+}
+.center-cropped:hover .glyphicon {
+    opacity: 1;
 }

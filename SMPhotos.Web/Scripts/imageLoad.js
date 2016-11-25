@@ -95,36 +95,16 @@ $(document).ready(function() {
 		
 		return false;
 	}
-	
-	// Удаление только выбранного изображения 
+
 	$("#dropped-files").on("click","a[id^='drop']", function() {
-		// получаем название id
  		var elid = $(this).attr('id');
-		// создаем массив для разделенных строк
 		var temp = new Array();
-		// делим строку id на 2 части
 		temp = elid.split('-');
-		// получаем значение после тире тоесть индекс изображения в массиве
 		dataArray.splice(temp[1],1);
-		// Удаляем старые эскизы
 		$('#dropped-files > .image').remove();
-		// Обновляем эскизи в соответсвии с обновленным массивом
 		addImage(-1);		
 	});
-	
-	// Удалить все изображения кнопка 
+	 
 	$('#dropped-files #upload-button .delete').click(restartFiles);
 	
-
-	
-	// Простые стили для области перетаскивания
-	$('#drop-files').on('dragenter', function() {
-		$(this).css({'box-shadow' : 'inset 0px 0px 20px rgba(0, 0, 0, 0.1)', 'border' : '4px dashed #bb2b2b'});
-		return false;
-	});
-	
-	$('#drop-files').on('drop', function() {
-		$(this).css({'box-shadow' : 'none', 'border' : '4px dashed rgba(0,0,0,0.2)'});
-		return false;
-	});
 });

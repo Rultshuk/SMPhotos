@@ -38,17 +38,18 @@
     </div>
 </div>
 
-<div class="row row-centered">
+<div class="row content">
     @foreach (var image in Model.Image)
     {
-        <div class="center-cropped col-sm-12 col-lg-12 col-md-12 col-xs-12 col-centered">
+        <div class="center-cropped col-sm-2 col-lg-2 col-md-2 col-xs-2 col-centered">
             <span class="">
                 <a href="@Url.Action(MVCManager.Controller.Main.albumaslist, MVCManager.Controller.Main.name, new { Id = Model.Id})" title="Remove this image"><span class="glyphicon glyphicon-remove"></span></a>
             </span>
             <a class="fancybox-thumb" rel="fancybox-thumb" href="@Url.Action("GetImage", "Image", new { ImageId = image.Id, name = image.Name})" title="@image.Description">
                 <img src="@Url.Action("GetImage", "Image", new { ImageId = image.Id, name = image.Name })" alt="@image.Description" />
             </a>
-        </div>}
+        </div>
+    }
 </div>
 @section Script
 {

@@ -1,22 +1,12 @@
 var $ = jQuery.noConflict();
 
 $(document).ready(function() {
-	jQuery.event.props.push('dataTransfer');
 	var maxFiles = 6;
 	var errMessage = 0;
 	var defaultUploadBtn = $('#uploadbtn');
 	var dataArray = [];
 	$('#uploaded-files').hide();
-	$('#drop-files').on('drop', function(e) {	
-		var files = e.dataTransfer.files;
-		if (files.length <= maxFiles) {
-			loadInView(files);
-		} else {
-			alert('You can not upload more than '+maxFiles+' images!'); 
-			files.length = 0; return;
-		}
-	});
-
+	
 	defaultUploadBtn.on('change', function() {
    		var files = $(this)[0].files;
 		if (files.length <= maxFiles) {

@@ -21,6 +21,14 @@ namespace SMPhotos.Web
 		public const string ResetChanges = "Reset changes";
 		public const string ApplyChanges = "Apply changes";
 		public const string ChangesProfile = "Change your Profile ";
+		public const string SelectImages = "Select images, you want to upload.";
+		public const string BrowseImages = "Browse Images";
+		public const string Upload = "Uoload";
+		public const string Remove = "Remove";
+		public const string Close = "Close";
+		public const string Active = "Active";
+		public const string Admin = "Admin";
+		public const string Uploader = "Uploader";
 	}
 	public static class Navigation
 	{

@@ -25,9 +25,9 @@
     @Html.HiddenFor(m => m.Guid)
     <div class="content">
         <div id="drop-files" ondragover="return false">
-            <p>Drag an image here</p>
+            <p>@Translation.SelectImages</p>
             <form id="frm">
-                <label for="uploadbtn" class="btn btn-primary">Browse Images</label>
+                <label for="uploadbtn" class="btn btn-primary">@Translation.BrowseImages</label>
                 <input type="file" name="files" id="uploadbtn" multiple="multiple" style="visibility:hidden;">
             </form>
         </div>
@@ -36,8 +36,8 @@
                 <div id="upload-button">
                     <center>
                         <span>0 Files</span>
-                        <button type="submit" class="upload btn btn-primary">Upload</button>
-                        <a href="#" class="delete btn btn-primary">Remove</a>
+                        <button type="submit" class="upload btn btn-primary">@Translation.Upload</button>
+                        <a href="#" class="delete btn btn-primary">@Translation.Remove</a>
                         <div id="loading">
                             <div id="loading-bar">
                                 <div class="loading-color"></div>
@@ -57,7 +57,7 @@
                 <h3> @Model.Message</h3>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">@Translation.Close</button>
             </div>
         </div>
     </div>

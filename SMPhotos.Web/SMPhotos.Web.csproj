@@ -354,11 +354,11 @@
     </None>
     <Content Include="Views\Home\ChangeProfile.cshtml" />
     <Content Include="Views\Main\ImageLoad.cshtml" />
-    <Content Include="Views\Main\Aalbum.cshtml" />
-    <Content Include="Views\Main\Aalbums.cshtml" />
-    <Content Include="Views\Main\Aalbumtext.cshtml" />
-    <Content Include="Views\Home\Aabout.cshtml" />
-    <Content Include="Views\Home\Ccontact.cshtml" />
+    <Content Include="Views\Main\Album.cshtml" />
+    <Content Include="Views\Main\Albums.cshtml" />
+    <Content Include="Views\Main\Albumtext.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Main\CreateAlbum.cshtml" />
     <Content Include="Views\Home\NotActivated.cshtml" />
     <None Include="Web.Debug.config">

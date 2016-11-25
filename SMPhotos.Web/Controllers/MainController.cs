@@ -48,11 +48,11 @@ namespace SMPhotos.Web.Controllers
 			var album = albums.FirstOrDefault(x => x.Id == id);
 			if (album == null)
 			{
-				return RedirectToAction(MVCManager.Controller.Main.albums, MVCManager.Controller.Main.Name);
+				return RedirectToAction(MVCManager.Controller.Main.albums, MVCManager.Controller.Main.name);
 			}
 			else
 			{
-				AlbumVM albumVM = AutoMapper.Mapper.Map<AlbumVM>(album);
+				AlbumVM albumVM = Mapper.Map<AlbumVM>(album);
 				albumVM.PathAlbum = albumVM.Path + albumVM.Guid + '/';
 				return View(albumVM);
 			}
@@ -89,13 +89,13 @@ namespace SMPhotos.Web.Controllers
 		}
 		[HttpGet]
 		[Authorize(Roles = Roles.User)]
-		public ActionResult albumtext(int? id)
+		public ActionResult AlbumAsList(int? id)
 		{
 			var albums = (IList<Album>)_albumRepository.GetAll();
 			var album = albums.FirstOrDefault(x => x.Id == id);
 			if (album == null)
 			{
-				return RedirectToAction(MVCManager.Controller.Main.albums, MVCManager.Controller.Main.Name);
+				return RedirectToAction(MVCManager.Controller.Main.albums, MVCManager.Controller.Main.name);
 			}
 			else
 			{

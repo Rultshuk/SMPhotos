@@ -6,7 +6,7 @@
 @section ScriptLoad{
     @Scripts.Render("~/Scripts/imageLoad/js")
 }
-@using (Html.BeginForm(MVCManager.Controller.Main.ImageLoad, MVCManager.Controller.Main.Name, FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm(MVCManager.Controller.Main.imageload, MVCManager.Controller.Main.name, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.HiddenFor(m => m.Guid)
     <div class="content">

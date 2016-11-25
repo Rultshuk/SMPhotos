@@ -61,8 +61,8 @@ namespace SMPhotos.Web
 		{
 			public static class Home
 			{
-				public const string Name = "home";
-				public const string Index = "index";
+				public const string name = "home";
+				public const string index = "index";
 				public const string changeprofile = "changeprofile";
 				public const string admin = "admin";
 				public const string logout = "logout";
@@ -72,11 +72,12 @@ namespace SMPhotos.Web
 			}
 			public static class Main
 			{
-				public const string Name = "main";
+				public const string name = "main";
 				public const string album = "album";
 				public const string albums = "albums";
-				public const string albumtext = "albumtext";
-				public const string ImageLoad = "ImageLoad";
+				public const string albumaslist = "albumaslist";
+				public const string imageload = "imageload";
+				public const string createalbum = "createalbum";
 			}
 
 		}

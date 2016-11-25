@@ -17,7 +17,7 @@ namespace SMPhotos.Web.Controllers
 		{
 			if (User.Identity.IsAuthenticated)
 				if (User.IsInRole(Roles.User))
-					return RedirectToAction(MVCManager.Controller.Main.albums, MVCManager.Controller.Main.Name);
+					return RedirectToAction(MVCManager.Controller.Main.albums, MVCManager.Controller.Main.name);
 				else 
 					return View("NotActivated");
 			return View();
@@ -46,13 +46,13 @@ namespace SMPhotos.Web.Controllers
 				claims.Add(new Claim(ClaimTypes.Role, Roles.Uploader));
 			var identity = new ClaimsIdentity(claims.ToArray<Claim>(), DefaultAuthenticationTypes.ApplicationCookie);
 			HttpContext.GetOwinContext().Authentication.SignIn(new AuthenticationProperties { IsPersistent = userCredentialsVM.RememberMe }, identity);
-			return RedirectToAction(MVCManager.Controller.Home.Index);
+			return RedirectToAction(MVCManager.Controller.Home.index);
 		}
 		[Authorize]
 		public ActionResult Logout()
 		{
 			HttpContext.GetOwinContext().Authentication.SignOut();
-			return RedirectToAction(MVCManager.Controller.Home.Index);
+			return RedirectToAction(MVCManager.Controller.Home.index);
 		}
 	}
 }

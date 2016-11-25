@@ -356,7 +356,7 @@
     <Content Include="Views\Main\ImageLoad.cshtml" />
     <Content Include="Views\Main\Album.cshtml" />
     <Content Include="Views\Main\Albums.cshtml" />
-    <Content Include="Views\Main\Albumtext.cshtml" />
+    <Content Include="Views\Main\AlbumAsList.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Main\CreateAlbum.cshtml" />

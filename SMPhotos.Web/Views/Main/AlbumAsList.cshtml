@@ -7,7 +7,7 @@
     @Styles.Render("~/Content/fancyBox/css")
     @Styles.Render("~/Content/main/css")
 }
-@*<hr />*@
+
 <div class="row">
     <div class="col-sm-12 col-lg-12 col-md-12 col-xs-12"><h2>@Model.Name - @Model.Description</h2></div>
 </div>
@@ -23,12 +23,12 @@
             <span class="lead btn btn-default">
                 <a href="@Url.Action(MVCManager.Controller.Main.imageload, MVCManager.Controller.Main.name, new { id = Model.Id })" title="Add images"><span class="glyphicon glyphicon-plus"></span></a>
             </span>}
-        <span class="lead btn btn-default btn-disabled">
-            <strong title="View as grid"><span class="glyphicon glyphicon-th-large"></span></strong>
-        </span>
         <span class="lead btn btn-default">
-            <a href="@Url.Action(MVCManager.Controller.Main.albumaslist, MVCManager.Controller.Main.name, new { Id = Model.Id})" title="View as list"><span class="glyphicon glyphicon-th-list"></span></a>
+            <a href="@Url.Action(MVCManager.Controller.Main.album, MVCManager.Controller.Main.name, new { Id = Model.Id})" title="View as grid"><span class="glyphicon glyphicon-th-large"></span></a>
         </span>
+        <span class="lead btn btn-default btn-disabled">
+            <strong title="View as list"><span class="glyphicon glyphicon-th-list"></span></strong>
+            </span>
         <span class="lead btn btn-default">
             <a href="@Url.Action(MVCManager.Controller.Main.albumaslist, MVCManager.Controller.Main.name, new { Id = Model.Id})" title="Edit this album"><span class="glyphicon glyphicon-edit"></span></a>
         </span>
@@ -37,35 +37,27 @@
         </span>
     </div>
 </div>
-
-<div class="row row-centered">
+<div class="row">
+    @*<hr />*@
     @foreach (var image in Model.Image)
     {
-        <div class="center-cropped col-sm-12 col-lg-12 col-md-12 col-xs-12 col-centered">
-            <span class="">
-                <a href="@Url.Action(MVCManager.Controller.Main.albumaslist, MVCManager.Controller.Main.name, new { Id = Model.Id})" title="Remove this image"><span class="glyphicon glyphicon-remove"></span></a>
-            </span>
-            <a class="fancybox-thumb" rel="fancybox-thumb" href="@Url.Action("GetImage", "Image", new { ImageId = image.Id, name = image.Name})" title="@image.Description">
-                <img src="@Url.Action("GetImage", "Image", new { ImageId = image.Id, name = image.Name })" alt="@image.Description" />
-            </a>
-        </div>}
+        <a class="fancybox-button" rel="fancybox-thumb" href="@Url.Action("GetImage", "Image", new { ImageId = image.Id, name = image.Name })" title="@image.Name @image.Description">
+            @image.Name
+        </a><span>&nbsp;|&nbsp;</span>}
 </div>
+
 @section Script
 {
     @Scripts.Render("~/Scripts/fancyBox/js")
     <script type="text/javascript">
         $(document).ready(function () {
-            $(".fancybox-thumb").fancybox({
+            $(".fancybox-button").fancybox({
                 prevEffect: 'none',
                 nextEffect: 'none',
                 closeBtn: false,
                 helpers: {
                     title: {
                         type: 'outside'
-                    },
-                    thumbs: {
-                        width: 50,
-                        height: 50
                     },
                     buttons: {}
                 }

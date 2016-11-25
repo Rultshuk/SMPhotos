@@ -84,8 +84,8 @@ namespace SMPhotos.Web.Controllers
 			Directory.CreateDirectory(Path.Combine(Server.MapPath("~/App_Data"), album.Path));
 			_albumRepository.Add(album);
 			_albumRepository.UnitOfWork.SaveChanges();
-			//return RedirectToAction("albums");
-			return View();
+			return RedirectToAction("albums");
+			//return View();
 		}
 		[HttpGet]
 		[Authorize(Roles = Roles.User)]
@@ -121,13 +121,13 @@ namespace SMPhotos.Web.Controllers
 			var album = _albumRepository.GetAlbumByGuid(picture.Guid);
 			if(InitImages(picture, album))
 			{
-				picture.Message = "You have uploaded "+picture.files.Count().ToString()+" images successful!";
+				picture.Message = "Your photos have successfully uploaded";
 			}
 			else
 			{
 				picture.Message = "Your upload is not successful!";
 			}
-			return View(picture);
+			return View();
 		}
 
 		bool InitImages(PictureVM pictureVM, Album album)

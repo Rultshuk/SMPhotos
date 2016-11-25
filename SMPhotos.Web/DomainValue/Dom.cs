@@ -23,7 +23,7 @@ namespace SMPhotos.Web
 		public const string ChangesProfile = "Change your Profile ";
 		public const string SelectImages = "Select images, you want to upload.";
 		public const string BrowseImages = "Browse Images";
-		public const string Upload = "Uoload";
+		public const string Upload = "Upload";
 		public const string Remove = "Remove";
 		public const string Close = "Close";
 		public const string Active = "Active";
@@ -87,7 +87,6 @@ namespace SMPhotos.Web
 				public const string imageload = "imageload";
 				public const string createalbum = "createalbum";
 			}
-
 		}
 	}
 }

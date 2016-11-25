@@ -1,9 +1,7 @@
 ﻿.form-signin {
-    padding-top: 15% !important;
     max-width: 600px;
     padding: 10%;
     margin: 0 auto;
-    height: 80vh;
 }
 .message-div{
     padding-top: 15%;

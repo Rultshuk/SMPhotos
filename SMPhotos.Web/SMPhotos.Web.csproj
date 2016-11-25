@@ -261,7 +261,6 @@
     <Content Include="Content\jquery.fancybox-thumbs.css" />
     <Content Include="Content\jquery.fancybox.css" />
     <Content Include="Content\load.css" />
-    <Content Include="Content\upload.css" />
     <Content Include="Content\join.css" />
     <Content Include="Content\login.css" />
     <Content Include="Content\main.css" />

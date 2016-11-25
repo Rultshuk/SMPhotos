@@ -8,9 +8,8 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-            @using (Html.BeginForm(Translation.Register, MVCManager.Controller.Home.name, FormMethod.Post, new { @class = "joinus" }))
+            @using (Html.BeginForm(MVCManager.Controller.Home.index, MVCManager.Controller.Home.name, FormMethod.Post, new { @class = "joinus" }))
             {<h2>@Translation.PleaseSignUp</h2>
-            <h3>@Translation.ItsFreeJoke</h3>
             <hr>
                 <div class="row">
                     <div class="col-xs-6 col-sm-6 col-md-6">

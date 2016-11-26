@@ -8,19 +8,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="@Url.Action(View.Index, MVCManager.Controller.Home.name)" title="Go to @Navigation.SMPhotos @Navigation.Home"><img src="~/Images/logo.png" class="img-responsive hidden-xs" width="33%" alt="Go to @Navigation.SMPhotos @Navigation.Home"></a>
+            <a class="navbar-brand" href="@Url.Action(View.Index, MVCManager.Controller.Home.Name)" title="Go to @Navigation.SMPhotos @Navigation.Home"><img src="~/Images/logo.png" class="img-responsive hidden-xs" width="33%" alt="Go to @Navigation.SMPhotos @Navigation.Home"></a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    @Html.ActionLink(Navigation.Home, View.Index, MVCManager.Controller.Home.name, null, new { @title = "Go to " + @Navigation.SMPhotos + " " + @Navigation.Home })
+                    @Html.ActionLink(Navigation.Home, View.Index, MVCManager.Controller.Home.Name, null, new { @title = "Go to " + @Navigation.SMPhotos + " " + @Navigation.Home })
                 </li>
                 <li>
-                    @Html.ActionLink(Navigation.About, MVCManager.Controller.Home.about, MVCManager.Controller.Home.name, null, new { @title = Navigation.About })
+                    @Html.ActionLink(Navigation.About, MVCManager.Controller.Home.About, MVCManager.Controller.Home.Name, null, new { @title = Navigation.About })
                 </li>
                 <li>
-                    @Html.ActionLink(Navigation.Contact, MVCManager.Controller.Home.contact, MVCManager.Controller.Home.name, null, new { @title = Navigation.Contact })
+                    @Html.ActionLink(Navigation.Contact, MVCManager.Controller.Home.Contact, MVCManager.Controller.Home.Name, null, new { @title = Navigation.Contact })
                 </li>
             </ul>
             @if (User.Identity.IsAuthenticated)
@@ -35,17 +35,17 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="@Url.Action(MVCManager.Controller.Home.changeprofile, MVCManager.Controller.Home.name)" title="@Navigation.ChangeProfile"><span class="glyphicon glyphicon-user"></span> @Navigation.ChangeProfile</a>
+                                    <a href="@Url.Action(MVCManager.Controller.Home.ChangeProfile, MVCManager.Controller.Home.Name)" title="@Navigation.ChangeProfile"><span class="glyphicon glyphicon-user"></span> @Navigation.ChangeProfile</a>
                                 </li>
                                 @if (User.IsInRole("Admin"))
                                 {
                                     <li>
-                                        <a href="@Url.Action(MVCManager.Controller.Home.admin, MVCManager.Controller.Home.name)" title="@Navigation.AdminTools"><span class="glyphicon glyphicon-flash"></span> @Navigation.AdminTools</a>
+                                        <a href="@Url.Action(MVCManager.Controller.Home.Admin, MVCManager.Controller.Home.Name)" title="@Navigation.AdminTools"><span class="glyphicon glyphicon-flash"></span> @Navigation.AdminTools</a>
                                     </li>}
                             </ul>
                         </li>}
                     <li>
-                        <a href="@Url.Action(MVCManager.Controller.Home.logout, MVCManager.Controller.Home.name)" title="@Navigation.LogOut"><span class="glyphicon glyphicon-log-out"></span> @Navigation.LogOut</a>
+                        <a href="@Url.Action(MVCManager.Controller.Home.LogOut, MVCManager.Controller.Home.Name)" title="@Navigation.LogOut"><span class="glyphicon glyphicon-log-out"></span> @Navigation.LogOut</a>
                     </li>
                 </ul>}
         </div>

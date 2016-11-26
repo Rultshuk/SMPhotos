@@ -7,7 +7,7 @@
 
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-            @using (Html.BeginForm(MVCManager.Controller.Main.createalbum, MVCManager.Controller.Main.name, FormMethod.Post, new { @class = "form-signin" }))
+            @using (Html.BeginForm(MVCManager.Controller.Main.CreateAlbum, MVCManager.Controller.Main.Name, FormMethod.Post, new { @class = "form-signin" }))
             {
                 <h2>@Translation.CreateAlbum</h2>
                 <hr>
@@ -18,7 +18,7 @@
                         <div class="form-group">
                             @Html.EditorFor(m => m.Description, new { htmlAttributes = new { @class = "form-control input-lg", @placeholder = "Description" } })
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block btn-lg">Create Album</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-lg">@Translation.CreateAlbum</button>
         }
     </div>
 </div>

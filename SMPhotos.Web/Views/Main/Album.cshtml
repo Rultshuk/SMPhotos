@@ -12,22 +12,22 @@
     <div class="col-sm-12 col-lg-12 col-md-12 col-xs-12"><h2>@Model.Name - @Model.Description</h2></div>
     <div class="toolbar" role="toolbar">
         <div class="btn-group pagination-centered">
-            <a href="@Url.Action(MVCManager.Controller.Main.albums, MVCManager.Controller.Main.name)" title="Return to Albums">
+            <a href="@Url.Action(MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Name)" title="Return to Albums">
                 <button class="glyphicon glyphicon-arrow-left btn btn-default"></button>
             </a>
             @if (User.IsInRole("Uploader"))
             {
-                <a href="@Url.Action(MVCManager.Controller.Main.imageload, MVCManager.Controller.Main.name, new { id = Model.Id })" title="Add images">
+                <a href="@Url.Action(MVCManager.Controller.Main.ImageLoad, MVCManager.Controller.Main.Name, new { id = Model.Id })" title="Add images">
                     <button class="glyphicon glyphicon-plus btn btn-default"></button>
                 </a>}
             <strong title="View as grid"><button class="glyphicon glyphicon-th-large btn btn-disabled"></button></strong>
-            <a href="@Url.Action(MVCManager.Controller.Main.albumaslist, MVCManager.Controller.Main.name, new { id = Model.Id})" title="View as list">
+            <a href="@Url.Action(MVCManager.Controller.Main.AlbumasList, MVCManager.Controller.Main.Name, new { id = Model.Id})" title="View as list">
                 <button class="glyphicon glyphicon-th-list btn btn-default"></button>
             </a>
-            <a href="@Url.Action(MVCManager.Controller.Main.ChangeAlbum, MVCManager.Controller.Main.name, new { id = Model.Id})" title="Edit this album">
+            <a href="@Url.Action(MVCManager.Controller.Main.ChangeAlbum, MVCManager.Controller.Main.Name, new { id = Model.Id})" title="Edit this album">
                 <button class="glyphicon glyphicon-edit btn btn-default"></button>
             </a>
-            <a href="@Url.Action(MVCManager.Controller.Main.albumaslist, MVCManager.Controller.Main.name, new { id = Model.Id})" title="Remove this album">
+            <a href="@Url.Action(MVCManager.Controller.Main.AlbumasList, MVCManager.Controller.Main.Name, new { id = Model.Id})" title="Remove this album">
                 <button class="glyphicon glyphicon-remove btn btn-default"></button>
             </a>
         </div>
@@ -39,7 +39,7 @@
     {
         <div class="center-cropped col-sm-2 col-lg-2 col-md-2 col-xs-2 col-centered">
             <span class="">
-                <a href="@Url.Action(MVCManager.Controller.Main.ChangeAlbum, MVCManager.Controller.Main.name, new { Id = Model.Id})" title="Remove this image"><span class="glyphicon glyphicon-remove"></span></a>
+                <a href="@Url.Action(MVCManager.Controller.Main.ChangeAlbum, MVCManager.Controller.Main.Name, new { Id = Model.Id})" title="Remove this image"><span class="glyphicon glyphicon-remove"></span></a>
             </span>
             <a class="fancybox-thumb" rel="fancybox-thumb" href="@Url.Action("getimage", "image", new { id = image.Id, name = image.Name})" title="@image.Name - @image.Description">
                 <img src="@Url.Action("getimage", "image", new { id = image.Id })" alt="@image.Description" />

@@ -1,10 +1,10 @@
 ﻿@model SMPhotos.Web.ViewModel.UsersListsVM
     @{
-        ViewBag.Title = "Admin";
+        ViewBag.Title = Navigation.Admin;
     }
 
     <div class="confirm">
-        @using (Html.BeginForm("RegNewUsers", "Home", FormMethod.Post))
+        @using (Html.BeginForm(MVCManager.Controller.Home.RegNewUsers, MVCManager.Controller.Home.Name, FormMethod.Post))
         {
             <h3>New users: </h3>
             <table class="table">

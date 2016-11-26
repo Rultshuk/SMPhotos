@@ -8,7 +8,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-            @using (Html.BeginForm(MVCManager.Controller.Home.index, MVCManager.Controller.Home.name, FormMethod.Post, new { @class = "joinus" }))
+            @using (Html.BeginForm(MVCManager.Controller.Home.Index, MVCManager.Controller.Home.Name, FormMethod.Post, new { @class = "joinus" }))
             {<h2>@Translation.PleaseSignUp</h2>
             <hr>
                 <div class="row">
@@ -45,7 +45,7 @@
                 <div class="row">
                     <div class="col-xs-6 col-md-6"><button type="submit" class="btn btn-primary btn-block btn-lg" tabindex="7">@Translation.Register</button></div>
                     <div class="col-xs-6 col-md-6">
-                    @Html.ActionLink(@Translation.SignIn, MVCManager.Controller.Home.index, MVCManager.Controller.Home.name, null, new { @class ="btn btn-success btn-block btn-lg"})
+                    @Html.ActionLink(@Translation.SignIn, MVCManager.Controller.Home.Index, MVCManager.Controller.Home.Name, null, new { @class ="btn btn-success btn-block btn-lg"})
                     </div>
                 </div>
             }

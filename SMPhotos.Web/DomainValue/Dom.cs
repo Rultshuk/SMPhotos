@@ -42,6 +42,7 @@
 		public const string LogOut = "Log Out";
 		public const string SMStudents = "SMStudents";
 		public const string SMPhotos = "SMPhotos";
+		public const string Admin = "Admin";
 	}
 	public static class View
 	{
@@ -70,23 +71,24 @@
 		{
 			public static class Home
 			{
-				public const string name = "home";
-				public const string index = "index";
-				public const string changeprofile = "changeprofile";
-				public const string admin = "admin";
-				public const string logout = "logout";
-				public const string register = "register";
-				public const string about = "about";
-				public const string contact = "contact";
+				public const string Name = "home";
+				public const string Index = "index";
+				public const string ChangeProfile = "changeprofile";
+				public const string Admin = "admin";
+				public const string LogOut = "logout";
+				public const string Register = "register";
+				public const string About = "about";
+				public const string Contact = "contact";
+				public const string RegNewUsers = "regnewusers";
 			}
 			public static class Main
 			{
-				public const string name = "main";
-				public const string album = "album";
-				public const string albums = "albums";
-				public const string albumaslist = "albumaslist";
-				public const string imageload = "imageload";
-				public const string createalbum = "createalbum";
+				public const string Name = "main";
+				public const string Album = "album";
+				public const string Albums = "albums";
+				public const string AlbumasList = "albumaslist";
+				public const string ImageLoad = "imageload";
+				public const string CreateAlbum = "createalbum";
 				public const string ChangeAlbum = "changealbum";
 			}
 		}

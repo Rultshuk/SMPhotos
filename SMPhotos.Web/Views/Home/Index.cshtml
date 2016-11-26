@@ -7,9 +7,9 @@
 
 <div class="container">
     <div class="myform">
-        @using (Html.BeginForm(MVCManager.Controller.Home.index, MVCManager.Controller.Home.name, FormMethod.Post, new { @class = "form-signin" }))
+        @using (Html.BeginForm(MVCManager.Controller.Home.Index, MVCManager.Controller.Home.Name, FormMethod.Post, new { @class = "form-signin" }))
         {
-            <h2 class="form-signin-heading">Please sign in or <a href="@Url.Action(MVCManager.Controller.Home.register, MVCManager.Controller.Home.name)">Join us</a></h2>
+            <h2 class="form-signin-heading">Please sign in or <a href="@Url.Action(MVCManager.Controller.Home.Register, MVCManager.Controller.Home.Name)">Join us</a></h2>
             <div class="form-group">
                 @Html.TextBoxFor(m => m.Email, htmlAttributes: new { @class = "form-control input-lg", @placeholder = Translation.Email, @type = "email", @required = "true", @autofocus = "true" })
             </div>

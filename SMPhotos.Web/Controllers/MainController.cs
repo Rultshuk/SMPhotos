@@ -46,7 +46,7 @@ namespace SMPhotos.Web.Controllers
 			var album = albums.FirstOrDefault(x => x.Id == id);
 			if (album == null)
 			{
-				return RedirectToAction(MVCManager.Controller.Main.albums, MVCManager.Controller.Main.name);
+				return RedirectToAction(MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Name);
 			}
 			else
 			{
@@ -106,7 +106,7 @@ namespace SMPhotos.Web.Controllers
 			var album = albums.FirstOrDefault(x => x.Id == id);
 			if (album == null)
 			{
-				return RedirectToAction(MVCManager.Controller.Main.albums, MVCManager.Controller.Main.name);
+				return RedirectToAction(MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Name);
 			}
 			else
 			{

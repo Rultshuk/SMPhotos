@@ -9,7 +9,7 @@
 <hr />
 <div class="btn-toolbar" role="toolbar">
     <div class="btn-group">
-        <a href="@Url.Action(MVCManager.Controller.Main.albums, MVCManager.Controller.Main.name)" title="Return to Albums">
+        <a href="@Url.Action(MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Name)" title="Return to Albums">
             <button class="glyphicon glyphicon-arrow-left btn btn-default"></button>
         </a>
         <a href="@Request.UrlReferrer" title="Return to current album">
@@ -18,7 +18,7 @@
     </div>
 </div>
 
-@using (Html.BeginForm(MVCManager.Controller.Main.imageload, MVCManager.Controller.Main.name, FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm(MVCManager.Controller.Main.ImageLoad, MVCManager.Controller.Main.Name, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.HiddenFor(m => m.Guid)
     <div class="content">

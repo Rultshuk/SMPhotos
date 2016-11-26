@@ -53,5 +53,27 @@
     </div>
 </div>
 
-
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h3> @Model.Message</h3>
+            </div>
+            <div class="modal-footer">
+                <a href="@Url.Action(MVCManager.Controller.Main.Album, MVCManager.Controller.Main.Name, new { id = Model.Id})" >
+                    <button type="button" class="btn btn-default">@Translation.BackToAlbum</button>
+                </a>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Translation.Close</button>
+</div>
+        </div>
+    </div>
+</div>
+@if (!string.IsNullOrWhiteSpace(Model.Message))
+{
+    @section Script
+{
+        @Scripts.Render("~/Scripts/modal/js")
+    }
+}
 

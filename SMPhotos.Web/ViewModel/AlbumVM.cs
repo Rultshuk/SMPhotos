@@ -18,5 +18,6 @@ namespace SMPhotos.Web.ViewModel
 		public Guid Guid { get; set; }
 		public string PathAlbum { get; set; }
 		public virtual IList<Image> Image { get; set; }
+		public string Message { get; set; }
 	}
 }

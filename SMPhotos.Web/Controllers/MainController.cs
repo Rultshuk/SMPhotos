@@ -67,11 +67,19 @@ namespace SMPhotos.Web.Controllers
 		[Authorize(Roles = Roles.User)]
 		public ActionResult ChangeAlbum(AlbumVM albumVM)
 		{
-			Album album = _albumRepository.Get(albumVM.Id);
-			album.Name = albumVM.Name;
-			album.Description = albumVM.Description;
-			album.Path = album.Guid.ToString();
-			_albumRepository.UnitOfWork.SaveChanges();
+			if (!string.IsNullOrWhiteSpace(albumVM.Name))
+			{
+				Album album = _albumRepository.Get(albumVM.Id);
+				album.Name = albumVM.Name;
+				album.Description = albumVM.Description;
+				album.Path = album.Guid.ToString();
+				_albumRepository.UnitOfWork.SaveChanges();
+				albumVM.Message = "Your changes were successfully saved!";
+			}
+			else
+			{
+				albumVM.Message = "Something wrong, Your changes were not saved!";
+			}
 			return View(albumVM);
 		}
 

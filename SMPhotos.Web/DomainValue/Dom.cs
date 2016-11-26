@@ -30,6 +30,7 @@
 		public const string AboutUs = "About Us";
 		public const string CreateAlbum = "Create New Album";
 		public const string ChangeAlbum = "Change Album";
+		public const string BackToAlbum = "Back To Album";
 	}
 	public static class Navigation
 	{

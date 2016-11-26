@@ -86,7 +86,7 @@
 				public const string Name = "main";
 				public const string Album = "album";
 				public const string Albums = "albums";
-				public const string AlbumasList = "albumaslist";
+				public const string AlbumAsList = "albumaslist";
 				public const string ImageLoad = "imageload";
 				public const string CreateAlbum = "createalbum";
 				public const string ChangeAlbum = "changealbum";

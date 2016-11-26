@@ -21,13 +21,13 @@
                     <button class="glyphicon glyphicon-plus btn btn-default"></button>
                 </a>}
             <strong title="View as grid"><button class="glyphicon glyphicon-th-large btn btn-disabled"></button></strong>
-            <a href="@Url.Action(MVCManager.Controller.Main.AlbumasList, MVCManager.Controller.Main.Name, new { id = Model.Id})" title="View as list">
+            <a href="@Url.Action(MVCManager.Controller.Main.AlbumAsList, MVCManager.Controller.Main.Name, new { id = Model.Id})" title="View as list">
                 <button class="glyphicon glyphicon-th-list btn btn-default"></button>
             </a>
             <a href="@Url.Action(MVCManager.Controller.Main.ChangeAlbum, MVCManager.Controller.Main.Name, new { id = Model.Id})" title="Edit this album">
                 <button class="glyphicon glyphicon-edit btn btn-default"></button>
             </a>
-            <a href="@Url.Action(MVCManager.Controller.Main.AlbumasList, MVCManager.Controller.Main.Name, new { id = Model.Id})" title="Remove this album">
+            <a href="@Url.Action(MVCManager.Controller.Main.AlbumAsList, MVCManager.Controller.Main.Name, new { id = Model.Id})" title="Remove this album">
                 <button class="glyphicon glyphicon-remove btn btn-default"></button>
             </a>
         </div>

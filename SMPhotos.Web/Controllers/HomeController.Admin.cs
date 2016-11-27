@@ -20,7 +20,7 @@ namespace SMPhotos.Web.Controllers
 			IList<User> uslist2 = (IList<User>)_userRepository.GetWasActivated().OrderBy(t => t.FirstName).ToList();
 			usersListsVM.NoActiveUsers = Mapper.Map<IList<User>, IList<UserVM>>(uslist1);
 			usersListsVM.AllUsers = Mapper.Map<IList<User>, IList<UserVM>>(uslist2);
-			return View("Admin", usersListsVM);
+			return View(MVCManager.Controller.Home.Admin, usersListsVM);
 		}
 
 		[HttpPost]
@@ -39,7 +39,7 @@ namespace SMPhotos.Web.Controllers
 			ICollection<User> users = _userRepository.GetAll().ToList();
 			ICollection<UserVM> newUsersVM = Mapper.Map<ICollection<User>, ICollection<UserVM>>(users);
 
-			return RedirectToAction("Admin", newUsersVM);
+			return RedirectToAction(MVCManager.Controller.Home.Admin, newUsersVM);
 		}
 
 		[HttpPost]
@@ -62,7 +62,7 @@ namespace SMPhotos.Web.Controllers
 			ICollection<User> users = _userRepository.GetAll().ToList();
 			ICollection<UserVM> newUsersVM = Mapper.Map<ICollection<User>, ICollection<UserVM>>(users);
 
-			return RedirectToAction("Admin", newUsersVM);
+			return RedirectToAction(MVCManager.Controller.Home.Admin, newUsersVM);
 		}
 	}
 }

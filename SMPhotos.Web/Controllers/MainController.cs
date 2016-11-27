@@ -104,7 +104,6 @@ namespace SMPhotos.Web.Controllers
 			_albumRepository.Add(album);
 			_albumRepository.UnitOfWork.SaveChanges();
 			return RedirectToAction(MVCManager.Controller.Main.Albums);
-			//return View();
 		}
 
 		[HttpGet]

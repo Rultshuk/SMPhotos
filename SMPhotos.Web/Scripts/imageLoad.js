@@ -22,7 +22,9 @@ $(document).ready(function() {
 	function loadInView(files) {
 		$('#uploaded-holder').show();
 		$.each(files, function(index, file) {
-			if (!files[index].type.match('image.*')) {
+		    if (!files[index].type.match('image.*')) {
+		        var obj = document.getElementById('upload-button');
+		        obj.style.display = "none";
 				
 				if(errMessage == 0) {
 					$('#drop-files p').html('Just images!');
@@ -32,13 +34,9 @@ $(document).ready(function() {
 					$('#drop-files p').html('Just images! You understood?');
 					++errMessage
 				}
-				else if(errMessage == 2) {
-					$('#drop-files p').html("Oh my GOD! JUST IMAGES!!!");
+				else if (errMessage == 2) {
+		            showHide("joke");
 					++errMessage
-				}
-				else if(errMessage == 3) {
-					$('#drop-files p').html("Ok...you winn..");
-					errMessage = 0;
 				}
 				return false;
 			}
@@ -108,3 +106,14 @@ $(document).ready(function() {
 	$('#dropped-files #upload-button .delete').click(restartFiles);
 	
 });
+function showHide(element_id) {
+    if (document.getElementById(element_id)) {
+        var obj = document.getElementById(element_id);
+        if (obj.style.display != "block") {
+            obj.style.display = "block";
+            joke.onclick = function () {
+                obj.style.display = "none";
+            }
+        }
+    }
+}

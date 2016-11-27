@@ -269,6 +269,7 @@
     <Content Include="Images\back.jpg" />
     <Content Include="Images\loading-sm.gif" />
     <Content Include="Images\logo.png" />
+    <Content Include="Images\joke.gif" />
     <Content Include="Images\sm.jpeg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

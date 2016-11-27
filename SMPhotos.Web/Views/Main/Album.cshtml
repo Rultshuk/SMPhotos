@@ -53,12 +53,23 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $(".fancybox-thumb").fancybox({
+                afterLoad: function () {
+                    this.title = '<a href="' + this.href + '" title="Download this image"><span class="glyphicon glyphicon-download-alt" style="color: white"></span></a> ' + this.title;
+                },
+                afterShow: function() {
+                    $(".fancybox-title").wrapInner('<div />').show();
+                    $(".fancybox-wrap").hover(function() {
+                        $(".fancybox-title").show();
+                    }, function() {
+                        $(".fancybox-title").hide();
+                    });
+                },
                 prevEffect: 'none',
                 nextEffect: 'none',
                 closeBtn: false,
                 helpers: {
                     title: {
-                        type: 'outside'
+                        type: 'over'
                     },
                     thumbs: {
                         width: 50,

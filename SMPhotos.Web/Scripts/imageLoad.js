@@ -1,7 +1,7 @@
 var $ = jQuery.noConflict();
 
 $(document).ready(function() {
-	var maxFiles = 6;
+	var maxFiles = 10;
 	var errMessage = 0;
 	var defaultUploadBtn = $('#uploadbtn');
 	var dataArray = [];
@@ -67,9 +67,9 @@ $(document).ready(function() {
 			$('#upload-button').hide();
 			$('#uploaded-holder').hide();
 		} else if (dataArray.length == 1) {
-			$('#upload-button span').html("You choose 1 file");
+			$('#upload-button span').html("You chose 1 file");
 		} else {
-			$('#upload-button span').html("You choose "+ dataArray.length+" files");
+			$('#upload-button span').html("You chose "+ dataArray.length+" files");
 		}
 		for (i = start; i < end; i++) {
 			if($('#dropped-files > .image').length <= maxFiles) { 

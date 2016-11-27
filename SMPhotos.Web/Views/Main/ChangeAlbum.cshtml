@@ -8,9 +8,9 @@
     @Styles.Render("~/Content/main/css")
 }
 <div class="row content-center">
-    @*<div class="col-sm-12 col-lg-12 col-md-12 col-xs-12">
-            <h2>@Model.Name - @Model.Description</h2>
-        </div>*@
+    <div class="col-sm-12 col-lg-12 col-md-12 col-xs-12">
+        <h2>Changing the album @Model.Name</h2>
+    </div>
     <div class="toolbar" role="toolbar">
         <div class="btn-group pagination-centered">
             <a href="@Url.Action(MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Name)" title="Return to Albums">
@@ -39,8 +39,8 @@
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
         @using (Html.BeginForm(MVCManager.Controller.Main.ChangeAlbum, MVCManager.Controller.Main.Name, FormMethod.Post, new { @class = "form-signin" }))
         {
-            <h2>Changing the album @Model.Name</h2>
-            <hr>
+            @*<h2>Changing the album @Model.Name</h2>
+            <hr>*@
             <div class="form-group">
                 @Html.HiddenFor(m => m.Id)
                 @Html.HiddenFor(m => m.Guid)

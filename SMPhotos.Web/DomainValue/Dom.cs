@@ -92,6 +92,14 @@
 				public const string CreateAlbum = "createalbum";
 				public const string ChangeAlbum = "changealbum";
 				public const string DefaultAlbumsPath = "App_Data";
+				public const string DefaultThumbnailsPath = "images/thumbnails";
+			}
+
+			public static class Image
+			{
+				public const string Name = "image";
+				public const string GetImage = "getimage";
+				public const string GetThumbnail = "getthumbnail";
 			}
 		}
 	}

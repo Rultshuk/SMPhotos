@@ -31,5 +31,17 @@ namespace SMPhotos.Web.Controllers
 			return result;
 		}
 
+		[Authorize(Roles = Roles.User)]
+		[HttpGet]
+		public ActionResult GetThumbnail(int id)
+		{
+			ImageVM image = AutoMapper.Mapper.Map<ImageVM>(_imageRepository.Get(id));
+			string path = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, MVCManager.Controller.Main.DefaultThumbnailsPath, image.Album.Guid.ToString(), image.Name);
+			FileStream stream = new FileStream(path, FileMode.Open);
+			FileStreamResult result = new FileStreamResult(stream, string.Format("thumbnails/{0}", Path.GetExtension(image.Name)));
+			result.FileDownloadName = image.Name;
+			return result;
+		}
+
 	}
 }

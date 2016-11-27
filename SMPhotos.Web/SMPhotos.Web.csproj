@@ -371,6 +371,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Images\Thumbnails\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

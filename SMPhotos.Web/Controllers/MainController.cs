@@ -6,6 +6,9 @@ using System.Web.Mvc;
 using AutoMapper;
 using SMPhotos.DAL;
 using SMPhotos.Web.ViewModel;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Drawing.Drawing2D;
 
 namespace SMPhotos.Web.Controllers
 {
@@ -102,7 +105,7 @@ namespace SMPhotos.Web.Controllers
 			Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, album.Path, album.Guid.ToString()));
 			_albumRepository.Add(album);
 			_albumRepository.UnitOfWork.SaveChanges();
-			return RedirectToAction(MVCManager.Controller.Main.Album, MVCManager.Controller.Main.Name, new { _albumRepository.Get( _albumRepository.GetAll().ToList().Count()).Id});
+			return RedirectToAction(MVCManager.Controller.Main.Album, MVCManager.Controller.Main.Name, new { _albumRepository.Get(_albumRepository.GetAll().ToList().Count()).Id });
 		}
 
 		[HttpGet]
@@ -158,10 +161,45 @@ namespace SMPhotos.Web.Controllers
 			string datetimeff = null;
 			foreach (var file in pictureVM.files)
 			{
-				Image image = new Image();
+				DAL.Image image = new DAL.Image();
 				datetimeff = DateTime.Now.ToString("yyyyMMdd_HHmmss") + "_";
 				image.Name = datetimeff + Path.GetFileName(file.FileName.Replace(" ", string.Empty));
 				var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, album.Path, album.Guid.ToString(), image.Name);
+
+				using (var originalImage = System.Drawing.Image.FromStream(file.InputStream, true, true)) /* Creates Image from specified data stream */
+				{
+					int newWidth = 200;
+					int newHeight = 200;
+					float aspectRatio = originalImage.Width / (float)originalImage.Height;
+					if (originalImage.Width > originalImage.Height)
+					{
+						newWidth = (int)(200 * aspectRatio);
+					}
+					else
+					{
+						newHeight = (int)(200 / aspectRatio);
+					}
+					using (var thumb = originalImage.GetThumbnailImage(
+						 newWidth, /* width*/
+						 newHeight, /* height*/
+						 () => false,
+						 IntPtr.Zero))
+					{
+						var jpgInfo = ImageCodecInfo.GetImageEncoders().Where(codecInfo => codecInfo.MimeType == "image/png").First(); /* Returns array of image encoder objects built into GDI+ */
+						using (var encParams = new EncoderParameters(1))
+						{
+							var appDataThumbnailPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, MVCManager.Controller.Main.DefaultThumbnailsPath, album.Guid.ToString());
+							if (!Directory.Exists(appDataThumbnailPath))
+							{
+								Directory.CreateDirectory(appDataThumbnailPath);
+							}
+							string outputPath = Path.Combine(appDataThumbnailPath, image.Name);
+							long quality = 100;
+							encParams.Param[0] = new EncoderParameter(Encoder.Quality, quality);
+							thumb.Save(outputPath, jpgInfo, encParams);
+						}
+					}
+				}
 				file.SaveAs(filePath);
 				album.Image.Add(image);
 			}

@@ -40,14 +40,11 @@
     @*<hr />*@
     @foreach (var image in Model.Image)
     {
-        <a class="fancybox-button" rel="fancybox-thumb" href="@Url.Action("getimage", "image", new { id = image.Id, name = image.Name})" title="@image.Name">
+        <a class="fancybox-button" rel="fancybox-thumb" href="@Url.Action(MVCManager.Controller.Image.GetImage, MVCManager.Controller.Image.Name, new { id = image.Id, name = image.Name})" title="@image.Name">
             @image.Name
         </a>
         <span>&nbsp;|&nbsp;</span>}
 </div>
-
-
-
 
 @section Script
 {

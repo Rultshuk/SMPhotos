@@ -41,8 +41,9 @@
             <span class="">
                 <a href="@Url.Action(MVCManager.Controller.Main.ChangeAlbum, MVCManager.Controller.Main.Name, new { Id = Model.Id})" title="Remove this image"><span class="glyphicon glyphicon-remove"></span></a>
             </span>
-            <a class="fancybox-thumb" rel="fancybox-thumb" href="@Url.Action("getimage", "image", new { id = image.Id, name = image.Name})" title="@image.Name">
-                <img src="@Url.Action("getimage", "image", new { id = image.Id })" alt="@image.Name" />
+            <a class="fancybox-thumb" rel="fancybox-thumb" href="@Url.Action(MVCManager.Controller.Image.GetImage, MVCManager.Controller.Image.Name, new { id = image.Id, name = image.Name})" title="@image.Name">
+                @*<img src="@Url.Action(MVCManager.Controller.Image.GetThumbnail, MVCManager.Controller.Image.Name, new { id = image.Id })" alt="@image.Name" />*@
+                <img src="@Url.Content("~/" + MVCManager.Controller.Main.DefaultThumbnailsPath + "/" + image.Album.Guid.ToString() + "/" + image.Name)" />
             </a>
         </div>
     }

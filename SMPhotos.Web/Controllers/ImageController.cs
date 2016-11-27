@@ -20,10 +20,15 @@ namespace SMPhotos.Web.Controllers
 		public ActionResult GetImage(int id)
 		{
 			ImageVM image = AutoMapper.Mapper.Map<ImageVM>(_imageRepository.Get(id));
-			return File(
-				Server.MapPath(string.Format("~/App_Data/{0}/{1}", image.Album.Guid, image.Name)),
-				string.Format("image/{0}", Path.GetExtension(image.Name))
-			);
+			//return File(
+			//	Server.MapPath(string.Format("~/App_Data/{0}/{1}", image.Album.Guid, image.Name)),
+			//	string.Format("image/{0}", Path.GetExtension(image.Name))
+			//);
+			string path = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, image.Album.Path, image.Album.Guid.ToString(), image.Name);
+			FileStream stream = new FileStream(path, FileMode.Open);
+			FileStreamResult result = new FileStreamResult(stream, string.Format("image/{0}", Path.GetExtension(image.Name)));
+			result.FileDownloadName = image.Name;
+			return result;
 		}
 
 	}

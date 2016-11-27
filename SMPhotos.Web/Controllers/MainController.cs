@@ -19,11 +19,11 @@ namespace SMPhotos.Web.Controllers
 			_albumRepository = albumRepository;
 		}
 
-		// GET: Main
 		public ActionResult Index()
 		{
 			return View();
 		}
+
 		[HttpGet]
 		[Authorize(Roles = Roles.User)]
 		public ActionResult Albums()
@@ -31,9 +31,9 @@ namespace SMPhotos.Web.Controllers
 			AlbumListVM viewModel = new AlbumListVM();
 			var albums = (IList<Album>)_albumRepository.GetAll();
 			viewModel.AllAlbums = Mapper.Map<IList<AlbumVM>>(albums);
-			foreach (var alb in viewModel.AllAlbums)
+			foreach (var album in viewModel.AllAlbums)
 			{
-				alb.PathAlbum = alb.Path + alb.Guid + '/';
+				album.PathAlbum = album.Path + album.Guid + '/';
 			}
 			return View(viewModel);
 		}
@@ -55,6 +55,7 @@ namespace SMPhotos.Web.Controllers
 				return View(albumVM);
 			}
 		}
+
 		[HttpGet]
 		[Authorize(Roles = Roles.User)]
 		public ActionResult ChangeAlbum(int id)
@@ -98,11 +99,11 @@ namespace SMPhotos.Web.Controllers
 			album.Name = albumVM.Name;
 			album.Description = albumVM.Description;
 			album.Guid = Guid.NewGuid();
-			album.Path = album.Guid.ToString();
-			Directory.CreateDirectory(Path.Combine(Server.MapPath("~/App_Data"), album.Path));
+			album.Path = MVCManager.Controller.Main.DefaultAlbumsPath;
+			Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, album.Path, album.Guid.ToString()));
 			_albumRepository.Add(album);
 			_albumRepository.UnitOfWork.SaveChanges();
-			return RedirectToAction("albums");
+			return RedirectToAction(MVCManager.Controller.Main.Albums);
 			//return View();
 		}
 
@@ -145,7 +146,7 @@ namespace SMPhotos.Web.Controllers
 			}
 			else
 			{
-				picture.Message = "Your upload is not successful!";
+				picture.Message = "Something wrong, Your upload is not successful!";
 			}
 			return View(picture);
 		}
@@ -160,9 +161,9 @@ namespace SMPhotos.Web.Controllers
 			foreach (var file in pictureVM.files)
 			{
 				Image image = new Image();
-				datetimeff = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + "_" + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + "_";
-				image.Name = datetimeff + Path.GetFileName(file.FileName);
-				var filePath = Path.Combine(Server.MapPath("~/App_Data/" + pictureVM.Guid.ToString()), datetimeff + Path.GetFileName(file.FileName));
+				datetimeff = DateTime.Now.ToString("yyyyMMdd_HHmmss") + "_";
+				image.Name = datetimeff + Path.GetFileName(file.FileName.Replace(" ", string.Empty));
+				var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, album.Path, album.Guid.ToString(), image.Name);
 				file.SaveAs(filePath);
 				album.Image.Add(image);
 			}

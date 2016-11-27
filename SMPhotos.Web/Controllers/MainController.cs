@@ -73,7 +73,6 @@ namespace SMPhotos.Web.Controllers
 				Album album = _albumRepository.Get(albumVM.Id);
 				album.Name = albumVM.Name;
 				album.Description = albumVM.Description;
-				album.Path = album.Guid.ToString();
 				_albumRepository.UnitOfWork.SaveChanges();
 				albumVM.Message = "Your changes were successfully saved!";
 			}

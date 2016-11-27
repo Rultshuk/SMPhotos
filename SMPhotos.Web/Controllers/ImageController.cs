@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using SMPhotos.DAL;
 using SMPhotos.Web.ViewModel;
+using System.IO;
 
 namespace SMPhotos.Web.Controllers
 {
@@ -19,11 +20,10 @@ namespace SMPhotos.Web.Controllers
 		public ActionResult GetImage(int id)
 		{
 			ImageVM image = AutoMapper.Mapper.Map<ImageVM>(_imageRepository.Get(id));
-			string[] split = image.Name.Split('.');
-			string type = "image/" + split[split.Length - 1];
 			return File(
-				Server.MapPath(string.Format("~/App_Data/{0}/{1}", image.Album.Guid, image.Name)), 
-				type);
+				Server.MapPath(string.Format("~/App_Data/{0}/{1}", image.Album.Guid, image.Name)),
+				string.Format("image/{0}", Path.GetExtension(image.Name))
+			);
 		}
 
 	}

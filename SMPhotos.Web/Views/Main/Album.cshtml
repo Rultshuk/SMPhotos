@@ -50,17 +50,18 @@
 @section Script
 {
     @Scripts.Render("~/Scripts/fancyBox/js")
+    @Scripts.Render("~/Scripts/portrait/js")
     <script type="text/javascript">
         $(document).ready(function () {
             $(".fancybox-thumb").fancybox({
                 afterLoad: function () {
                     this.title = '<a href="' + this.href + '" title="Download this image"><span class="glyphicon glyphicon-download-alt" style="color: white"></span></a> ' + this.title;
                 },
-                afterShow: function() {
+                afterShow: function () {
                     $(".fancybox-title").wrapInner('<div />').show();
-                    $(".fancybox-wrap").hover(function() {
+                    $(".fancybox-wrap").hover(function () {
                         $(".fancybox-title").show();
-                    }, function() {
+                    }, function () {
                         $(".fancybox-title").hide();
                     });
                 },

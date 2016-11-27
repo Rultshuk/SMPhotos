@@ -33,6 +33,9 @@ namespace Guestbook
 				.Include("~/Scripts/jquery.fancybox-thumbs.js")
 				.Include("~/Scripts/jquery.mousewheel-3.0.6.pack.js"));
 
+			bundles.Add(new ScriptBundle("~/Scripts/portrait/js")
+				.Include("~/Scripts/portrait.js"));
+
 			bundles.Add(new StyleBundle("~/Content/login/css").Include(
 						"~/Content/login.css"));
 

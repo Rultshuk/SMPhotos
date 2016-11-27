@@ -67,9 +67,9 @@ $(document).ready(function() {
 			$('#upload-button').hide();
 			$('#uploaded-holder').hide();
 		} else if (dataArray.length == 1) {
-			$('#upload-button span').html("You chose 1 file");
+			$('#upload-button span').html("You choose 1 file");
 		} else {
-			$('#upload-button span').html("You chose "+ dataArray.length+" files");
+			$('#upload-button span').html("You choose "+ dataArray.length+" files");
 		}
 		for (i = start; i < end; i++) {
 			if($('#dropped-files > .image').length <= maxFiles) { 

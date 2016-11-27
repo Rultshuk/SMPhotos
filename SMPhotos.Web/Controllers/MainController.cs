@@ -102,7 +102,7 @@ namespace SMPhotos.Web.Controllers
 			Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, album.Path, album.Guid.ToString()));
 			_albumRepository.Add(album);
 			_albumRepository.UnitOfWork.SaveChanges();
-			return RedirectToAction(MVCManager.Controller.Main.Albums);
+			return RedirectToAction(MVCManager.Controller.Main.Album, MVCManager.Controller.Main.Name, new { _albumRepository.Get( _albumRepository.GetAll().ToList().Count()).Id});
 		}
 
 		[HttpGet]

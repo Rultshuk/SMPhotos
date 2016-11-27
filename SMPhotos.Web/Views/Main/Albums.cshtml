@@ -7,44 +7,39 @@
 {
     @Styles.Render("~/Content/main/css")
 }
-<!-- Navigation -->
-<!-- Page Content -->
-<div class="container">
-    <!-- Page Header -->
-    <div class="row">
-        <div class="col-sm-12 col-lg-12 col-md-12 col-xs-12"><h2>Welcome to SMPhotos!</h2></div>
+
+<div class="row content-center">
+    <div class="col-sm-12 col-lg-12 col-md-12 col-xs-12">
+        <h2>Welcome to @Navigation.SMPhotos!</h2>
     </div>
-    <div class="btn-toolbar" role="toolbar">
-        <div class="btn-group">
+    <div class="toolbar" role="toolbar">
+        <div class="btn-group pagination-centered">
             @if (User.IsInRole("Uploader"))
             {
-                <span class="lead btn btn-default">
-                    <a href="@Url.Action(MVCManager.Controller.Main.CreateAlbum, MVCManager.Controller.Main.Name)" title="Add album"><span class="glyphicon glyphicon-plus"></span></a>
-                </span>}
+                <a href="@Url.Action(MVCManager.Controller.Main.CreateAlbum, MVCManager.Controller.Main.Name)" title="Add new album">
+                    <button class="glyphicon glyphicon-plus btn btn-default"></button>
+                </a>}
         </div>
     </div>
-    <!-- /.row -->
-    <!-- Projects Row -->
-    <div class="row">
-        @foreach (var albums in Model.AllAlbums)
-        {
-            <div class="portfolio-item col-sm-3 col-md-3 col-xs-3 col-lg-3">
-                <a href="@Url.Action("album", new { id = albums.Id })" title="@albums.Name - @albums.Description">
-                    @if (@albums.Image.Count > 0)
-                    {
-                        <img class="" src="@Url.Action("getimage", "image", new { id = albums.Image[0].Id })" alt="@albums.Description">
+</div>
+
+<div class="row">
+    @foreach (var albums in Model.AllAlbums)
+    {
+        <div class="portfolio-item col-sm-3 col-md-3 col-xs-3 col-lg-3">
+            <a href="@Url.Action("album", new { id = albums.Id })" title="@albums.Name - @albums.Description">
+                @if (@albums.Image.Count > 0)
+                {
+                    <img class="" src="@Url.Action("getimage", "image", new { id = albums.Image[0].Id })" title="@albums.Description" alt="@albums.Description">
 }
-                    else
-                    {
-                        <img class="" src="~/Images/no_image_thumb.gif" title="@albums.Description" alt="@albums.Description">
+                else
+                {
+                    <img class="" src="~/Images/no_image_thumb.gif" title="@albums.Description" alt="@albums.Description">
 }
-                </a>
-                <h4 class="standard-description">
-                    <a href="@Url.Action("album", new { id = albums.Id})" title="@albums.Name">@albums.Name</a>
-                </h4>
-                <p class="standard-description">@albums.Description</p>
-            </div>}
-    </div>
-    <!-- /.row -->
-    <hr>
+            </a>
+            <h4 class="standard-description">
+                <a href="@Url.Action("album", new { id = albums.Id})" title="@albums.Name">@albums.Name</a>
+            </h4>
+            <p class="standard-description">@albums.Description</p>
+        </div>}
 </div>

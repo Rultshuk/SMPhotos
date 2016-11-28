@@ -271,6 +271,27 @@
     <Content Include="Images\logo.png" />
     <Content Include="Images\joke.gif" />
     <Content Include="Images\sm.jpeg" />
+    <Content Include="Images\Thumbnails\2d62a4db-ec30-41d6-a9d9-c1e037b44a17\1.jpg" />
+    <Content Include="Images\Thumbnails\39d09d90-b53c-47d8-bab6-f96630f9bc9b\1.jpg" />
+    <Content Include="Images\Thumbnails\39d09d90-b53c-47d8-bab6-f96630f9bc9b\20161128_163209_2016-11-2815.30.08.jpg" />
+    <Content Include="Images\Thumbnails\39d09d90-b53c-47d8-bab6-f96630f9bc9b\20161128_163219_2016-11-2815.30.00.jpg" />
+    <Content Include="Images\Thumbnails\39d09d90-b53c-47d8-bab6-f96630f9bc9b\20161128_163220_2016-11-2815.30.12.jpg" />
+    <Content Include="Images\Thumbnails\39d09d90-b53c-47d8-bab6-f96630f9bc9b\20161128_163220_2016-11-2815.47.43.jpg" />
+    <Content Include="Images\Thumbnails\39d09d90-b53c-47d8-bab6-f96630f9bc9b\20161128_163221_2016-11-2815.47.48.jpg" />
+    <Content Include="Images\Thumbnails\39d09d90-b53c-47d8-bab6-f96630f9bc9b\20161128_163221_2016-11-2815.47.59.jpg" />
+    <Content Include="Images\Thumbnails\421aca62-f921-4c0a-b212-d0b5081e0a25\1.jpg" />
+    <Content Include="Images\Thumbnails\4485b513-7817-4483-b7c9-af99bd0f15ea\1.jpg" />
+    <Content Include="Images\Thumbnails\70b9ef63-f689-4cfb-9d6f-5ed125d491b2\1.jpg" />
+    <Content Include="Images\Thumbnails\de78fd3c-4534-4a68-adc4-efcc72f89363\1.jpg" />
+    <Content Include="Images\Thumbnails\de78fd3c-4534-4a68-adc4-efcc72f89363\2.jpg" />
+    <Content Include="Images\Thumbnails\de78fd3c-4534-4a68-adc4-efcc72f89363\3.jpg" />
+    <Content Include="Images\Thumbnails\de78fd3c-4534-4a68-adc4-efcc72f89363\4.jpg" />
+    <Content Include="Images\Thumbnails\de78fd3c-4534-4a68-adc4-efcc72f89363\5.jpg" />
+    <Content Include="Images\Thumbnails\e5af00cc-726e-4252-a13e-459c6567454a\1.jpg" />
+    <Content Include="Images\Thumbnails\f56bd610-5320-48dd-b4cd-2825438a70be\1.jpg" />
+    <Content Include="Images\Thumbnails\fb3840f6-67b5-4f49-a0dd-707895f680cb\1.jpg" />
+    <Content Include="Images\Thumbnails\fb3840f6-67b5-4f49-a0dd-707895f680cb\2.jpg" />
+    <Content Include="Images\Thumbnails\ff2fe1f2-7b29-4910-83db-fd7e0a86d116\1.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -371,7 +392,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\Thumbnails\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

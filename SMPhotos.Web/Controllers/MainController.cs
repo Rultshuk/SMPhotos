@@ -67,15 +67,21 @@ namespace SMPhotos.Web.Controllers
 			System.IO.File.Delete(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, album.Path, album.Guid.ToString(), image.Name));
 			System.IO.File.Delete(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, MVCManager.Controller.Main.DefaultThumbnailsPath, album.Guid.ToString(), image.Name));
 			_albumRepository.UnitOfWork.SaveChanges();
-			return RedirectToAction(MVCManager.Controller.Main.Album, MVCManager.Controller.Main.Name, new { id= albumId});
+			return RedirectToAction(MVCManager.Controller.Main.Album, MVCManager.Controller.Main.Name, new { id = albumId });
 		}
 		[HttpGet]
 		[Authorize(Roles = Roles.Uploader)]
 		public ActionResult RemoveAlbum(int id)
 		{
 			var album = _albumRepository.Get(id);
-			Directory.Delete(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, album.Path, album.Guid.ToString()), true);
-			Directory.Delete(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, MVCManager.Controller.Main.DefaultThumbnailsPath, album.Guid.ToString()), true);
+			if (Directory.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, album.Path, album.Guid.ToString())))
+			{
+				Directory.Delete(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, album.Path, album.Guid.ToString()), true);
+			}
+			if (Directory.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, MVCManager.Controller.Main.DefaultThumbnailsPath, album.Guid.ToString())))
+			{
+				Directory.Delete(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, MVCManager.Controller.Main.DefaultThumbnailsPath, album.Guid.ToString()), true);
+			}
 			_albumRepository.Remove(album);
 			_albumRepository.UnitOfWork.SaveChanges();
 			return RedirectToAction(MVCManager.Controller.Main.Albums);

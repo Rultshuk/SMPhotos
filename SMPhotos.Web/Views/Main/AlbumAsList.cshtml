@@ -29,7 +29,7 @@
             <a href="@Url.Action(MVCManager.Controller.Main.ChangeAlbum, MVCManager.Controller.Main.Name, new { id = Model.Id})" title="Edit this album">
                 <button class="glyphicon glyphicon-edit btn btn-default"></button>
             </a>
-            <a href="@Url.Action(MVCManager.Controller.Main.AlbumAsList, MVCManager.Controller.Main.Name, new { id = Model.Id})" title="Remove this album">
+            <a href="@Url.Action(MVCManager.Controller.Main.RemoveAlbum, MVCManager.Controller.Main.Name, new { id = Model.Id,})" title="Remove this album">
                 <button class="glyphicon glyphicon-remove btn btn-default"></button>
             </a>
         </div>

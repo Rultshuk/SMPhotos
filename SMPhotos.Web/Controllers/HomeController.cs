@@ -45,7 +45,7 @@ namespace SMPhotos.Web.Controllers
 			userVM.Message = "Your changes were successfully saved!";
 			return View(userVM);
 		}
-		public ActionResult Main()
+		public ActionResult NotActivated()
 		{
 			return View();
 		}
@@ -73,20 +73,7 @@ namespace SMPhotos.Web.Controllers
 
 			_userRepository.Add(newUser);
 			_userRepository.UnitOfWork.SaveChanges();
-			return View();
-		}
-
-		public ActionResult Upload()
-		{
-			return View();
-		}
-		public ActionResult About()
-		{
-			return View();
-		}
-		public ActionResult Contact()
-		{
-			return View();
+			return RedirectToAction(MVCManager.Controller.Home.NotActivated, MVCManager.Controller.Home.Name);
 		}
 	}
 }

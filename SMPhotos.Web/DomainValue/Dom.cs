@@ -30,6 +30,8 @@
 		public const string CreateAlbum = "Create new album";
 		public const string ChangeAlbum = "Change album";
 		public const string BackToAlbum = "Back to album";
+		public const string PasswordId = "password";
+		public const string PasswordConfirmId = "confirm_password";
 	}
 	public static class Navigation
 	{
@@ -43,6 +45,7 @@
 		public const string SMStudents = "SMStudents";
 		public const string SMPhotos = "SMPhotos";
 		public const string Admin = "Admin";
+		public const string NotActivated = "NotActivated";
 	}
 	public static class View
 	{
@@ -80,6 +83,7 @@
 				public const string About = "about";
 				public const string Contact = "contact";
 				public const string RegNewUsers = "regnewusers";
+				public const string NotActivated = "notactivated";
 			}
 			public static class Main
 			{

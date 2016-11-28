@@ -32,12 +32,12 @@
                 <div class="row">
                     <div class="col-xs-6 col-sm-6 col-md-6">
                         <div class="form-group">
-                            @Html.TextBoxFor(m => m.Password, htmlAttributes: new { @class = "form-control input-lg", @placeholder = Translation.Password, @tabindex = "5", @type = "password", @required = "true", @id = Translation.Password, pattern = ".{6,15}", @label = Translation.Password })
+                            @Html.TextBoxFor(m => m.Password, htmlAttributes: new { @class = "form-control input-lg", @placeholder = Translation.Password, @tabindex = "5", @type = "password", @required = "true", @id = Translation.PasswordId, @pattern = ".{6,}", @title = "Six or more characters", @label = Translation.Password })
                         </div>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-md-6">
                         <div class="form-group">
-                            @Html.TextBoxFor(m => m.PasswordConfirmation, htmlAttributes: new { @class = "form-control input-lg", @placeholder = Translation.PasswordConfirmation, @tabindex = "6", @type = "password", @required = "true", @id = Translation.PasswordConfirmation, pattern = ".{6,15}", @label = Translation.PasswordConfirmation })
+                            @Html.TextBoxFor(m => m.PasswordConfirmation, htmlAttributes: new { @class = "form-control input-lg", @placeholder = Translation.PasswordConfirmation, @tabindex = "6", @type = "password", @required = "true", @id = Translation.PasswordConfirmId, pattern = ".{6,15}", @label = Translation.PasswordConfirmation })
                         </div>
                     </div>
                 </div>

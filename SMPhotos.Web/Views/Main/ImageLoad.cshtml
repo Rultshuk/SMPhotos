@@ -3,18 +3,38 @@
     ViewBag.Title = "ImageLoad";
 }
 @Styles.Render("~/Content/loadImage/css")
+@Styles.Render("~/Content/main/css")
 @section ScriptLoad{
     @Scripts.Render("~/Scripts/imageLoad/js")
 }
-<hr />
-<div class="btn-toolbar" role="toolbar">
-    <div class="btn-group">
-        <a href="@Url.Action(MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Name)" title="Return to Albums">
-            <button class="glyphicon glyphicon-arrow-left btn btn-default"></button>
-        </a>
-        <a href="@Request.UrlReferrer" title="Return to current album">
-            <button class="glyphicon glyphicon-th-large btn btn-default"></button>
-        </a>
+
+<div class="row content-center">
+    <div class="col-sm-12 col-lg-12 col-md-12 col-xs-12">
+        <h2>Uploading of images</h2>
+    </div>
+    <div class="toolbar" role="toolbar">
+        <div class="btn-group pagination-centered">
+            <a href="@Url.Action(MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Name)" title="Return to Albums">
+                <button class="glyphicon glyphicon-arrow-left btn btn-default"></button>
+            </a>
+            @if (User.IsInRole("Uploader"))
+            {
+                <strong title="Add images">
+                    <button class="glyphicon glyphicon-plus btn btn-disabled"></button>
+                </strong>}
+            <a href="@Url.Action(MVCManager.Controller.Main.Album, MVCManager.Controller.Main.Name, new { id = Model.Id})" title="View as grid">
+                <button class="glyphicon glyphicon-th-large btn btn-default"></button>
+            </a>
+            <a href="@Url.Action(MVCManager.Controller.Main.AlbumAsList, MVCManager.Controller.Main.Name, new { id = Model.Id})" title="View as list">
+                <button class="glyphicon glyphicon-th-list btn btn-default"></button>
+            </a>
+            <a href="@Url.Action(MVCManager.Controller.Main.ChangeAlbum, MVCManager.Controller.Main.Name, new { id = Model.Id})" title="Edit this album">
+                <button class="glyphicon glyphicon-edit btn btn-default"></button>
+            </a>
+            <a href="@Url.Action(MVCManager.Controller.Main.RemoveAlbum, MVCManager.Controller.Main.Name, new { id = Model.Id,})" title="Remove this album">
+                <button class="glyphicon glyphicon-remove btn btn-default"></button>
+            </a>
+        </div>
     </div>
 </div>
 

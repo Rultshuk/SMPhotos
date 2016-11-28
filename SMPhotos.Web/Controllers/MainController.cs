@@ -45,22 +45,43 @@ namespace SMPhotos.Web.Controllers
 		[Authorize(Roles = Roles.User)]
 		public ActionResult Album(int? id)
 		{
-			var albums = (IList<Album>)_albumRepository.GetAll();
-			var album = albums.FirstOrDefault(x => x.Id == id);
-			if (album == null)
+			if (id == null)
 			{
 				return RedirectToAction(MVCManager.Controller.Main.Albums, MVCManager.Controller.Main.Name);
 			}
 			else
 			{
+				var album = _albumRepository.Get(id.GetValueOrDefault());
 				AlbumVM albumVM = Mapper.Map<AlbumVM>(album);
 				albumVM.PathAlbum = albumVM.Path + albumVM.Guid + '/';
 				return View(albumVM);
 			}
 		}
-
 		[HttpGet]
-		[Authorize(Roles = Roles.User)]
+		[Authorize(Roles = Roles.Uploader)]
+		public ActionResult RemoveImage(int albumId, int imageId)
+		{
+			var album = _albumRepository.Get(albumId);
+			var image = album.Image.Where(e => e.Id == imageId).FirstOrDefault();
+			_albumRepository.RemoveImage(album, image);
+			System.IO.File.Delete(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, album.Path, album.Guid.ToString(), image.Name));
+			System.IO.File.Delete(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, MVCManager.Controller.Main.DefaultThumbnailsPath, album.Guid.ToString(), image.Name));
+			_albumRepository.UnitOfWork.SaveChanges();
+			return RedirectToAction(MVCManager.Controller.Main.Album, MVCManager.Controller.Main.Name, new { id= albumId});
+		}
+		[HttpGet]
+		[Authorize(Roles = Roles.Uploader)]
+		public ActionResult RemoveAlbum(int id)
+		{
+			var album = _albumRepository.Get(id);
+			Directory.Delete(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, album.Path, album.Guid.ToString()), true);
+			Directory.Delete(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, MVCManager.Controller.Main.DefaultThumbnailsPath, album.Guid.ToString()), true);
+			_albumRepository.Remove(album);
+			_albumRepository.UnitOfWork.SaveChanges();
+			return RedirectToAction(MVCManager.Controller.Main.Albums);
+		}
+		[HttpGet]
+		[Authorize(Roles = Roles.Uploader)]
 		public ActionResult ChangeAlbum(int id)
 		{
 			AlbumVM albumVM = Mapper.Map<AlbumVM>(_albumRepository.Get(id));
@@ -68,7 +89,7 @@ namespace SMPhotos.Web.Controllers
 		}
 
 		[HttpPost]
-		[Authorize(Roles = Roles.User)]
+		[Authorize(Roles = Roles.Uploader)]
 		public ActionResult ChangeAlbum(AlbumVM albumVM)
 		{
 			if (!string.IsNullOrWhiteSpace(albumVM.Name))
@@ -87,14 +108,14 @@ namespace SMPhotos.Web.Controllers
 		}
 
 		[HttpGet]
-		[Authorize(Roles = Roles.User)]
+		[Authorize(Roles = Roles.Uploader)]
 		public ActionResult CreateAlbum()
 		{
 			return View();
 		}
 
 		[HttpPost]
-		[Authorize(Roles = Roles.User)]
+		[Authorize(Roles = Roles.Uploader)]
 		public ActionResult CreateAlbum(AlbumVM albumVM)
 		{
 			Album album = new Album();
@@ -105,7 +126,7 @@ namespace SMPhotos.Web.Controllers
 			Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, album.Path, album.Guid.ToString()));
 			_albumRepository.Add(album);
 			_albumRepository.UnitOfWork.SaveChanges();
-			return RedirectToAction(MVCManager.Controller.Main.Album, MVCManager.Controller.Main.Name, new { _albumRepository.Get(_albumRepository.GetAll().ToList().Count()).Id });
+			return RedirectToAction(MVCManager.Controller.Main.Album, MVCManager.Controller.Main.Name, new { _albumRepository.GetAll().LastOrDefault().Id });
 		}
 
 		[HttpGet]

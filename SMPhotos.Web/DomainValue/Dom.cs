@@ -93,6 +93,8 @@
 				public const string ChangeAlbum = "changealbum";
 				public const string DefaultAlbumsPath = "App_Data";
 				public const string DefaultThumbnailsPath = "images/thumbnails";
+				public const string RemoveAlbum = "removealbum";
+				public const string RemoveImage = "removeimage";
 			}
 
 			public static class Image

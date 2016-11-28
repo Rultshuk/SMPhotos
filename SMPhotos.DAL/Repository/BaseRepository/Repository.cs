@@ -43,7 +43,7 @@ namespace SMPhotos.DAL
 			_unitOfWork.Context.Set<TEntity>().AddRange(entities);
 		}
 
-		public void Remove(TEntity entity)
+		public virtual void Remove(TEntity entity)
 		{
 			_unitOfWork.Context.Set<TEntity>().Remove(entity);
 		}

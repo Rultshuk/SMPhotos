@@ -9,5 +9,6 @@ namespace SMPhotos.DAL
 	public interface IAlbumRepository : IRepository<Album>
 	{
 		Album GetAlbumByGuid(Guid guid);
+		void RemoveImage(Album album, Image image);
 	}
 }

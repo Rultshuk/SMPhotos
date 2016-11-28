@@ -2,35 +2,34 @@
 {
 	public static class Translation
 	{
-		public const string FirstName = "First Name";
-		public const string LastName = "Last Name";
+		public const string FirstName = "First name";
+		public const string LastName = "Last name";
 		public const string Email = "Email";
 		public const string Password = "Password";
-		public const string NewPassword = "New Password";
-		public const string PasswordConfirmation = "Password Confirmation";
-		public const string Location = "Country";
+		public const string NewPassword = "New password";
+		public const string PasswordConfirmation = "Password confirmation";
+		public const string Location = "country";
 		public const string Register = "Register";
-		public const string SignIn = "Sign In";
-		public const string PleaseSignUp = "Please, Sign Up ";
-		public const string ItsFreeJoke = "It's free, don`t be scared.";
+		public const string SignIn = "Sign in";
+		public const string PleaseSignUp = "Please, sign up ";
 		public const string ResetChanges = "Reset changes";
-		public const string ApplyChanges = "Apply changes";
-		public const string ChangesProfile = "Change your Profile ";
+		public const string ApplyChanges = "Save changes";
+		public const string ChangesProfile = "Change your profile ";
 		public const string SelectImages = "Select images, you want to upload.";
-		public const string BrowseImages = "Browse Images";
+		public const string BrowseImages = "Browse images";
 		public const string Upload = "Upload";
 		public const string Remove = "Remove";
 		public const string Close = "Close";
 		public const string Active = "Active";
 		public const string Admin = "Admin";
 		public const string Uploader = "Uploader";
-		public const string AlbumName = "Album Name";
+		public const string AlbumName = "Album name";
 		public const string Description = "Description";
-		public const string OurContacts = "Our Contacts";
-		public const string AboutUs = "About Us";
-		public const string CreateAlbum = "Create New Album";
-		public const string ChangeAlbum = "Change Album";
-		public const string BackToAlbum = "Back To Album";
+		public const string OurContacts = "Our contacts";
+		public const string AboutUs = "About us";
+		public const string CreateAlbum = "Create new album";
+		public const string ChangeAlbum = "Change album";
+		public const string BackToAlbum = "Back to album";
 	}
 	public static class Navigation
 	{
@@ -38,9 +37,9 @@
 		public const string About = "About";
 		public const string Contact = "Contact";
 		public const string Settings = "Settings";
-		public const string ChangeProfile = "Change Profile";
-		public const string AdminTools = "Admin Tools";
-		public const string LogOut = "Log Out";
+		public const string ChangeProfile = "Change profile";
+		public const string AdminTools = "Admin tools";
+		public const string LogOut = "Log out";
 		public const string SMStudents = "SMStudents";
 		public const string SMPhotos = "SMPhotos";
 		public const string Admin = "Admin";

@@ -23,24 +23,30 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row content-center">
     @foreach (var albums in Model.AllAlbums)
     {
-        <div class="portfolio-item col-sm-3 col-md-3 col-xs-3 col-lg-3">
-            <a href="@Url.Action(MVCManager.Controller.Main.Album, new { id = albums.Id })" title="@albums.Name - @albums.Description">
-                @if (@albums.Image.Count > 0)
-                {
-                    <img src="@Url.Content("~/" + MVCManager.Controller.Main.DefaultThumbnailsPath + "/"  + albums.Guid.ToString() + "/" + albums.Image[0].Name)" title="@albums.Description" alt="@albums.Description" />
-                    @*<img class="" src="@Url.Action(MVCManager.Controller.Image.GetThumbnail, MVCManager.Controller.Image.Name, new { id = albums.Image[0].Id })" title="@albums.Description" alt="@albums.Description">*@
+        <div class="portfolio-item col-sm-2 col-lg-2 col-md-2 col-xs-2 col-centered">
+            <div class="center-cropped col-centered">
+                <a class="fancybox-thumb" href="@Url.Action(MVCManager.Controller.Main.Album, new { id = albums.Id })" title="@albums.Name - @albums.Description">
+                    @if (@albums.Image.Count > 0)
+                    {
+                        <img src="@Url.Content("~/" + MVCManager.Controller.Main.DefaultThumbnailsPath + "/"  + albums.Guid.ToString() + "/" + albums.Image[0].Name)" title="@albums.Description" alt="@albums.Description" />
+                        @*<img class="" src="@Url.Action(MVCManager.Controller.Image.GetThumbnail, MVCManager.Controller.Image.Name, new { id = albums.Image[0].Id })" title="@albums.Description" alt="@albums.Description">*@
 }
-                else
-                {
-                    <img class="" src="~/Images/no_image_thumb.gif" title="@albums.Description" alt="@albums.Description">
+                    else
+                    {
+                        <img class="" src="~/Images/no_image_thumb.gif" title="@albums.Description" alt="@albums.Description">
 }
-            </a>
+                </a>
+            </div>
             <h4 class="standard-description">
                 <a href="@Url.Action(MVCManager.Controller.Main.Album, new { id = albums.Id})" title="@albums.Name">@albums.Name</a>
             </h4>
             <p class="standard-description">@albums.Description</p>
         </div>}
 </div>
+@section Script
+{
+    @Scripts.Render("~/Scripts/portrait/js")
+}

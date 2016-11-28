@@ -28,12 +28,13 @@
             <a href="@Url.Action(MVCManager.Controller.Main.AlbumAsList, MVCManager.Controller.Main.Name, new { id = Model.Id})" title="View as list">
                 <button class="glyphicon glyphicon-th-list btn btn-default"></button>
             </a>
-            <a href="@Url.Action(MVCManager.Controller.Main.ChangeAlbum, MVCManager.Controller.Main.Name, new { id = Model.Id})" title="Edit this album">
+            @if (User.IsInRole("Uploader"))
+            {<a href="@Url.Action(MVCManager.Controller.Main.ChangeAlbum, MVCManager.Controller.Main.Name, new { id = Model.Id })" title="Edit this album">
                 <button class="glyphicon glyphicon-edit btn btn-default"></button>
             </a>
             <a href="#">
                 <button class="glyphicon glyphicon-remove btn btn-default" data-toggle="modal" data-target="#myModalRemove"></button>
-            </a>
+            </a>}
         </div>
     </div>
 </div>

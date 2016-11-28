@@ -25,10 +25,18 @@ namespace SMPhotos.Web.Controllers
 			//	string.Format("image/{0}", Path.GetExtension(image.Name))
 			//);
 			string path = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, image.Album.Path, image.Album.Guid.ToString(), image.Name);
-			FileStream stream = new FileStream(path, FileMode.Open);
-			FileStreamResult result = new FileStreamResult(stream, string.Format("image/{0}", Path.GetExtension(image.Name)));
-			result.FileDownloadName = image.Name;
-			return result;
+			if (System.IO.File.Exists(path))
+			{
+				FileStream stream = new FileStream(path, FileMode.Open);
+				FileStreamResult result = new FileStreamResult(stream, string.Format("image/{0}", Path.GetExtension(image.Name)));
+				result.FileDownloadName = image.Name;
+				return result;
+			}
+			else
+			{
+				return new EmptyResult();
+			}
+			
 		}
 
 		[Authorize(Roles = Roles.User)]

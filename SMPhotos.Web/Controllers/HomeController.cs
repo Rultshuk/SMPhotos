@@ -55,8 +55,16 @@ namespace SMPhotos.Web.Controllers
 		{
 			return View();
 		}
+			public ActionResult Contact()
+		{
+			return View();
+		}
+		public ActionResult About()
+		{
+			return View();
+		}
 
-		[HttpPost]
+[HttpPost]
 		public ActionResult Register(RegisterUserVM userVM)
 		{
 			if (!ValidateRegisterData(userVM))

@@ -1,7 +1,7 @@
 ﻿--User
 INSERT INTO [smp].[User] ([Email], [Password], [FirstName], [LastName], [Location], [IsAdmin], [IsActive], [IsUploader]) VALUES ('mail@mail.com', 'password', 'Adminka', 'Super', 'Ukraine', 1, 1, 1);
 INSERT INTO [smp].[User] ([Email], [Password], [FirstName], [LastName], [Location], [IsAdmin], [IsActive], [IsUploader]) VALUES ('uploader@mail.com', 'uploader', 'Dorothy', 'Murray', 'Honduras', 0, 1, 1);
-INSERT INTO [smp].[User] ([Email], [Password], [FirstName], [LastName], [Location], [IsAdmin], [IsActive], [IsUploader]) VALUES ('user@user.com', 'user', 'Ashley', 'Austin', 'Cameroon', 0, 0, 1);
+INSERT INTO [smp].[User] ([Email], [Password], [FirstName], [LastName], [Location], [IsAdmin], [IsActive], [IsUploader]) VALUES ('user@user.com', 'user', 'Ashley', 'Austin', 'Cameroon', 0, 1, 0);
 INSERT INTO [smp].[User] ([Email], [Password], [FirstName], [LastName], [Location], [IsAdmin], [IsActive], [IsUploader]) VALUES ('awalker3@archive.org', 'HLcHDA0', 'Anna', 'Walker', 'China', 0, 0, 0);
 INSERT INTO [smp].[User] ([Email], [Password], [FirstName], [LastName], [Location], [IsAdmin], [IsActive], [IsUploader]) VALUES ('bhart4@npr.org', 'F39BhZTBbKk', 'Brenda', 'Hart', 'Japan', 0, 0, 0);
 INSERT INTO [smp].[User] ([Email], [Password], [FirstName], [LastName], [Location], [IsAdmin], [IsActive], [IsUploader]) VALUES ('pjacobs5@storify.com', 'gnTVJON', 'Phyllis', 'Jacobs', 'France', 0, 0, 0);
@@ -15,7 +15,7 @@ INSERT INTO [smp].[User] ([Email], [Password], [FirstName], [LastName], [Locatio
 INSERT INTO [smp].[User] ([Email], [Password], [FirstName], [LastName], [Location], [IsAdmin], [IsActive], [IsUploader]) VALUES ('kevansd@pcworld.com', 'SuCBZEO', 'Karen', 'Evans', 'Bolivia', 0, 0, 0);
 INSERT INTO [smp].[User] ([Email], [Password], [FirstName], [LastName], [Location], [IsAdmin], [IsActive], [IsUploader]) VALUES ('dolsone@hubpages.com', 'gN634zx', 'Debra', 'Olson', 'China', 0, 0, 0);
 INSERT INTO [smp].[User] ([Email], [Password], [FirstName], [LastName], [Location], [IsAdmin], [IsActive], [IsUploader]) VALUES ('jriveraf@miitbeian.gov.cn', 'a415Oi', 'Juan', 'Rivera', 'Brazil', 0, 0, 0);
-INSERT INTO [smp].[User] ([Email], [Password], [FirstName], [LastName], [Location], [IsAdmin], [IsActive], [IsUploader]) VALUES ('wbowmanu@fastcompany.com', 'lgtdw1LQmdf', 'Wayne', 'Bowman', 'New Zealand', 0, 0, 1);
+INSERT INTO [smp].[User] ([Email], [Password], [FirstName], [LastName], [Location], [IsAdmin], [IsActive], [IsUploader]) VALUES ('wbowmanu@fastcompany.com', 'lgtdw1LQmdf', 'Wayne', 'Bowman', 'New Zealand', 0, 1, 1);
 
 --Album
 SET IDENTITY_INSERT [smp].[Album] ON

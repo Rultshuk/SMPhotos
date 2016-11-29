@@ -31,11 +31,12 @@ $(document).ready(function() {
 					++errMessage
 				}
 				else if(errMessage == 1) {
-					$('#drop-files p').html('Just images! You understood?');
+				    $('#drop-files p').html('Just images! Do you understand?');
 					++errMessage
 				}
 				else if (errMessage == 2) {
-		            showHide("joke");
+				    showHide("joke");
+				    $('#drop-files p').html('Are you kidding?');
 					++errMessage
 				}
 				return false;
